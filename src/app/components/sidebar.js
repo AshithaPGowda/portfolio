@@ -1,13 +1,22 @@
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Drawer, IconButton, List, ListItem, Tooltip, Typography } from '@mui/material';
 import { Menu as MenuIcon, Home, Work } from '@mui/icons-material';
 
 const MinimalistSidebar = ({ activeSection, setActiveSection, sidebarOpen, toggleSidebar }) => {
+  const router = useRouter(); 
   const handleSectionClick = (section) => {
+    
     if (activeSection !== section) {
       setActiveSection(section);
     }
-    alert(`Navigating to ${section}`);
+    // add a way to route
+        // Navigate to the corresponding route
+        if (section === 'Home') {
+          router.push('/'); // Navigate to /home
+        } else if (section === 'Work') {
+          router.push('/myworks'); // Navigate to /work
+        }
   };
 
   return (
