@@ -1,43 +1,37 @@
-"use client";
-import React, { useState } from 'react';
-import MinimalistSidebar from "./components/sidebar";
+'use client'
+import { useEffect } from 'react';
+import anime from 'animejs/lib/anime.es.js';
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('Home');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  useEffect(() => {
+    // Animate the letters "APG" with the specified colors and animations
+    anime({
+      targets: '.letter',
+      opacity: [0, 1], // Fading in
+      translateY: [-50, 0], // Moving up from -50px
+      duration: 2000,
+      delay: anime.stagger(100), // Stagger each letter's animation
+      easing: 'easeOutElastic(1, .8)',
+      loop: true, // Repeat animation
+      direction: 'alternate', // Alternate between forward and backward
+      fill: ['#9694FF', '#EBEAFF', '#3D3BF3', '#FF2929'], // Use the color scheme
+    });
+  }, []);
 
-
-  const toggleSidebar = () => setSidebarOpen(prev => !prev);
-
-  const handleSectionChange = (section) => {
-    setActiveSection(section);
-    if (!sidebarOpen) setSidebarOpen(true); // Ensure sidebar opens on section click
-  };
-  
-    return     <div style={{ display: "flex", height: "100vh" }}>
-    {/* Sidebar */}
-    <MinimalistSidebar
-      activeSection={activeSection}
-      setActiveSection={handleSectionChange}
-      sidebarOpen={sidebarOpen}
-      toggleSidebar={toggleSidebar}
-    />
-
-    {/* Main Content */}
-    <main
-      style={{
-        flex: 1,
-        marginLeft: sidebarOpen ? "12vw" : "4vw", // Dynamic margin based on sidebar state
-        padding: "20px",
-        transition: "margin 0.5s ease", // Smooth transition
-      }}
-    >
-      {activeSection === "Home" && <h1>Welcome to Home</h1>}
-      <p>
-        This is the main content. It dynamically adjusts its margin based on
-        the sidebar's width.
-      </p>
-    </main>
-  </div>
-
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+        <text x="50" y="100" className="letter" fontSize="80" fontWeight="bold" fill="#9694FF">
+          A
+        </text>
+        <text x="120" y="100" className="letter" fontSize="80" fontWeight="bold" fill="#EBEAFF">
+          P
+        </text>
+        <text x="190" y="100" className="letter" fontSize="80" fontWeight="bold" fill="#3D3BF3">
+          G
+        </text>
+      </svg>
+    </div>
+  );
 }
+
