@@ -7,20 +7,13 @@ const menuIcons = {
   Home: <Home />,
   Education: <School />,
   Projects: <Business />,
-  "Work Experience": <Work />,
+  "My Work": <Work />,
   "Contact Me": <ContactMail />,
 };
 
-const menuColors = [
-  '#2E5077',  // Education
-  '#4DA1A9',  // Projects
-  '#79D7BE',  // Work Experience
-  '#7E99A3',  // Contact Me
-];
-
 const MenuItem = ({ text, index, isActive, onClick }) => {
   const Icon = menuIcons[text] || null;  // Get the icon based on text
-  const iconColor = menuColors[index] || "#000";  // Get the color from the color array
+  const iconColor = COLOURS.MENU_COLOURS_LIGHT[index] || "#000";  // Get the color from the color array
   
   return (
     <Box
