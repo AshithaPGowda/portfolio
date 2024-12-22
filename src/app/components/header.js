@@ -1,11 +1,18 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { useMediaQuery } from "@mui/material"; // Import for media query
 import FrostedGlassSidebar from "./frostedSidebar";
+import MenuItem from "./menuIcons";
 
 export default function Header() {
     const [isSidebarOpen, setSidebarOpen] = useState(false); // Sidebar starts closed
     const [activeSection, setActiveSection] = useState(null);
+    const menuItems = ["Home", "Education", "Projects", "Work Experience", "Contact Me"];
+    const [activeIndex, setActiveIndex] = useState(0);
     const sidebarRef = useRef(null);
+
+    // Check if the screen is small (mobile view)
+    const isMobile = useMediaQuery("(max-width:600px)");
 
     const handleSidebarToggle = () => {
         setSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
@@ -13,6 +20,11 @@ export default function Header() {
 
     const handleSectionChange = (index) => {
         setActiveSection(index); // Update the active section
+    };
+
+    const handleItemClick = (index) => {
+        console.log("seelction clicked, ", index); // Notify parent component of section change
+        setActiveIndex(index);
     };
 
     // Close sidebar when clicked outside
@@ -53,28 +65,46 @@ export default function Header() {
                 <img src="apg.png" alt="APG Logo" style={{ width: "100%", height: "100%" }} />
             </div>
 
-            {/* Hamburger or "X" icon for sidebar toggle */}
-            <button
-                onClick={handleSidebarToggle}
-                style={{
-                    background: "transparent",
-                    border: "none",
-                    cursor: "pointer",
-                    fontSize: "30px", // Size of the icon
-                    fontWeight: "bold",
-                    color: "#000", // Icon color
-                }}
-            >
-                {isSidebarOpen ? "X" : "☰"} {/* Show X when open, ☰ (hamburger) when closed */}
-            </button>
+            {/* If it's mobile view, show the hamburger icon */}
+            {isMobile ? (
+                <>
+                    {/* Hamburger or "X" icon for sidebar toggle */}
+                    <button
+                        onClick={handleSidebarToggle}
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: "30px", // Size of the icon
+                            fontWeight: "bold",
+                            color: "#000", // Icon color
+                        }}
+                    >
+                        {isSidebarOpen ? "X" : "☰"} {/* Show X when open, ☰ (hamburger) when closed */}
+                    </button>
 
-            {/* Sidebar component */}
-            <FrostedGlassSidebar
-                isOpen={isSidebarOpen}
-                activeSection={activeSection}
-                onClose={handleSectionChange}
-                ref={sidebarRef} // Attach ref to the sidebar
-            />
+                    {/* Sidebar component */}
+                    <FrostedGlassSidebar
+                        isOpen={isSidebarOpen}
+                        activeSection={activeSection}
+                        onClose={handleSectionChange}
+                        ref={sidebarRef} // Attach ref to the sidebar
+                    />
+                </>
+            ) : (
+                // If it's desktop view, show the top navigation bar
+                <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+                    {menuItems.map((text, index) => (
+                        <MenuItem
+                            key={index}
+                            text={text}
+                            index={index}
+                            isActive={activeIndex === index} // Check if the item is active // Highlight active item
+                            onClick={() => handleItemClick(index)}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }
