@@ -1,0 +1,5 @@
+const COLOURS = []
+
+COLOURS.TEXT_COLOUR_LIGHT = '#1B1833'
+
+export default COLOURS;
