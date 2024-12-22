@@ -20,25 +20,18 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose }
         position: 'fixed',
         top: 0,
         right: 0,
-        width: '250px',
+        width: '50vw',
         height: '100vh',
         bgcolor: 'rgba(255, 255, 255, 0.2)',
         backdropFilter: 'blur(10px)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
-        padding: '20px',
+        padding: '0px',
         display: isOpen ? 'flex' : 'none',
         flexDirection: 'column',
         gap: '20px',
         transition: 'all 0.3s ease-in-out',
       }}
     >
-
-      <Typography
-        variant="h6"
-        sx={{ color: '#000', fontWeight: 'bold', textAlign: 'center' }}
-      >
-        Menu
-      </Typography>
       <List>
         {menuItems.map((text, index) => (
           <ListItem key={index} disablePadding>
