@@ -7,7 +7,7 @@ import MenuItem from "./menuIcons";
 export default function Header() {
     const [isSidebarOpen, setSidebarOpen] = useState(false); // Sidebar starts closed
     const [activeSection, setActiveSection] = useState(null);
-    const menuItems = ["Home", "Education", "Projects", "Work Experience", "Contact Me"];
+    const menuItems = ["Home", "Education","My Work"];
     const [activeIndex, setActiveIndex] = useState(0);
     const sidebarRef = useRef(null);
 
