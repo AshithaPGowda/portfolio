@@ -7,7 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { School, Business, Work, ContactMail, Home } from '@mui/icons-material'; // Importing icons for the menu
 
-const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose , theme}, ref) => {
+const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose, theme }, ref) => {
   const menuItems = ['Home', 'Education', 'My Work'];
 
   const handleItemClick = (index) => {
@@ -37,10 +37,13 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose ,
         backdropFilter: 'blur(3px)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         padding: '20px',
-        display: isOpen ? 'flex' : 'none',
+        display: 'flex',
         flexDirection: 'column',
         gap: '20px',
-        transition: 'all 0.3s ease-in-out',
+        transition: 'transform 0.3s ease-in-out, opacity 0.3s ease-in-out', // Add transition for smooth opening/closing
+        transform: isOpen ? 'translateX(0)' : 'translateX(100%)', // Sidebar moves in/out horizontally
+        opacity: isOpen ? 1 : 0, // Fade in/out effect
+        visibility: isOpen ? 'visible' : 'hidden', // Ensure sidebar is hidden when opacity is 0
         zIndex: 10, // Ensure the sidebar is above other content
       }}
     >
