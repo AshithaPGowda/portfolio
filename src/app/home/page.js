@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Header from '../components/header';
+import ProfileSection from '../components/userProfileBody'; // Import the new ProfileSection component
 import COLOURS from '../colours';
 import { Brightness7, Brightness2 } from '@mui/icons-material'; // Sun and Moon icons
 
@@ -65,8 +66,8 @@ export default function UserProfile() {
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
-        <h2>User Profile</h2>
-        {/* Profile content goes here */}
+        {/* Replace placeholder with ProfileSection component */}
+        <ProfileSection theme={theme} />
       </div>
 
       {/* Custom Footer */}
