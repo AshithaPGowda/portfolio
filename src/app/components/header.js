@@ -3,11 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "@mui/material"; // Import for media query
 import FrostedGlassSidebar from "./frostedSidebar";
 import MenuItem from "./menuIcons";
+import COLOURS from "../colours";
+import { Brightness7, Brightness2 } from "@mui/icons-material"; // Sun and Moon icons
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-export default function Header() {
+export default function Header({ theme, toggleTheme }) {
     const [isSidebarOpen, setSidebarOpen] = useState(false); // Sidebar starts closed
     const [activeSection, setActiveSection] = useState(null);
-    const menuItems = ["Home", "Education","My Work"];
+    const menuItems = ["Home", "Education", "My Work"];
     const [activeIndex, setActiveIndex] = useState(0);
     const sidebarRef = useRef(null);
 
@@ -23,7 +26,7 @@ export default function Header() {
     };
 
     const handleItemClick = (index) => {
-        console.log("seelction clicked, ", index); // Notify parent component of section change
+        console.log("Selection clicked, ", index); // Notify parent component of section change
         setActiveIndex(index);
     };
 
@@ -49,9 +52,10 @@ export default function Header() {
             style={{
                 display: "flex",
                 justifyContent: "space-between",
+                alignItems: "center",
                 padding: "20px",
-                backgroundColor: "#FFFFFF", // White background for the header
-                color: "#000000", // Black color for text
+                backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background for the header
+                color: COLOURS[`TEXT_${theme}`], // Dynamic text color
                 position: "fixed", // Keep header fixed at the top
                 top: 0,
                 left: 0,
@@ -60,7 +64,7 @@ export default function Header() {
             }}
         >
             {/* Placeholder for logo */}
-            <div style={{ width: "50px", height: "50px", backgroundColor: "#ffffff", borderRadius: "8px" }}>
+            <div style={{ width: "50px", height: "50px", borderRadius: "8px" }}>
                 {/* Replace the div with an <img> tag once the logo is ready */}
                 <img src="apg.png" alt="APG Logo" style={{ width: "100%", height: "100%" }} />
             </div>
@@ -77,10 +81,10 @@ export default function Header() {
                             cursor: "pointer",
                             fontSize: "30px", // Size of the icon
                             fontWeight: "bold",
-                            color: "#000", // Icon color
+                            color: COLOURS[`TEXT_${theme}`], // Icon color
                         }}
                     >
-                        {isSidebarOpen ? "X" : "☰"} {/* Show X when open, ☰ (hamburger) when closed */}
+                        {isSidebarOpen ? "" : "☰"} {/* Show X when open, ☰ (hamburger) when closed */}
                     </button>
 
                     {/* Sidebar component */}
@@ -99,12 +103,42 @@ export default function Header() {
                             key={index}
                             text={text}
                             index={index}
-                            isActive={activeIndex === index} // Check if the item is active // Highlight active item
+                            isActive={activeIndex === index} // Check if the item is active
                             onClick={() => handleItemClick(index)}
+                            theme = {theme}
+                            toggleTheme = {toggleTheme}
                         />
                     ))}
+                    <button
+                        onClick={toggleTheme}
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            marginLeft: "20px",
+                            fontSize: "24px",
+                            color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
+                        }}
+                    >
+                        {theme === "LIGHT" ? <Brightness2 /> : <Brightness7Icon />}
+                    </button>
                 </div>
             )}
+
+            {/* Dark/Light Mode Toggle Button */}
+            {/* <button
+        onClick={toggleTheme}
+        style={{
+          background: "transparent",
+          border: "none",
+          cursor: "pointer",
+          marginLeft: "20px",
+          fontSize: "24px",
+          color: COLOURS[`TEXT_${theme}`], // Icon color based on theme
+        }}
+      >
+        {theme === "LIGHT" ? <Brightness2 /> : <Brightness7 />}
+      </button> */}
         </div>
     );
 }

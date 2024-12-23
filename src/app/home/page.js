@@ -2,10 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import Header from '../components/header';
-
+import COLOURS from '../colours';
+import { Brightness7, Brightness2 } from '@mui/icons-material'; // Sun and Moon icons
 
 export default function UserProfile() {
   const currentYear = new Date().getFullYear();
+
+  // State for theme: LIGHT or DARK
+  const [theme, setTheme] = useState('LIGHT'); // Default to LIGHT
 
   useEffect(() => {
     // Ensure body and html take up full height of the screen
@@ -14,6 +18,10 @@ export default function UserProfile() {
     document.body.style.height = '100%';
     document.documentElement.style.height = '100%';
   }, []);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
+  };
 
   return (
     <div
@@ -25,7 +33,7 @@ export default function UserProfile() {
         margin: 0, // Remove margin
         padding: 0, // Remove padding
         overflow: 'hidden', // Prevent overflow
-        backgroundColor: '#FFFFFF', // White background
+        backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
       }}
     >
       {/* Custom Header */}
@@ -33,9 +41,10 @@ export default function UserProfile() {
         style={{
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'center',
           padding: '20px',
-          backgroundColor: '#FFFFFF', // White background for the header
-          color: '#000000', // Black color for text
+          backgroundColor: COLOURS[`HEADER_${theme}`], // Dynamic header color
+          color: COLOURS[`TEXT_${theme}`], // Dynamic text color
           position: 'fixed', // Keep header fixed at the top
           top: 0,
           left: 0,
@@ -43,7 +52,7 @@ export default function UserProfile() {
           zIndex: 10,
         }}
       >
-        <Header></Header>
+        <Header theme={theme} toggleTheme={toggleTheme} />
       </div>
 
       {/* Main Content */}
@@ -52,8 +61,8 @@ export default function UserProfile() {
           flexGrow: 1,
           padding: '50px 20px',
           marginTop: '80px', // Space for fixed header
-          backgroundColor: '#FA4032',
-          color: '#624E88',
+          backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
+          color: COLOURS[`TEXT_${theme}`], // Dynamic text color
         }}
       >
         <h2>User Profile</h2>
@@ -63,14 +72,14 @@ export default function UserProfile() {
       {/* Custom Footer */}
       <div
         style={{
-          padding: '0px 10px',
-          backgroundColor: '#E5E1DA',
-          color: '#B0A99E',
+          padding: '10px 10px',
+          backgroundColor: COLOURS[`FOOTER_${theme}`], // Dynamic footer color
+          color: COLOURS[`TEXT_${theme}`], // Dynamic footer text color
           textAlign: 'center',
           marginTop: 'auto',
         }}
       >
-        <p>&#169; Ashitha Gowda {currentYear} </p>
+        <p>&#169; Ashitha Gowda {currentYear}</p>
       </div>
     </div>
   );
