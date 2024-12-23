@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "@mui/material"; // Import for media query
 import { Menu, Close, Brightness7, Brightness2 } from "@mui/icons-material"; // Import icons
@@ -12,6 +11,7 @@ export default function Header({ theme, toggleTheme }) {
     const menuItems = ["Home", "Education", "My Work"];
     const [activeIndex, setActiveIndex] = useState(0);
     const sidebarRef = useRef(null);
+    const [isDarkMode, setIsDarkMode] = useState(theme === "LIGHT");
 
     // Check if the screen is small (mobile view)
     const isMobile = useMediaQuery("(max-width:600px)");
@@ -27,6 +27,11 @@ export default function Header({ theme, toggleTheme }) {
     const handleItemClick = (index) => {
         console.log("Selection clicked, ", index); // Notify parent component of section change
         setActiveIndex(index);
+    };
+
+    const handleThemeToggle = () => {
+        setIsDarkMode(!isDarkMode); // Toggle dark mode
+        toggleTheme(); // Call the parent toggleTheme function
     };
 
     // Close sidebar when clicked outside
@@ -68,7 +73,43 @@ export default function Header({ theme, toggleTheme }) {
             </div>
 
             {isMobile ? (
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8vw" }}>
+                    {/* Dark/Light Mode Toggle Button */}
+                    {!isSidebarOpen && (
+                        <button
+                            onClick={handleThemeToggle}
+                            style={{
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "24px",
+                                color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
+                                display: "flex",
+                                alignItems: "center",
+                                position: "relative",
+                            }}
+                        >
+                            {/* Add fade-in/out effect to the icons */}
+                            <span
+                                style={{
+                                    position: "absolute",
+                                    opacity: isDarkMode ? 1 : 0, // Show the correct icon based on theme
+                                    transition: "opacity 0.3s ease-in-out",
+                                }}
+                            >
+                                <Brightness2 fontSize="medium" />
+                            </span>
+                            <span
+                                style={{
+                                    position: "absolute",
+                                    opacity: isDarkMode ? 0 : 1, // Show the correct icon based on theme
+                                    transition: "opacity 0.3s ease-in-out",
+                                }}
+                            >
+                                <Brightness7 fontSize="medium" />
+                            </span>
+                        </button>
+                    )}
                     {/* Hamburger icon for sidebar toggle */}
                     {!isSidebarOpen && (
                         <button
@@ -88,31 +129,13 @@ export default function Header({ theme, toggleTheme }) {
                         </button>
                     )}
 
-                    {/* Dark/Light Mode Toggle Button */}
-                    {!isSidebarOpen && (
-                        <button
-                            onClick={toggleTheme}
-                            style={{
-                                background: "transparent",
-                                border: "none",
-                                cursor: "pointer",
-                                fontSize: "24px",
-                                color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
-                                display: "flex",
-                                alignItems: "center",
-                            }}
-                        >
-                            {theme === "LIGHT" ? <Brightness2 fontSize="medium" /> : <Brightness7 fontSize="medium" />}
-                        </button>
-                    )}
-
                     {/* Sidebar component */}
                     <FrostedGlassSidebar
                         isOpen={isSidebarOpen}
                         activeSection={activeSection}
                         onClose={handleSectionChange}
                         ref={sidebarRef} // Attach ref to the sidebar
-                        theme = {theme}
+                        theme={theme}
                     />
 
                     {/* Close button positioned on top of sidebar (only visible when sidebar is open) */}
@@ -152,7 +175,7 @@ export default function Header({ theme, toggleTheme }) {
                                 />
                             ))}
                             <button
-                                onClick={toggleTheme}
+                                onClick={handleThemeToggle}
                                 style={{
                                     background: "transparent",
                                     border: "none",
