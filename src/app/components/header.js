@@ -160,7 +160,7 @@ export default function Header({ theme, toggleTheme }) {
                 </div>
             ) : (
                 // Desktop View
-                <div style={{ display: "flex", gap: "4vw", alignItems: "center" }}>
+                <div style={{ display: "flex", gap: "1.5vw", alignItems: "center" }}>
                     {isSidebarOpen ? null : ( // Only show the menu items when sidebar is closed
                         <>
                                                     <button
