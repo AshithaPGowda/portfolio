@@ -7,9 +7,9 @@ COLOURS.BACKGROUND_LIGHT = '#FFFFFF';
 COLOURS.BACKGROUND_DARK = '#000000';
 
 COLOURS.MENU_COLOURS_LIGHT = [
-    "#2E5077", // Education
-    "#4DA1A9", // Projects
-    "#FADA7A", // Work Experience
+    "#CA3E6B", // Education
+    "#FA8383", // Projects
+    "#9DD3CC", // Work Experience
 ];
 COLOURS.MENU_COLOURS_DARK = [
     "#00A9E0",  // Electric Blue (for Education)
