@@ -160,9 +160,43 @@ export default function Header({ theme, toggleTheme }) {
                 </div>
             ) : (
                 // Desktop View
-                <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
+                <div style={{ display: "flex", gap: "4vw", alignItems: "center" }}>
                     {isSidebarOpen ? null : ( // Only show the menu items when sidebar is closed
                         <>
+                                                    <button
+                                onClick={handleThemeToggle}
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                    fontSize: "24px",
+                                    color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
+                                    display: "flex",
+                                    alignItems: "center",
+                                    position: "relative",
+                                }}
+                            >
+                                {/* Add fade-in/out effect to the icons for desktop */}
+                                <span
+                                    style={{
+                                        position: "absolute",
+                                        opacity: isDarkMode ? 1 : 0, // Show the correct icon based on theme
+                                        transition: "opacity 0.3s ease-in-out",
+                                    }}
+                                >
+                                    <Brightness2 />
+                                </span>
+                                <span
+                                    style={{
+                                        position: "absolute",
+                                        opacity: isDarkMode ? 0 : 1, // Show the correct icon based on theme
+                                        transition: "opacity 0.3s ease-in-out",
+                                    }}
+                                >
+                                    <Brightness7 />
+                                </span>
+                            </button>
                             {menuItems.map((text, index) => (
                                 <MenuItem
                                     key={index}
@@ -174,19 +208,6 @@ export default function Header({ theme, toggleTheme }) {
                                     toggleTheme={toggleTheme}
                                 />
                             ))}
-                            <button
-                                onClick={handleThemeToggle}
-                                style={{
-                                    background: "transparent",
-                                    border: "none",
-                                    cursor: "pointer",
-                                    marginLeft: "20px",
-                                    fontSize: "24px",
-                                    color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
-                                }}
-                            >
-                                {theme === "LIGHT" ? <Brightness2 /> : <Brightness7 />}
-                            </button>
                         </>
                     )}
                 </div>

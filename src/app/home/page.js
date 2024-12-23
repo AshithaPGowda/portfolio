@@ -62,7 +62,7 @@ export default function UserProfile() {
           padding: '50px 20px',
           marginTop: '80px', // Space for fixed header
           backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
-          color: COLOURS[`TEXT_${theme}`], // Dynamic text color
+          color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
         <h2>User Profile</h2>
@@ -74,7 +74,7 @@ export default function UserProfile() {
         style={{
           padding: '10px 10px',
           backgroundColor: COLOURS[`FOOTER_${theme}`], // Dynamic footer color
-          color: COLOURS[`TEXT_${theme}`], // Dynamic footer text color
+          color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic footer text color
           textAlign: 'center',
           marginTop: 'auto',
         }}
