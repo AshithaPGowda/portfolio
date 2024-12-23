@@ -69,38 +69,42 @@ export default function Header({ theme, toggleTheme }) {
 
             {isMobile ? (
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    {/* Hamburger or Close icon for sidebar toggle */}
-                    <button
-                        onClick={handleSidebarToggle}
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            fontSize: "30px", // Size of the icon
-                            fontWeight: "bold",
-                            color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        {isSidebarOpen ? <Close fontSize="large" /> : <Menu fontSize="large" />}
-                    </button>
+                    {/* Hamburger icon for sidebar toggle */}
+                    {!isSidebarOpen && (
+                        <button
+                            onClick={handleSidebarToggle}
+                            style={{
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "30px", // Size of the icon
+                                fontWeight: "bold",
+                                color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color
+                                display: "flex",
+                                alignItems: "center",
+                            }}
+                        >
+                            <Menu fontSize="large" />
+                        </button>
+                    )}
 
                     {/* Dark/Light Mode Toggle Button */}
-                    <button
-                        onClick={toggleTheme}
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            fontSize: "24px",
-                            color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        {theme === "LIGHT" ? <Brightness2 fontSize="medium" /> : <Brightness7 fontSize="medium" />}
-                    </button>
+                    {!isSidebarOpen && (
+                        <button
+                            onClick={toggleTheme}
+                            style={{
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "24px",
+                                color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
+                                display: "flex",
+                                alignItems: "center",
+                            }}
+                        >
+                            {theme === "LIGHT" ? <Brightness2 fontSize="medium" /> : <Brightness7 fontSize="medium" />}
+                        </button>
+                    )}
 
                     {/* Sidebar component */}
                     <FrostedGlassSidebar
@@ -108,35 +112,60 @@ export default function Header({ theme, toggleTheme }) {
                         activeSection={activeSection}
                         onClose={handleSectionChange}
                         ref={sidebarRef} // Attach ref to the sidebar
+                        theme = {theme}
                     />
+
+                    {/* Close button positioned on top of sidebar (only visible when sidebar is open) */}
+                    {isSidebarOpen && (
+                        <button
+                            onClick={handleSidebarToggle}
+                            style={{
+                                position: "fixed",
+                                top: "20px", // Adjust based on where you want it
+                                right: "20px", // Place it on the right
+                                zIndex: 20, // Ensure it appears above the sidebar
+                                background: "transparent",
+                                border: "none",
+                                cursor: "pointer",
+                                fontSize: "30px",
+                                color: COLOURS[`TEXT_COLOUR_${theme}`],
+                            }}
+                        >
+                            <Close fontSize="large" />
+                        </button>
+                    )}
                 </div>
             ) : (
                 // Desktop View
                 <div style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-                    {menuItems.map((text, index) => (
-                        <MenuItem
-                            key={index}
-                            text={text}
-                            index={index}
-                            isActive={activeIndex === index} // Check if the item is active
-                            onClick={() => handleItemClick(index)}
-                            theme={theme}
-                            toggleTheme={toggleTheme}
-                        />
-                    ))}
-                    <button
-                        onClick={toggleTheme}
-                        style={{
-                            background: "transparent",
-                            border: "none",
-                            cursor: "pointer",
-                            marginLeft: "20px",
-                            fontSize: "24px",
-                            color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
-                        }}
-                    >
-                        {theme === "LIGHT" ? <Brightness2 /> : <Brightness7 />}
-                    </button>
+                    {isSidebarOpen ? null : ( // Only show the menu items when sidebar is closed
+                        <>
+                            {menuItems.map((text, index) => (
+                                <MenuItem
+                                    key={index}
+                                    text={text}
+                                    index={index}
+                                    isActive={activeIndex === index} // Check if the item is active
+                                    onClick={() => handleItemClick(index)}
+                                    theme={theme}
+                                    toggleTheme={toggleTheme}
+                                />
+                            ))}
+                            <button
+                                onClick={toggleTheme}
+                                style={{
+                                    background: "transparent",
+                                    border: "none",
+                                    cursor: "pointer",
+                                    marginLeft: "20px",
+                                    fontSize: "24px",
+                                    color: COLOURS[`TEXT_COLOUR_${theme}`], // Icon color based on theme
+                                }}
+                            >
+                                {theme === "LIGHT" ? <Brightness2 /> : <Brightness7 />}
+                            </button>
+                        </>
+                    )}
                 </div>
             )}
         </div>

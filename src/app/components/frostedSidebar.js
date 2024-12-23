@@ -7,7 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { School, Business, Work, ContactMail, Home } from '@mui/icons-material'; // Importing icons for the menu
 
-const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose }, ref) => {
+const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose , theme}, ref) => {
   const menuItems = ['Home', 'Education', 'My Work'];
 
   const handleItemClick = (index) => {
@@ -22,7 +22,7 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose }
     'Contact Me': <ContactMail />,
   };
 
-  const menuColors = COLOURS.MENU_COLOURS_LIGHT; // Use the colors from your color scheme
+  const menuColors = COLOURS[`MENU_COLOURS_${theme}`]; // Use the colors from your color scheme
 
   return (
     <Box
@@ -33,7 +33,7 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose }
         right: 0,
         width: '50vw', // Make sidebar width flexible for mobile
         height: '100vh',
-        bgcolor: 'rgba(255, 255, 255, 0.01)',
+        bgcolor: 'rgba(255, 255, 255, 0.1)',
         backdropFilter: 'blur(3px)',
         boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
         padding: '20px',
@@ -70,7 +70,7 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose }
               <ListItemText
                 primary={text}
                 primaryTypographyProps={{
-                  color: COLOURS.TEXT_COLOUR_LIGHT, // White text for contrast on dark background
+                  color: COLOURS[`TEXT_COLOUR_${theme}`], // White text for contrast on dark background
                   fontWeight: '500', // Set the font weight
                   fontSize: '16px',
                 }}
