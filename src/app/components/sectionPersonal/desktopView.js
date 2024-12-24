@@ -78,7 +78,7 @@ const PersonalDesktop = ({ theme }) => {
                     style={{
                         fontSize: "1.1rem",
                         lineHeight: "1.8",
-                        color: theme === "LIGHT" ? "#444" : "#ddd",
+                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
                         marginTop: "20px",
                     }}
                 >
@@ -88,9 +88,9 @@ const PersonalDesktop = ({ theme }) => {
                 </p>
                 <p
                     style={{
-                        fontSize: "1rem",
-                        lineHeight: "1.6",
-                        color: theme === "LIGHT" ? "#555" : "#bbb",
+                        fontSize: "1.1rem",
+                        lineHeight: "1.8",
+                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
                     }}
                 >
                     I bring a blend of technical expertise and creativity to every project. With a passion for problem-solving
