@@ -112,12 +112,12 @@ const PersonalDesktop = ({ theme }) => {
                     <div
                         style={{
                             position: "absolute",
-                            top: "10px",
-                            left: "10px",
+                            top: "1vh",
+                            left: "8vw",
                             zIndex: 10, // Higher z-index to appear above photo
-                            fontSize: "0.9rem",
+                            fontSize: "1rem",
                             fontWeight: "bold",
-                            color: theme === "LIGHT" ? "#555" : "#ddd",
+                            color: theme === "LIGHT" ? "#555" : "#fff",
                             textAlign: "center",
                             display: "flex",
                             alignItems: "center",
@@ -169,6 +169,7 @@ const PersonalDesktop = ({ theme }) => {
                         overflow: "hidden",
                         boxShadow: theme === "LIGHT" ? "0 8px 16px rgba(0, 0, 0, 0.2)" : "0 8px 16px rgba(0, 0, 0, 0.5)",
                         transition: "box-shadow 0.3s ease",
+                        marginLeft: "7vw"
                     }}
                     onMouseEnter={() => {setIsHovered(true)
                         if(!hoveredOnce){
