@@ -1,5 +1,6 @@
 "use client";
 
+import COLOURS from "@/app/colours";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -117,7 +118,6 @@ const PersonalDesktop = ({ theme }) => {
                             zIndex: 10, // Higher z-index to appear above photo
                             fontSize: "1rem",
                             fontWeight: "bold",
-                            color: theme === "LIGHT" ? "#555" : "#fff",
                             textAlign: "center",
                             display: "flex",
                             alignItems: "center",
