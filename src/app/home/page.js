@@ -39,7 +39,7 @@ export default function UserProfile() {
         width: '100vw', // Full screen width
         margin: 0, // Remove margin
         padding: 0, // Remove padding
-        // overflow: 'hidden', // Prevent overflow
+        overflow_x: 'hidden', // Prevent overflow
         backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
       }}
     >
@@ -74,7 +74,7 @@ export default function UserProfile() {
       >
         
         {/* Replace placeholder with ProfileSection component */}
-        {/* <ProfileSection theme={theme} /> */}
+        {console.log("theme in userProfiel before sending to personal =",theme)}
         {(isMobile) ? <PersonalMobile theme={theme} /> : <PersonalDesktop theme={theme} />}
       </div>
       {/* Custom Footer */}
