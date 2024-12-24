@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useMediaQuery } from "@mui/material"; 
-import { Menu, Close } from "@mui/icons-material"; 
-import DarkModeTwoToneIcon from '@mui/icons-material/DarkModeTwoTone';
-import WbSunnyTwoToneIcon from '@mui/icons-material/WbSunnyTwoTone';
+import { useMediaQuery } from "@mui/material";
+import { Menu, Close } from "@mui/icons-material";
+import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
+import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
 import FrostedGlassSidebar from "./frostedSidebar";
 import MenuItem from "./menuIcons";
 import COLOURS from "../colours";
@@ -81,7 +81,7 @@ export default function Header({ theme, toggleTheme }) {
                                 border: "none",
                                 cursor: "pointer",
                                 fontSize: "24px",
-                                color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                color: COLOURS[`ICON_COLOUR_${theme}`],
                                 display: "flex",
                                 alignItems: "center",
                                 position: "relative",
@@ -169,7 +169,7 @@ export default function Header({ theme, toggleTheme }) {
                                 />
                             ))}
 
-<button
+                            <button
                                 onClick={handleThemeToggle}
                                 style={{
                                     background: "transparent",
