@@ -3,10 +3,19 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const ProfileSection = ({ theme }) => {
-    const [isHovered, setIsHovered] = useState(false); // Track hover state
+const PersonalMobile = ({ theme }) => {
+    const [isClicked, setIsClicked] = useState(false); // Track click state
     const [showMessage, setShowMessage] = useState(false); // Track message visibility
-    const [hoveredOnce, setHoveredOnce] = useState(false); // Track message visibility
+    const [clickedOnce, setClickedOnce] = useState(false); // Track if clicked at least once
+
+    useEffect(() => {
+        // Show the message after 2 seconds
+        const timer = setTimeout(() => {
+            setShowMessage(true);
+        }, 2000);
+
+        return () => clearTimeout(timer); // Cleanup timer on component unmount
+    }, []);
 
     useEffect(() => {
         // Show the message after 2 seconds
@@ -21,6 +30,7 @@ const ProfileSection = ({ theme }) => {
         <div
             style={{
                 display: "flex",
+                flexDirection: "row",
                 alignItems: "center",
                 gap: "30px",
                 flexWrap: "wrap",
@@ -39,11 +49,11 @@ const ProfileSection = ({ theme }) => {
                         fontSize: "2rem",
                         fontWeight: "bold",
                         display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
+                        flexDirection: "column", // Stacks text for smaller screens
+                        gap: "5px",
                     }}
                 >
-                    Hey there! 👋 I'm{" "}
+                    <span>Hey there! 👋 I'm</span>
                     <span
                         style={{
                             color: theme === "LIGHT" ? "#9268A5" : "#67d6f3",
@@ -97,92 +107,28 @@ const ProfileSection = ({ theme }) => {
                     matter. Let's create something remarkable together!
                 </p>
             </div>
-
-            {/* Right: Photo */}
-            <div
-                style={{
-                    flex: 1,
-                    textAlign: "center",
-                    minWidth: "250px",
-                    position: "relative", // Required for positioning overlay
-                }}
-            >
-                {/* Hover text */}
-                {showMessage && !isHovered && !hoveredOnce &&(
-                    <div
-                        style={{
-                            position: "absolute",
-                            top: "10px",
-                            left: "10px",
-                            zIndex: 10, // Higher z-index to appear above photo
-                            fontSize: "0.9rem",
-                            fontWeight: "bold",
-                            color: theme === "LIGHT" ? "#555" : "#ddd",
-                            textAlign: "center",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "5px",
-                            animation: "fadeOut 3s ease",
-                        }}
-                    >
-                        <div
-                            style={{
-                                width: "3vw",
-                                height: "5vh",
-                                backgroundImage: `url('curved-arrow-4635.svg')`,
-                                backgroundSize: "contain",
-                                backgroundRepeat: "no-repeat",
-                                animation: "bounce 2s infinite",
-                            }}
-                        ></div>
-                    </div>
-                )}
-
-                <style>
-                    {`
-          @keyframes fadeIn {
-            0% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 1;
-            }
-          }
-
-          @keyframes bounce {
-            0%, 100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-5px);
-            }
-          }
-          `}
-                </style>
-
                 <div
                     style={{
+                        left: '6vw',
                         position: "relative",
-                        width: "280px",
-                        height: "280px",
+                        width: "60vw",
+                        height: "30vh",
                         borderRadius: "50%",
                         overflow: "hidden",
                         boxShadow: theme === "LIGHT" ? "0 8px 16px rgba(0, 0, 0, 0.2)" : "0 8px 16px rgba(0, 0, 0, 0.5)",
                         transition: "box-shadow 0.3s ease",
                     }}
-                    onMouseEnter={() => {setIsHovered(true)
-                        if(!hoveredOnce){
-                            setHoveredOnce(true)
-                        }
+                    onClick={() => {
+                        setIsClicked(!isClicked);
+                        if (!clickedOnce) setClickedOnce(true);
                     }}
-                    onMouseLeave={() => setIsHovered(false)}
                 >
                     {/* Default Image */}
                     <Image
                         src="/animated.webp"
                         alt="Ashitha Paramesha Gowda"
-                        width={280}
-                        height={280}
+                        width={200}
+                        height={200}
                         style={{
                             position: "absolute",
                             top: 0,
@@ -191,16 +137,16 @@ const ProfileSection = ({ theme }) => {
                             height: "100%",
                             objectFit: "cover",
                             objectPosition: "60% 40%",
+                            opacity: isClicked ? 0 : 1,
                             transition: "opacity 0.5s ease",
-                            opacity: isHovered ? 0 : 1,
                         }}
                     />
-                    {/* Hover Image */}
+                    {/* Clicked Image */}
                     <Image
                         src="/pp.png"
-                        alt="Ashitha Paramesha Gowda Hover Image"
-                        width={280}
-                        height={280}
+                        alt="Ashitha Paramesha Gowda Clicked Image"
+                        width={200}
+                        height={200}
                         style={{
                             position: "absolute",
                             top: 0,
@@ -209,14 +155,14 @@ const ProfileSection = ({ theme }) => {
                             height: "100%",
                             objectFit: "cover",
                             objectPosition: "60% 40%",
+                            opacity: isClicked ? 1 : 0,
                             transition: "opacity 0.5s ease",
-                            opacity: isHovered ? 1 : 0,
                         }}
                     />
                 </div>
-            </div>
+
         </div>
     );
 };
 
-export default ProfileSection;
+export default PersonalMobile;

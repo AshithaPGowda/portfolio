@@ -47,7 +47,7 @@ const MinimalistSidebar = ({ activeSection, setActiveSection, sidebarOpen, toggl
             width: sidebarOpen ? '12vw' : '4vw',
             backgroundColor: '#EEF1FF',
             color: '#432E54',
-            overflowX: 'hidden',
+            // overflowX: 'hidden',
             transition: 'width 0.5s ease',
             boxShadow: 'none',
             border: 'none',

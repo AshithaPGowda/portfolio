@@ -1,12 +1,18 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useMediaQuery } from "@mui/material"; // Import for media query
 import Header from '../components/header';
 import ProfileSection from '../components/userProfileBody'; // Import the new ProfileSection component
 import COLOURS from '../colours';
 import { Brightness7, Brightness2 } from '@mui/icons-material'; // Sun and Moon icons
+import PersonalMobile from '../components/sectionPersonal/mobileView';
+import PersonalDesktop from '../components/sectionPersonal/desktopView';
 
 export default function UserProfile() {
+      // Check if the screen is small (mobile view)
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   const currentYear = new Date().getFullYear();
 
   // State for theme: LIGHT or DARK
@@ -33,7 +39,7 @@ export default function UserProfile() {
         width: '100vw', // Full screen width
         margin: 0, // Remove margin
         padding: 0, // Remove padding
-        overflow: 'hidden', // Prevent overflow
+        // overflow: 'hidden', // Prevent overflow
         backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
       }}
     >
@@ -66,10 +72,11 @@ export default function UserProfile() {
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
+        
         {/* Replace placeholder with ProfileSection component */}
-        <ProfileSection theme={theme} />
+        {/* <ProfileSection theme={theme} /> */}
+        {(isMobile) ? <PersonalMobile theme={theme} /> : <PersonalDesktop theme={theme} />}
       </div>
-
       {/* Custom Footer */}
       <div
         style={{

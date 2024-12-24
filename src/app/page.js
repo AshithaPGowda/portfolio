@@ -27,7 +27,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
+    <div style={{ height: '100vh', width: '100vw' }}>
       {isVisible ? (
         <div
           style={{

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const ProfileSection = ({ theme }) => {
+const PersonalDesktop = ({ theme }) => {
     const [isHovered, setIsHovered] = useState(false); // Track hover state
     const [showMessage, setShowMessage] = useState(false); // Track message visibility
     const [hoveredOnce, setHoveredOnce] = useState(false); // Track message visibility
@@ -219,4 +219,4 @@ const ProfileSection = ({ theme }) => {
     );
 };
 
-export default ProfileSection;
+export default PersonalDesktop;
