@@ -36,7 +36,7 @@ const PersonalDesktop = ({ theme }) => {
             <div style={{ flex: 2, minWidth: "300px" }}>
                 <h1
                     style={{
-                        color: theme === "LIGHT" ? "#222" : "#eee",
+                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
                         fontSize: "2rem",
                         fontWeight: "bold",
                         display: "flex",
@@ -82,9 +82,8 @@ const PersonalDesktop = ({ theme }) => {
                         marginTop: "20px",
                     }}
                 >
-                    🚀 Backend specialist focused on designing smart solutions to complex challenges. Whether it's building
-                    robust APIs 💻, exploring cutting-edge AI technologies 🤖, or diving into blockchain innovation 🔗, I am
-                    always driven to create impactful, high-quality work.
+                            🌟 An adventurer at heart, I thrive on curiosity and exploration. Whether it's decoding life's mysteries or learning
+                            something new every day, I'm drawn to challenges that spark creativity and growth.  
                 </p>
                 <p
                     style={{
@@ -93,9 +92,8 @@ const PersonalDesktop = ({ theme }) => {
                         color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
                     }}
                 >
-                    I bring a blend of technical expertise and creativity to every project. With a passion for problem-solving
-                    and a commitment to continuous learning 📚, I look forward to collaborating and delivering results that
-                    matter. Let's create something remarkable together!
+                    💬 I’m a strong believer in collaboration and empathy, always striving to uplift those around me. If there’s one thing I value deeply, it's meaningful connections and making a positive impact in every space I occupy.  
+                    🎨 Outside work, you’ll find me immersed in art, experimenting in the kitchen, or on a quest to discover the best local coffee shops. Life, for me, is about crafting beautiful experiences—both in and outside the code.
                 </p>
             </div>
 

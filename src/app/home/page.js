@@ -3,11 +3,10 @@
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from "@mui/material"; // Import for media query
 import Header from '../components/header';
-import ProfileSection from '../components/userProfileBody'; // Import the new ProfileSection component
 import COLOURS from '../colours';
-import { Brightness7, Brightness2 } from '@mui/icons-material'; // Sun and Moon icons
 import PersonalMobile from '../components/sectionPersonal/mobileView';
 import PersonalDesktop from '../components/sectionPersonal/desktopView';
+import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
 
 export default function UserProfile() {
       // Check if the screen is small (mobile view)
@@ -67,16 +66,26 @@ export default function UserProfile() {
         style={{
           flexGrow: 1,
           padding: '50px 20px',
-          marginTop: '80px', // Space for fixed header
+          marginTop: '10vh', // Space for fixed header
           backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
-        
-        {/* Replace placeholder with ProfileSection component */}
-        {console.log("theme in userProfiel before sending to personal =",theme)}
         {(isMobile) ? <PersonalMobile theme={theme} /> : <PersonalDesktop theme={theme} />}
       </div>
+      <div
+        style={{
+          flexGrow: 1,
+          padding: '50px 20px',
+          marginTop: '-5vh', // Space for fixed header
+          backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
+          color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
+        }}
+      >
+        {<WhatDoIDo theme={theme}/>}
+        
+      </div>
+      
       {/* Custom Footer */}
       <div
         style={{
