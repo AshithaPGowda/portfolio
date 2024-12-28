@@ -6,14 +6,17 @@ import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
 import FrostedGlassSidebar from "./frostedSidebar";
 import MenuItem from "./menuIcons";
 import COLOURS from "../colours";
+import CONSTANT from "../constants";
+import { useRouter } from 'next/navigation';
 
-export default function Header({ theme, toggleTheme }) {
+export default function Header({ theme, toggleTheme, isActive}) {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [activeSection, setActiveSection] = useState(null);
     const menuItems = ["Home", "Education", "My Work"];
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [activeIndex, setActiveIndex] = useState(isActive);
     const sidebarRef = useRef(null);
     const [isDarkMode, setIsDarkMode] = useState(theme === "LIGHT");
+    const router = useRouter();
 
     // Check if the screen is small (mobile view)
     const isMobile = useMediaQuery("(max-width:600px)");
@@ -23,12 +26,14 @@ export default function Header({ theme, toggleTheme }) {
     };
 
     const handleSectionChange = (index) => {
-        setActiveSection(index);
+        setActiveSection(index);   
     };
 
     const handleItemClick = (index) => {
-        console.log("Selection clicked, ", index);
         setActiveIndex(index);
+        let activePath = CONSTANT.MENUINDEX[index]
+        setActiveSection(index); 
+        router.push(activePath)
     };
 
     const handleThemeToggle = () => {
