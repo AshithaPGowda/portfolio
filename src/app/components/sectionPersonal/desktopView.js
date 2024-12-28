@@ -117,8 +117,8 @@ const PersonalDesktop = ({ theme }) => {
                     <div
                         style={{
                             position: "absolute",
-                            top: "1vh",
-                            left: "8vw",
+                            top: "20vh",
+                            right: "13vw",
                             zIndex: 10, // Higher z-index to appear above photo
                             fontSize: "1rem",
                             fontWeight: "bold",
