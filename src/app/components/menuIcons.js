@@ -14,32 +14,30 @@ const menuIcons = {
   "Contact Me": <ContactMail />,
 };
 
-const MenuItem = ({ text, index, theme }) => {
-  const Icon = menuIcons[text] || null; // Get the icon based on the text
-  const iconColor =
-    theme === "LIGHT"
-      ? COLOURS.MENU_COLOURS_LIGHT[index] || "#000"
-      : COLOURS.MENU_COLOURS_DARK[index] || "#FFF"; // Icon color based on theme
+const MenuItem = ({ text, index, isActive, theme, onClick }) => {
+  const Icon = menuIcons[text] || null;
+  const iconColor = COLOURS[`MENU_COLOURS_${theme}`][index];
 
   return (
-    <Tooltip title={text} placement="right"> {/* Tooltip displays the text */}
+    <Tooltip title={text} placement="bottom">
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          width: "4vw",
-          height: "4vh",
-          borderRadius: "50%",
+          width: "5.5vw",
+          height: "5.5vh",
+          borderRadius: "2vw",
           cursor: "pointer",
-          backgroundColor: "transparent",
+          backgroundColor: isActive ? `${iconColor}70` : "transparent", // Highlight when active
           "&:hover": {
-            backgroundColor: theme === "LIGHT" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.2)",
+            backgroundColor: `${iconColor}50`, // 50% opacity of the icon color on hover
           },
           transition: "background-color 0.3s ease",
         }}
+        onClick={onClick}
       >
-        {React.cloneElement(Icon, { style: { color: iconColor, fontSize: "2.5vw" } })} {/* Apply styles to the icon */}
+        {React.cloneElement(Icon, { style: { color: iconColor, fontSize: "2.5vw" } })}
       </Box>
     </Tooltip>
   );
