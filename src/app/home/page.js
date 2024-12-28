@@ -25,9 +25,7 @@ export default function UserProfile() {
     document.documentElement.style.height = '100%';
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
-  };
+
 
   return (
     <div
@@ -42,24 +40,6 @@ export default function UserProfile() {
         backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
       }}
     >
-      {/* Custom Header */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '20px',
-          backgroundColor: COLOURS[`HEADER_${theme}`], // Dynamic header color
-          color: COLOURS[`TEXT_${theme}`], // Dynamic text color
-          position: 'fixed', // Keep header fixed at the top
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 10,
-        }}
-      >
-        <Header theme={theme} toggleTheme={toggleTheme} />
-      </div>
 
       {/* Main Content */}
       <div

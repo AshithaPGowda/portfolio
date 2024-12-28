@@ -9,6 +9,7 @@ import PersonalDesktop from '../components/sectionPersonal/desktopView';
 import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
 
 export default function EducationDetails() {
+    const isActiveIndex = 1
       // Check if the screen is small (mobile view)
   const isMobile = useMediaQuery("(max-width:600px)");
 
@@ -58,7 +59,7 @@ export default function EducationDetails() {
           zIndex: 10,
         }}
       >
-        <Header theme={theme} toggleTheme={toggleTheme} />
+        <Header theme={theme} toggleTheme={toggleTheme} isActive={ isActiveIndex}/>
       </div>
 
       
