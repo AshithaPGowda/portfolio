@@ -100,10 +100,16 @@ const PersonalDesktop = ({ theme }) => {
             {/* Right: Photo */}
             <div
                 style={{
-                    flex: 1,
-                    textAlign: "center",
-                    minWidth: "250px",
-                    position: "relative", // Required for positioning overlay
+                    display: "flex", // Use flexbox for centering the image
+                    justifyContent: "center", // Center the image horizontally
+                    alignItems: "center", // Center the image vertically
+                    width: "280px", // Adjust the size as needed, or use percentage for responsiveness
+                    height: "280px",
+                    borderRadius: "50%",
+                    overflow: "hidden", // Prevents image overflow
+                    boxShadow: theme === "LIGHT" ? "0 8px 16px rgba(0, 0, 0, 0.2)" : "0 8px 16px rgba(0, 0, 0, 0.5)",
+                    transition: "box-shadow 0.3s ease",
+                    marginLeft: "2vw",
                 }}
             >
                 {/* Hover text */}
@@ -161,13 +167,15 @@ const PersonalDesktop = ({ theme }) => {
                 <div
                     style={{
                         position: "relative",
-                        width: "280px",
+                        display: "flex", // Use flexbox for centering the image
+                        justifyContent: "center", // Center the image horizontally
+                        alignItems: "center", // Center the image vertically
+                        width: "280px", // Adjust the size as needed, or use percentage for responsiveness
                         height: "280px",
                         borderRadius: "50%",
-                        overflow: "hidden",
+                        overflow: "hidden", // Prevents image overflow
                         boxShadow: theme === "LIGHT" ? "0 8px 16px rgba(0, 0, 0, 0.2)" : "0 8px 16px rgba(0, 0, 0, 0.5)",
                         transition: "box-shadow 0.3s ease",
-                        marginLeft: "7vw"
                     }}
                     onMouseEnter={() => {setIsHovered(true)
                         if(!hoveredOnce){
