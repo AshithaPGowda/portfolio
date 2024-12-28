@@ -26,7 +26,7 @@ const PersonalDesktop = ({ theme }) => {
                 gap: "30px",
                 flexWrap: "wrap",
                 padding: "30px",
-                backgroundColor: theme === "LIGHT" ? "#fdfdfd" : "#2c2c2c",
+                backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
@@ -36,7 +36,7 @@ const PersonalDesktop = ({ theme }) => {
             <div style={{ flex: 2, minWidth: "300px" }}>
                 <h1
                     style={{
-                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         fontSize: "2rem",
                         fontWeight: "bold",
                         display: "flex",
@@ -47,7 +47,7 @@ const PersonalDesktop = ({ theme }) => {
                     Hey there! 👋 I'm{" "}
                     <span
                         style={{
-                            color: theme === "LIGHT" ? "#9268A5" : "#67d6f3",
+                            color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`], 
                             animation: "fade-expand 2s ease-out",
                             display: "inline-block",
                         }}
@@ -73,27 +73,30 @@ const PersonalDesktop = ({ theme }) => {
           }
           `}
                 </style>
-
+                {/* COLOURS.TEXT_COLOUR_LIGHT */}
                 <p
                     style={{
                         fontSize: "1.1rem",
                         lineHeight: "1.8",
-                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         marginTop: "20px",
                     }}
                 >
-                            🌟 An adventurer at heart, I thrive on curiosity and exploration. Whether it's decoding life's mysteries or learning
-                            something new every day, I'm drawn to challenges that spark creativity and growth.  
+                    🌟 An adventurer at heart, I thrive on curiosity and exploration. Whether it's decoding life's mysteries
+                    or learning something new every day, I'm drawn to challenges that spark creativity and growth.
                 </p>
                 <p
                     style={{
                         fontSize: "1.1rem",
                         lineHeight: "1.8",
-                        color: theme === "LIGHT" ? COLOURS.TEXT_COLOUR_LIGHT : COLOURS.TEXT_COLOUR_DARK,
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                     }}
                 >
-                    💬 I’m a strong believer in collaboration and empathy, always striving to uplift those around me. If there’s one thing I value deeply, it's meaningful connections and making a positive impact in every space I occupy.  
-                    🎨 Outside work, you’ll find me immersed in art, experimenting in the kitchen, or on a quest to discover the best local coffee shops. Life, for me, is about crafting beautiful experiences—both in and outside the code.
+                    💬 I’m a strong believer in collaboration and empathy, always striving to uplift those around me. If
+                    there’s one thing I value deeply, it's meaningful connections and making a positive impact in every space
+                    I occupy. 🎨 Outside work, you’ll find me immersed in art, experimenting in the kitchen, or on a quest to
+                    discover the best local coffee shops. Life, for me, is about crafting beautiful experiences—both in and
+                    outside the code.
                 </p>
             </div>
 
@@ -113,7 +116,7 @@ const PersonalDesktop = ({ theme }) => {
                 }}
             >
                 {/* Hover text */}
-                {showMessage && !isHovered && !hoveredOnce &&(
+                {showMessage && !isHovered && !hoveredOnce && (
                     <div
                         style={{
                             position: "absolute",
@@ -177,9 +180,10 @@ const PersonalDesktop = ({ theme }) => {
                         boxShadow: theme === "LIGHT" ? "0 8px 16px rgba(0, 0, 0, 0.2)" : "0 8px 16px rgba(0, 0, 0, 0.5)",
                         transition: "box-shadow 0.3s ease",
                     }}
-                    onMouseEnter={() => {setIsHovered(true)
-                        if(!hoveredOnce){
-                            setHoveredOnce(true)
+                    onMouseEnter={() => {
+                        setIsHovered(true);
+                        if (!hoveredOnce) {
+                            setHoveredOnce(true);
                         }
                     }}
                     onMouseLeave={() => setIsHovered(false)}

@@ -97,7 +97,7 @@ export default function Home() {
                     >
                         <Header theme={theme} toggleTheme={toggleTheme} isActive={isActiveIndex} />
                     </div>
-                    <UserProfile />
+                    <UserProfile theme={theme}/>
                 </div>
             )}
         </div>

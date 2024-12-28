@@ -8,14 +8,11 @@ import PersonalMobile from '../components/sectionPersonal/mobileView';
 import PersonalDesktop from '../components/sectionPersonal/desktopView';
 import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
 
-export default function UserProfile() {
+export default function UserProfile({theme}) {
       // Check if the screen is small (mobile view)
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const currentYear = new Date().getFullYear();
-
-  // State for theme: LIGHT or DARK
-  const [theme, setTheme] = useState('LIGHT'); // Default to LIGHT
 
   useEffect(() => {
     // Ensure body and html take up full height of the screen

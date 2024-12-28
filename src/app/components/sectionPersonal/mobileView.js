@@ -2,29 +2,12 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import COLOURS from "@/app/colours";
 
 const PersonalMobile = ({ theme }) => {
     const [isClicked, setIsClicked] = useState(false); // Track click state
-    const [showMessage, setShowMessage] = useState(false); // Track message visibility
     const [clickedOnce, setClickedOnce] = useState(false); // Track if clicked at least once
 
-    useEffect(() => {
-        // Show the message after 2 seconds
-        const timer = setTimeout(() => {
-            setShowMessage(true);
-        }, 2000);
-
-        return () => clearTimeout(timer); // Cleanup timer on component unmount
-    }, []);
-
-    useEffect(() => {
-        // Show the message after 2 seconds
-        const timer = setTimeout(() => {
-            setShowMessage(true);
-        }, 2000);
-
-        return () => clearTimeout(timer); // Cleanup timer on component unmount
-    }, []);
 
     return (
         <div
@@ -35,7 +18,7 @@ const PersonalMobile = ({ theme }) => {
                 gap: "30px",
                 flexWrap: "wrap",
                 padding: "30px",
-                backgroundColor: theme === "LIGHT" ? "#fdfdfd" : "#2c2c2c",
+                backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
@@ -45,7 +28,7 @@ const PersonalMobile = ({ theme }) => {
             <div style={{ flex: 2, minWidth: "300px" }}>
                 <h1
                     style={{
-                        color: theme === "LIGHT" ? "#222" : "#eee",
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         fontSize: "2rem",
                         fontWeight: "bold",
                         display: "flex",
@@ -56,7 +39,7 @@ const PersonalMobile = ({ theme }) => {
                     <span>Hey there! 👋 I'm</span>
                     <span
                         style={{
-                            color: theme === "LIGHT" ? "#9268A5" : "#67d6f3",
+                            color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
                             animation: "fade-expand 2s ease-out",
                             display: "inline-block",
                         }}
@@ -87,7 +70,7 @@ const PersonalMobile = ({ theme }) => {
                     style={{
                         fontSize: "1.1rem",
                         lineHeight: "1.8",
-                        color: theme === "LIGHT" ? "#444" : "#ddd",
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         marginTop: "20px",
                     }}
                 >
@@ -99,7 +82,7 @@ const PersonalMobile = ({ theme }) => {
                     style={{
                         fontSize: "1rem",
                         lineHeight: "1.6",
-                        color: theme === "LIGHT" ? "#555" : "#bbb",
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                     }}
                 >
                     I bring a blend of technical expertise and creativity to every project. With a passion for problem-solving
