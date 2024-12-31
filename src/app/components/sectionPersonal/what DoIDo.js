@@ -6,8 +6,6 @@ import { useState } from "react";
 import COLOURS from "@/app/colours";
 import DynamicPython from "../../../../public/python";
 import DynamicNode from "../../../../public/nodejs";
-import c from "../../../../public/c";
-import DynamicCpp from "../../../../public/cpp";
 import DynamicPHP from "../../../../public/php";
 import DynamicTypescript from "../../../../public/typescript";
 
