@@ -7,9 +7,13 @@ import Header from "./components/header";
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true); // State to control visibility of the animation
-    const [animationPlayed, setAnimationPlayed] = useState(false);
-    const [theme, setTheme] = useState('LIGHT'); // Default to LIGHT
+    
     const isActiveIndex = 0;
+
+    const getDefaultTheme = () => {
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+    };
+    const [theme, setTheme] = useState(getDefaultTheme); // Default to LIGHT
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
