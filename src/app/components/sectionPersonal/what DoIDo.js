@@ -1,19 +1,15 @@
 "use client";
 
 import { Card, CardContent, Grid, Typography } from "@mui/material";
-import {
-    Code,
-    Cloud,
-    GitHub,
-    Security,
-    Assessment,
-    BugReport,
-    Api,
-    Settings,
-    Psychology,
-} from "@mui/icons-material";
+import { Code, Cloud, GitHub, Security, Assessment, BugReport, Api, Settings, Psychology } from "@mui/icons-material";
 import { useState } from "react";
 import COLOURS from "@/app/colours";
+import DynamicPython from "../../../../public/python";
+import DynamicNode from "../../../../public/nodejs";
+import c from "../../../../public/c";
+import DynamicCpp from "../../../../public/cpp";
+import DynamicPHP from "../../../../public/php";
+import DynamicTypescript from "../../../../public/typescript";
 
 const WhatDoIDo = ({ theme }) => {
     const skills = [
@@ -22,14 +18,53 @@ const WhatDoIDo = ({ theme }) => {
             icon: <Code />,
             title: "Software Development",
             description: "Crafting robust and scalable solutions.",
-            details: "Programming & Scripting: Python, Shell Scripting, SQL, C, C++, Java, C#.",
+            details: [
+                <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+                    <DynamicNode
+                        color={COLOURS[`BACKGROUND_LIGHT`]}
+                        style={{
+                            width: "50%", // Scale with card's width
+                            height: "auto", // Maintain aspect ratio
+                            maxWidth: "60px", // Ensure it doesn't get too large
+                            margin: "0 auto", // Center it
+                        }}
+                    ></DynamicNode>
+                    <DynamicPython
+                        color={COLOURS[`BACKGROUND_LIGHT`]}
+                        style={{
+                            width: "50%", // Scale with card's width
+                            height: "auto", // Maintain aspect ratio
+                            maxWidth: "60px", // Ensure it doesn't get too large
+                            margin: "0 auto", // Center it
+                        }}
+                    ></DynamicPython>
+                    <DynamicPHP
+                        color={"#4CAF50"}
+                        style={{
+                            width: "50%", // Scale with card's width
+                            height: "auto", // Maintain aspect ratio
+                            maxWidth: "60px", // Ensure it doesn't get too large
+                            margin: "0 auto", // Center it
+                        }}
+                    ></DynamicPHP>
+                    <DynamicTypescript
+                        color={COLOURS[`BACKGROUND_LIGHT`]}
+                        style={{
+                            width: "50%", // Scale with card's width
+                            height: "auto", // Maintain aspect ratio
+                            maxWidth: "60px", // Ensure it doesn't get too large
+                            margin: "0 auto", // Center it
+                        }}
+                    ></DynamicTypescript>
+                </div>,
+            ],
         },
         {
             color: "#2196F3",
             icon: <Cloud />,
             title: "Hosting",
             description: "Deploying applications on reliable platforms.",
-            details: "Tools: AWS, Docker, Jenkins, Ubuntu, Linux.",
+            details: "AWS, Docker, Jenkins, Ubuntu, Linux.",
         },
         {
             color: "#000",
@@ -46,6 +81,13 @@ const WhatDoIDo = ({ theme }) => {
             details: "Jest, Mocha, Chai, TDD, Rate Limiting, XSS, MITM Protection.",
         },
         {
+            color: "#FF5722",
+            icon: <Api />,
+            title: "RESTful APIs",
+            description: "Building efficient and scalable API integrations.",
+            details: "REST API, GraphQL, WebSockets, CQRS, Microservices.",
+        },
+        {
             color: "#FFC107",
             icon: <Assessment />,
             title: "Load Testing",
@@ -58,13 +100,6 @@ const WhatDoIDo = ({ theme }) => {
             title: "Debugging",
             description: "Diagnosing and solving complex issues.",
             details: "Event-Driven Systems, Error Tracking, Profiling Tools.",
-        },
-        {
-            color: "#FF5722",
-            icon: <Api />,
-            title: "RESTful APIs",
-            description: "Building efficient and scalable API integrations.",
-            details: "REST API, GraphQL, WebSockets, CQRS, Microservices.",
         },
         {
             color: "#607D8B",
@@ -82,7 +117,7 @@ const WhatDoIDo = ({ theme }) => {
         },
     ];
 
-    const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [hoveredIndex, setHoveredIndex] = useState(false);
 
     return (
         <div
@@ -90,10 +125,7 @@ const WhatDoIDo = ({ theme }) => {
                 padding: "3vh",
                 backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
                 borderRadius: "20px",
-                boxShadow:
-                    theme === "LIGHT"
-                        ? "0 6px 12px rgba(0, 0, 0, 0.1)"
-                        : "0 6px 12px rgba(0, 0, 0, 0.5)",
+                boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
             }}
         >
@@ -114,7 +146,7 @@ const WhatDoIDo = ({ theme }) => {
                     <Grid item xs={12} sm={6} md={4} key={index}>
                         <Card
                             onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(false)}
                             style={{
                                 textAlign: "center",
                                 padding: "4vh",
@@ -125,14 +157,8 @@ const WhatDoIDo = ({ theme }) => {
                                         : "0 6px 12px rgba(0, 0, 0, 0.1)",
                                 transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
                                 transition: "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
-                                backgroundColor:
-                                    hoveredIndex === index
-                                        ? skill.color
-                                        : COLOURS[`CARD_COLOUR_${theme}`],
-                                color:
-                                    hoveredIndex === index
-                                        ? "#fff"
-                                        : COLOURS[`SECTION_COLOUR_${theme}`],
+                                backgroundColor: hoveredIndex === index ? skill.color : COLOURS[`CARD_COLOUR_${theme}`],
+                                color: hoveredIndex === index ? "#fff" : COLOURS[`SECTION_COLOUR_${theme}`],
                                 display: "flex",
                                 flexDirection: "column",
                                 justifyContent: "space-between",
@@ -143,8 +169,7 @@ const WhatDoIDo = ({ theme }) => {
                                 style={{
                                     fontSize: "3rem",
                                     marginBottom: "10px",
-                                    color:
-                                        hoveredIndex === index ? "#fff" : skill.color,
+                                    color: !hoveredIndex === index ? "#fff" : skill.color,
                                 }}
                             >
                                 {skill.icon}
@@ -153,14 +178,9 @@ const WhatDoIDo = ({ theme }) => {
                                 <Typography
                                     variant="h6"
                                     style={{
-                                        color:
-                                            hoveredIndex === index
-                                                ? "#fff"
-                                                : COLOURS[`TEXT_COLOUR_${theme}`],
+                                        color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
                                         transition: "transform 0.3s ease",
-                                        transform: hoveredIndex === index
-                                            ? "translateY(-10px)"
-                                            : "translateY(0)",
+                                        transform: hoveredIndex === index ? "translateY(-13vh)" : "translateY(0)",
                                     }}
                                 >
                                     {skill.title}
@@ -168,24 +188,33 @@ const WhatDoIDo = ({ theme }) => {
                                 <Typography
                                     variant="body2"
                                     style={{
-                                        color:
-                                            hoveredIndex === index
-                                                ? "#fff"
-                                                : COLOURS[`TEXT_COLOUR_${theme}`],
+                                        color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
+                                        transition: "transform 0.3s ease",
+                                        transform: hoveredIndex === index ? "translateY(-10vh)" : "translateY(0)",
                                     }}
                                 >
                                     {skill.description}
                                 </Typography>
                                 {hoveredIndex === index && (
-                                    <Typography
-                                        variant="body2"
+                                    <div
                                         style={{
-                                            marginTop: "10px",
+                                            marginTop: "-5vh",
                                             color: "#fff",
                                         }}
                                     >
-                                        {skill.details}
-                                    </Typography>
+                                        <div style={{ display: "flex", flexDirection: "row" }}></div>
+                                        {Array.isArray(skill.details) ? (
+                                            skill.details.map((detail, i) => (
+                                                <div key={i} variant="body2" style={{ marginBottom: "10px" }}>
+                                                    {detail}
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <div variant="body2" style={{ marginBottom: "10px" }}>
+                                                {skill.details}
+                                            </div>
+                                        )}
+                                    </div>
                                 )}
                             </CardContent>
                         </Card>
