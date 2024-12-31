@@ -7,6 +7,7 @@ import Header from "./components/header";
 
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true); // State to control visibility of the animation
+    const [animationPlayed, setAnimationPlayed] = useState(false);
     
     const isActiveIndex = 0;
 
