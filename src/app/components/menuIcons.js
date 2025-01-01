@@ -8,7 +8,7 @@ import COLOURS from "../colours";
 
 const menuIcons = {
   Home: <HomeTwoToneIcon />,
-  Education: <SchoolTwoToneIcon />,
+  "Education/Work Experience": <SchoolTwoToneIcon />,
   Projects: <Business />,
   "My Work": <TerminalTwoToneIcon />,
   "Contact Me": <ContactMail />,

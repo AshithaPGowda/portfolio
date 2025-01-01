@@ -12,7 +12,7 @@ import { useRouter } from 'next/navigation';
 export default function Header({ theme, toggleTheme, isActive}) {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [activeSection, setActiveSection] = useState(null);
-    const menuItems = ["Home", "Education", "My Work"];
+    const menuItems = ["Home", "Education/Work Experience", "My Work"];
     const [activeIndex, setActiveIndex] = useState(isActive);
     const sidebarRef = useRef(null);
     const [isDarkMode, setIsDarkMode] = useState(theme === "LIGHT");
