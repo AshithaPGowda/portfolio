@@ -62,12 +62,11 @@ export default function UserProfile({theme}) {
         {<WhatDoIDo theme={theme}/>}
         
       </div>
-      
       {/* Custom Footer */}
       <div
         style={{
           padding: '10px 10px',
-          backgroundColor: COLOURS[`FOOTER_${theme}`], // Dynamic footer color
+          backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic footer color
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic footer text color
           textAlign: 'center',
           marginTop: 'auto',
