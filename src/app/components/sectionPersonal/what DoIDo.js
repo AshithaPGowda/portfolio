@@ -179,6 +179,8 @@ const WhatDoIDo = ({ theme }) => {
                                         color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
                                         transition: "transform 0.3s ease",
                                         transform: hoveredIndex === index ? "translateY(-13vh)" : "translateY(0)",
+                                        textTransform: hoveredIndex === index ? "uppercase" : "",
+                                        fontWeight: "bold", // Bold on hover
                                     }}
                                 >
                                     {skill.title}
