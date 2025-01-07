@@ -2,8 +2,7 @@ const CONSTANT = [];
 
 CONSTANT.MENUINDEX = {
     0 :'/',
-    1: "/education",
-    2: "/projects",
+    1: "/projects",
 };
 
 export default CONSTANT;

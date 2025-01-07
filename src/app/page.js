@@ -8,7 +8,6 @@ import Header from "./components/header";
 export default function Home() {
     const [isVisible, setIsVisible] = useState(true); // State to control visibility of the animation
     const [animationPlayed, setAnimationPlayed] = useState(false);
-    
     const isActiveIndex = 0;
 
     const getDefaultTheme = () => {
@@ -48,6 +47,13 @@ export default function Home() {
             setIsVisible(false); // Directly show content if animation was already played
         }
     }, []);
+
+
+    // Update the theme on hover based on the index
+    const handleHoverThemeChange = (index) => {
+        const newTheme = COLOURS.TIMELINECOLOURS[index];
+        setTheme(newTheme); // Update the theme dynamically
+    };
 
     return (
         <div style={{ height: "100vh", width: "100vw" }}>
@@ -102,7 +108,7 @@ export default function Home() {
                     >
                         <Header theme={theme} toggleTheme={toggleTheme} isActive={isActiveIndex} />
                     </div>
-                    <UserProfile theme={theme}/>
+                    <UserProfile theme={theme} colours={COLOURS.TIMELINECOLOURS} onHoverChangeTheme={handleHoverThemeChange}/>
                 </div>
             )}
         </div>

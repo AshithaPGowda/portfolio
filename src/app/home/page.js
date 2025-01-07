@@ -7,12 +7,14 @@ import COLOURS from '../colours';
 import PersonalMobile from '../components/sectionPersonal/mobileView';
 import PersonalDesktop from '../components/sectionPersonal/desktopView';
 import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
+import Education from '../components/sectionPersonal/educationDetails';
 
-export default function UserProfile({theme}) {
+export default function UserProfile({theme, timelineColours, onHoverChangeTheme}) {
       // Check if the screen is small (mobile view)
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const currentYear = new Date().getFullYear();
+  const colors = ["#4CAF50", "#2196F3"];
 
   useEffect(() => {
     // Ensure body and html take up full height of the screen
@@ -60,8 +62,19 @@ export default function UserProfile({theme}) {
         }}
       >
         {<WhatDoIDo theme={theme}/>}
-        
       </div>
+      <div
+        style={{
+          flexGrow: 1,
+          padding: '50px 20px',
+          marginTop: '-5vh', // Space for fixed header
+          backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic background color
+          color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
+        }}
+      >
+       {<Education theme={theme} timelineColours={timelineColours} onHoverChangeTheme = {onHoverChangeTheme}/>}
+      </div>
+
       {/* Custom Footer */}
       <div
         style={{
