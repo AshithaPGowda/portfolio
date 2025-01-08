@@ -14,7 +14,7 @@ const menuIcons = {
   "Contact Me": <ContactMail />,
 };
 
-const MenuItem = ({ text, index, isActive, theme, onClick }) => {
+const MenuItem = ({ text, index, isActive, theme, onClick , size = "2.5W"}) => {
   const Icon = menuIcons[text] || null;
   const iconColor = COLOURS[`MENU_COLOURS_${theme}`][index];
   {console.log("theme:",theme)}
@@ -37,7 +37,7 @@ const MenuItem = ({ text, index, isActive, theme, onClick }) => {
         }}
         onClick={onClick}
       >
-        {React.cloneElement(Icon, { style: { color: iconColor, fontSize: "2.5vw" } })}
+        {React.cloneElement(Icon, { style: { color: iconColor, fontSize: size } })}
       </Box>
     </Tooltip>
   );

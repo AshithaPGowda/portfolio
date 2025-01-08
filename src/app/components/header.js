@@ -3,57 +3,36 @@ import { useMediaQuery } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
 import WbSunnyTwoToneIcon from "@mui/icons-material/WbSunnyTwoTone";
-import FrostedGlassSidebar from "./frostedSidebar";
 import MenuItem from "./menuIcons";
 import COLOURS from "../colours";
 import CONSTANT from "../constants";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-export default function Header({ theme, toggleTheme, isActive}) {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+export default function Header({ theme, toggleTheme, isActive }) {
+    const [isMenuOpen, setMenuOpen] = useState(false); // State to control menu visibility
     const [activeSection, setActiveSection] = useState(null);
-    const menuItems = ["Home", "My Work"];
     const [activeIndex, setActiveIndex] = useState(isActive);
-    const sidebarRef = useRef(null);
     const [isDarkMode, setIsDarkMode] = useState(theme === "LIGHT");
     const router = useRouter();
 
-    // Check if the screen is small (mobile view)
     const isMobile = useMediaQuery("(max-width:600px)");
 
-    const handleSidebarToggle = () => {
-        setSidebarOpen(!isSidebarOpen);
-    };
-
-    const handleSectionChange = (index) => {
-        setActiveSection(index);   
+    const handleMenuToggle = () => {
+        setMenuOpen(!isMenuOpen); // Toggle menu visibility
     };
 
     const handleItemClick = (index) => {
         setActiveIndex(index);
-        let activePath = CONSTANT.MENUINDEX[index]
-        setActiveSection(index); 
-        router.push(activePath)
+        let activePath = CONSTANT.MENUINDEX[index];
+        setActiveSection(index);
+        router.push(activePath);
+        setMenuOpen(false); // Close the menu after clicking an item
     };
 
     const handleThemeToggle = () => {
         setIsDarkMode(!isDarkMode);
         toggleTheme();
     };
-
-    // Close sidebar when clicked outside
-    useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-                setSidebarOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, []);
 
     return (
         <div
@@ -78,14 +57,14 @@ export default function Header({ theme, toggleTheme, isActive}) {
             {isMobile ? (
                 <div style={{ display: "flex", alignItems: "center", gap: "8vw" }}>
                     {/* Dark/Light Mode Toggle Button */}
-                    {!isSidebarOpen && (
+                    {!isMenuOpen && (
                         <button
                             onClick={handleThemeToggle}
                             style={{
                                 background: "transparent",
                                 border: "none",
                                 cursor: "pointer",
-                                fontSize: "24px",
+                                fontSize: "7vw",
                                 color: COLOURS[`ICON_COLOUR_${theme}`],
                                 display: "flex",
                                 alignItems: "center",
@@ -112,15 +91,16 @@ export default function Header({ theme, toggleTheme, isActive}) {
                             </span>
                         </button>
                     )}
-                    {/* Hamburger icon for sidebar toggle */}
-                    {!isSidebarOpen && (
+
+                    {/* Hamburger icon for menu toggle */}
+                    {!isMenuOpen && (
                         <button
-                            onClick={handleSidebarToggle}
+                            onClick={handleMenuToggle}
                             style={{
                                 background: "transparent",
                                 border: "none",
                                 cursor: "pointer",
-                                fontSize: "30px",
+                                fontSize: "8vw",
                                 fontWeight: "bold",
                                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                                 display: "flex",
@@ -131,38 +111,23 @@ export default function Header({ theme, toggleTheme, isActive}) {
                         </button>
                     )}
 
-                    <FrostedGlassSidebar
-                        isOpen={isSidebarOpen}
-                        activeSection={activeSection}
-                        onClose={handleSectionChange}
-                        ref={sidebarRef}
-                        theme={theme}
-                    />
-
-                    {isSidebarOpen && (
-                        <button
-                            onClick={handleSidebarToggle}
+                    {/* Menu items displayed when the menu is open */}
+                    {isMenuOpen && (
+                        <div
                             style={{
-                                position: "fixed",
-                                top: "20px",
-                                right: "20px",
-                                zIndex: 20,
-                                background: "transparent",
-                                border: "none",
-                                cursor: "pointer",
-                                fontSize: "30px",
-                                color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                position: "absolute",
+                                top: "2vh",
+                                right: "13vw",
+                                backgroundColor: COLOURS[`BACKGROUND_${theme}`],
+                                padding: "2vw",
+                                borderRadius: "1vh",
+                                boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+                                display: "flex",
+                                flexDirection: "row",
+                                gap: "1vw",
                             }}
                         >
-                            <Close fontSize="inherit" />
-                        </button>
-                    )}
-                </div>
-            ) : (
-                <div style={{ display: "flex", gap: "1.5vw", alignItems: "center" }}>
-                    {isSidebarOpen ? null : (
-                        <>
-                            {menuItems.map((text, index) => (
+                            {["Home", "My Work"].map((text, index) => (
                                 <MenuItem
                                     key={index}
                                     text={text}
@@ -170,45 +135,75 @@ export default function Header({ theme, toggleTheme, isActive}) {
                                     isActive={activeIndex === index}
                                     onClick={() => handleItemClick(index)}
                                     theme={theme}
-                                    toggleTheme={toggleTheme}
+                                    size="5vw"
                                 />
                             ))}
 
                             <button
-                                onClick={handleThemeToggle}
+                                onClick={handleMenuToggle} // Close the menu
                                 style={{
+                                    position: "absolute",
+                                    top: "10px",
+                                    right: "-10vw",
                                     background: "transparent",
                                     border: "none",
                                     cursor: "pointer",
-                                    marginRight: "2vw",
-                                    fontSize: "2.5vw",
-                                    color: COLOURS[`ICON_COLOUR_${theme}`],
-                                    display: "flex",
-                                    alignItems: "center",
-                                    position: "relative",
+                                    fontSize: "24px",
+                                    color: COLOURS[`TEXT_COLOUR_${theme}`],
                                 }}
                             >
-                                <span
-                                    style={{
-                                        position: "absolute",
-                                        opacity: isDarkMode ? 1 : 0,
-                                        transition: "opacity 0.3s ease-in-out",
-                                    }}
-                                >
-                                    <WbSunnyTwoToneIcon fontSize="inherit" />
-                                </span>
-                                <span
-                                    style={{
-                                        position: "absolute",
-                                        opacity: isDarkMode ? 0 : 1,
-                                        transition: "opacity 0.3s ease-in-out",
-                                    }}
-                                >
-                                    <DarkModeTwoToneIcon fontSize="inherit" />
-                                </span>
+                                <Close fontSize="inherit" />
                             </button>
-                        </>
+                        </div>
                     )}
+                </div>
+            ) : (
+                <div style={{ display: "flex", gap: "1.5vw", alignItems: "center" }}>
+                    {/* Desktop version */}
+                    {["Home", "My Work"].map((text, index) => (
+                        <MenuItem
+                            key={index}
+                            text={text}
+                            index={index}
+                            isActive={activeIndex === index}
+                            onClick={() => handleItemClick(index)}
+                            theme={theme}
+                        />
+                    ))}
+
+                    <button
+                        onClick={handleThemeToggle}
+                        style={{
+                            background: "transparent",
+                            border: "none",
+                            cursor: "pointer",
+                            marginRight: "2vw",
+                            fontSize: "2.5vw",
+                            color: COLOURS[`ICON_COLOUR_${theme}`],
+                            display: "flex",
+                            alignItems: "center",
+                            position: "relative",
+                        }}
+                    >
+                        <span
+                            style={{
+                                position: "absolute",
+                                opacity: isDarkMode ? 1 : 0,
+                                transition: "opacity 0.3s ease-in-out",
+                            }}
+                        >
+                            <WbSunnyTwoToneIcon fontSize="inherit" />
+                        </span>
+                        <span
+                            style={{
+                                position: "absolute",
+                                opacity: isDarkMode ? 0 : 1,
+                                transition: "opacity 0.3s ease-in-out",
+                            }}
+                        >
+                            <DarkModeTwoToneIcon fontSize="inherit" />
+                        </span>
+                    </button>
                 </div>
             )}
         </div>
