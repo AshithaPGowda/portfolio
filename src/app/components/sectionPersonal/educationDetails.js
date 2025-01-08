@@ -2,33 +2,29 @@
 
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { Engineering, Science, HistoryEdu, Language, School } from "@mui/icons-material";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import COLOURS from "@/app/colours";
+import "./education.module.css"
 
 const adjustColor = (color, percentage, lighten = true) => {
-    // Remove the hash (#) and parse the color values
     const num = parseInt(color.slice(1), 16);
   
-    // Extract the red, green, and blue components
     let R = (num >> 16) & 0xff;
     let G = (num >> 8) & 0xff;
     let B = num & 0xff;
   
     if (lighten) {
-        // Lighten the color by increasing RGB values towards white
         R = Math.min(255, R + Math.round((255 - R) * (percentage / 100)));
         G = Math.min(255, G + Math.round((255 - G) * (percentage / 100)));
         B = Math.min(255, B + Math.round((255 - B) * (percentage / 100)));
     } else {
-        // Darken the color by decreasing RGB values towards black
         R = Math.max(0, R - Math.round(R * (percentage / 100)));
         G = Math.max(0, G - Math.round(G * (percentage / 100)));
         B = Math.max(0, B - Math.round(B * (percentage / 100)));
     }
   
-    // Return the adjusted color as a hex string
     return `#${(1 << 24 | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
-  };
+};
 
 const Education = ({ theme, timelineColours }) => {
     const education = [
@@ -71,7 +67,10 @@ const Education = ({ theme, timelineColours }) => {
 
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [sectionBgColor, setSectionBgColor] = useState(COLOURS[`SECTION_COLOUR_${theme}`]);
-
+    useEffect(() => {
+        // Reset the section background color whenever the theme changes
+        setSectionBgColor(COLOURS[`SECTION_COLOUR_${theme}`]);
+    }, [theme]); // Dependency array to trigger effect on theme change
     const handleCardHover = (index, color) => {
         setHoveredIndex(index);
         const adjustedColor = theme === 'DARK' ? adjustColor(color, 50, false) : adjustColor(color, 50, true);
@@ -90,7 +89,8 @@ const Education = ({ theme, timelineColours }) => {
                 backgroundColor: sectionBgColor,
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
-                transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+                transition: "background-color 0.8s ease, box-shadow 0.3s ease", // Increase transition time
+                animation: "liquidFill 2s ease", // Apply the liquid fill animation
             }}
         >
             <Typography
