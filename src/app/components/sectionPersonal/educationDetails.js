@@ -2,17 +2,17 @@
 
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { Engineering, Science, HistoryEdu, Language, School } from "@mui/icons-material";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import COLOURS from "@/app/colours";
-import "./education.module.css"
+import "./education.module.css";
 
 const adjustColor = (color, percentage, lighten = true) => {
     const num = parseInt(color.slice(1), 16);
-  
+
     let R = (num >> 16) & 0xff;
     let G = (num >> 8) & 0xff;
     let B = num & 0xff;
-  
+
     if (lighten) {
         R = Math.min(255, R + Math.round((255 - R) * (percentage / 100)));
         G = Math.min(255, G + Math.round((255 - G) * (percentage / 100)));
@@ -22,8 +22,8 @@ const adjustColor = (color, percentage, lighten = true) => {
         G = Math.max(0, G - Math.round(G * (percentage / 100)));
         B = Math.max(0, B - Math.round(B * (percentage / 100)));
     }
-  
-    return `#${(1 << 24 | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
+
+    return `#${((1 << 24) | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
 };
 
 const Education = ({ theme, timelineColours }) => {
@@ -73,7 +73,7 @@ const Education = ({ theme, timelineColours }) => {
     }, [theme]); // Dependency array to trigger effect on theme change
     const handleCardHover = (index, color) => {
         setHoveredIndex(index);
-        const adjustedColor = theme === 'DARK' ? adjustColor(color, 50, false) : adjustColor(color, 50, true);
+        const adjustedColor = theme === "DARK" ? adjustColor(color, 50, false) : adjustColor(color, 50, true);
         setSectionBgColor(adjustedColor); // Make the section background 30% lighter
     };
 
@@ -84,6 +84,7 @@ const Education = ({ theme, timelineColours }) => {
 
     return (
         <div
+
             style={{
                 padding: "3vh",
                 backgroundColor: sectionBgColor,
@@ -93,6 +94,19 @@ const Education = ({ theme, timelineColours }) => {
                 animation: "liquidFill 2s ease", // Apply the liquid fill animation
             }}
         >
+                    <style>
+        {`@keyframes liquidFill {
+            0% {
+                background-color: transparent;
+            }
+            50% {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                background-color: inherit; /* Background fills in */
+            }
+        }`}
+        </style>
             <Typography
                 variant="h4"
                 style={{ color: COLOURS[`TEXT_COLOUR_${theme}`], marginBottom: "20px", textAlign: "center" }}

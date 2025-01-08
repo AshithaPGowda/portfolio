@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
 import { Menu, Close } from "@mui/icons-material";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
@@ -55,8 +55,8 @@ export default function Header({ theme, toggleTheme, isActive }) {
             </div>
 
             {isMobile ? (
-                <div style={{ display: "flex", alignItems: "center", gap: "8vw" }}>
-                    {/* Dark/Light Mode Toggle Button */}
+                <div style={{ display: "flex", alignItems: "center", gap: "8vw",  }}>
+                    {/* Dark/Light Mode Toggle Button  */}
                     {!isMenuOpen && (
                         <button
                             onClick={handleThemeToggle}
@@ -105,9 +105,18 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                                 display: "flex",
                                 alignItems: "center",
+                                position: "relative",
+                                transition: "all 0.3s ease", // Add transition for smooth effect
                             }}
                         >
-                            <Menu fontSize="inherit" />
+                            <Menu
+                                fontSize="inherit"
+                                style={{
+                                    opacity: isMenuOpen ? 0 : 1,
+                                    transform: isMenuOpen ? "scale(0)" : "scale(1)", // Scale down when closing
+                                    transition: "all 0.3s ease", // Smooth transition for scaling
+                                }}
+                            />
                         </button>
                     )}
 
@@ -125,8 +134,35 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                 display: "flex",
                                 flexDirection: "row",
                                 gap: "1vw",
+                                transform: "translateX(100%)", // Start off-screen (to the right)
+                                opacity: 0,
+                                animation: isMenuOpen ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards", // Apply animation when open
                             }}
                         >
+                            <style>
+                                {`@keyframes slideIn {
+                                    from {
+                                        transform: translateX(100%);
+                                        opacity: 0;
+                                    }
+                                    to {
+                                        transform: translateX(0);
+                                        opacity: 1;
+                                    }
+                                    }
+                                `}
+                                {`@keyframes slideOut {
+                                    from {
+                                        transform: translateX(0%);
+                                        opacity: 1;
+                                    }
+                                    to {
+                                        transform: translateX(10%);
+                                        opacity: 0;
+                                    }
+                                    }
+                                `}
+                            </style>
                             {["Home", "My Work"].map((text, index) => (
                                 <MenuItem
                                     key={index}
@@ -152,7 +188,14 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                     color: COLOURS[`TEXT_COLOUR_${theme}`],
                                 }}
                             >
-                                <Close fontSize="inherit" />
+                                <Close
+                                    fontSize="inherit"
+                                    style={{
+                                        opacity: isMenuOpen ? 1 : 0,
+                                        transform: isMenuOpen ? "scale(1)" : "scale(0)", // Show the close icon with scale
+                                        transition: "all 0.3s ease", // Smooth transition for scale
+                                    }}
+                                />
                             </button>
                         </div>
                     )}
