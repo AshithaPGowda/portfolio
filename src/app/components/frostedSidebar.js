@@ -8,7 +8,7 @@ import ListItemText from '@mui/material/ListItemText';
 import { School, Business, Work, ContactMail, Home } from '@mui/icons-material'; // Importing icons for the menu
 
 const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose, theme }, ref) => {
-  const menuItems = ['Home', 'Education', 'My Work'];
+  const menuItems = ['Home', 'My Work'];
 
   const handleItemClick = (index) => {
     if (onClose) onClose(index); // Trigger the onClose function with the selected index
@@ -16,7 +16,6 @@ const FrostedGlassSidebar = React.forwardRef(({ isOpen, activeSection, onClose, 
 
   const menuIcons = {
     Home: <Home />,
-    Education: <School />,
     Projects: <Business />,
     'My Work': <Work />,
     'Contact Me': <ContactMail />,

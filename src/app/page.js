@@ -49,12 +49,6 @@ export default function Home() {
     }, []);
 
 
-    // Update the theme on hover based on the index
-    const handleHoverThemeChange = (index) => {
-        const newTheme = COLOURS.TIMELINECOLOURS[index];
-        setTheme(newTheme); // Update the theme dynamically
-    };
-
     return (
         <div style={{ height: "100vh", width: "100vw" }}>
             {isVisible ? (
@@ -108,7 +102,8 @@ export default function Home() {
                     >
                         <Header theme={theme} toggleTheme={toggleTheme} isActive={isActiveIndex} />
                     </div>
-                    <UserProfile theme={theme} colours={COLOURS.TIMELINECOLOURS} onHoverChangeTheme={handleHoverThemeChange}/>
+                    <UserProfile theme={theme} timelineColours={COLOURS.TIMELINECOLOURS}/>
+                    {console.log("COLOURS.TIMELINECOLOURS :",COLOURS.TIMELINECOLOURS)}
                 </div>
             )}
         </div>

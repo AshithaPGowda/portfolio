@@ -30,63 +30,13 @@ COLOURS.MENU_COLOURS_DARK = [
 ];
 
 COLOURS.TIMELINECOLOURS = [
-    "#E91E63",  // Pinkish Red for Education (light mode)
-    "#3F51B5",  // Indigo for Projects
-    "#00BCD4",  // Cyan for Work Experience
-    "#8BC34A",  // Light Green
-    "#FFEB3B",  // Yellow for special section
+    "#D32F2F",  // Darker Red (Cheerful but not too bright)
+    "#1976D2",  // Dark Blue (Vibrant, yet deep)
+    "#0288D1",  // Darker Cyan (Lively yet muted)
+    "#388E3C",  // Dark Green (Happy but grounded)
+    "#F57C00",  // Dark Orange (Warm and upbeat)
 ];
 
-// Define a matching text color for each timeline color
-const getTextColorForTimeline = (timelineColor) => {
-    const lightTextColors = {
-        "#E91E63": "#C2185B",  // Light pinkish red text
-        "#3F51B5": "#303F9F",  // Indigo text
-        "#00BCD4": "#00838F",  // Cyan text
-        "#8BC34A": "#388E3C",  // Green text
-        "#FFEB3B": "#F57F17",  // Yellow text
-    };
 
-    const darkTextColors = {
-        "#E91E63": "#F8BBD0",  // Light pinkish red text for dark mode
-        "#3F51B5": "#C5CAE9",  // Light indigo text for dark mode
-        "#00BCD4": "#80DEEA",  // Light cyan text for dark mode
-        "#8BC34A": "#C8E6C9",  // Light green text for dark mode
-        "#FFEB3B": "#FFF9C4",  // Light yellow text for dark mode
-    };
 
-    return { light: lightTextColors[timelineColor], dark: darkTextColors[timelineColor] };
-};
-
-// Apply the same light and dark adjustments for backgrounds
-const getBackgroundColorForTimeline = (timelineColor) => {
-    const lightBackgroundColors = {
-        "#E91E63": "#FFEBEE",  // Light background for pinkish red
-        "#3F51B5": "#E8EAF6",  // Light background for indigo
-        "#00BCD4": "#E0F7FA",  // Light background for cyan
-        "#8BC34A": "#E8F5E9",  // Light background for green
-        "#FFEB3B": "#FFF9C4",  // Light background for yellow
-    };
-
-    const darkBackgroundColors = {
-        "#E91E63": "#880E4F",  // Dark background for pinkish red
-        "#3F51B5": "#1A237E",  // Dark background for indigo
-        "#00BCD4": "#006064",  // Dark background for cyan
-        "#8BC34A": "#1B5E20",  // Dark background for green
-        "#FFEB3B": "#F57F17",  // Dark background for yellow
-    };
-
-    return { light: lightBackgroundColors[timelineColor], dark: darkBackgroundColors[timelineColor] };
-};
-
-// Example of usage
-const timelineColor = "#E91E63";  // For example, using the pinkish red timeline
-const backgroundColors = getBackgroundColorForTimeline(timelineColor);
-const textColors = getTextColorForTimeline(timelineColor);
-
-console.log('Background Color Light:', backgroundColors.light);  // Light background
-console.log('Background Color Dark:', backgroundColors.dark);    // Dark background
-console.log('Text Color Light:', textColors.light);  // Light text color
-console.log('Text Color Dark:', textColors.dark);    // Dark text color
-
-export default COLOURS;
+export default COLOURS

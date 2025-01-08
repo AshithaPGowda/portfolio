@@ -17,7 +17,7 @@ const menuIcons = {
 const MenuItem = ({ text, index, isActive, theme, onClick }) => {
   const Icon = menuIcons[text] || null;
   const iconColor = COLOURS[`MENU_COLOURS_${theme}`][index];
-
+  {console.log("theme:",theme)}
   return (
     <Tooltip title={text} placement="bottom">
       <Box

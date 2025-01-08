@@ -1,89 +1,32 @@
-'use client';
-import { useState } from 'react';
+const adjustColor = (color, percentage, lighten = true) => {
+  // Remove the hash (#) and parse the color values
+  const num = parseInt(color.slice(1), 16);
 
-export default function UserProfile() {
-  const currentYear = new Date().getFullYear();
+  // Extract the red, green, and blue components
+  let R = (num >> 16) & 0xff;
+  let G = (num >> 8) & 0xff;
+  let B = num & 0xff;
 
-  return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100vh', // Full screen height
-        width: '100vw', // Full screen width
-        margin: 0, // Remove margin
-        padding: 0, // Remove padding
-        overflow: 'hidden', // Prevent overflow
-        backgroundColor: '#FFFFFF', // White background
-      }}
-    >
-      {/* Custom Header */}
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '20px',
-          backgroundColor: '#FFFFFF', // White background for the header
-          color: '#000000', // Black color for text
-          position: 'fixed', // Keep header fixed at the top
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 10,
-        }}
-      >
-        <div style={{ fontSize: '24px', fontWeight: 'bold' }}>APG</div>
-        <nav style={{ display: 'flex', gap: '20px' }}>
-          <a
-            href="#home"
-            style={{
-              color: '#000000', // Black text for links
-              textDecoration: 'none',
-              cursor: 'pointer',
-            }}
-          >
-            Home
-          </a>
-          <a
-            href="#portfolio"
-            style={{
-              color: '#000000', // Black text for links
-              textDecoration: 'none',
-              cursor: 'pointer',
-            }}
-          >
-            Portfolio
-          </a>
-        </nav>
-      </div>
+  if (lighten) {
+      // Lighten the color by increasing RGB values towards white
+      R = Math.min(255, R + Math.round((255 - R) * (percentage / 100)));
+      G = Math.min(255, G + Math.round((255 - G) * (percentage / 100)));
+      B = Math.min(255, B + Math.round((255 - B) * (percentage / 100)));
+  } else {
+      // Darken the color by decreasing RGB values towards black
+      R = Math.max(0, R - Math.round(R * (percentage / 100)));
+      G = Math.max(0, G - Math.round(G * (percentage / 100)));
+      B = Math.max(0, B - Math.round(B * (percentage / 100)));
+  }
 
-      {/* Main Content */}
-      <div
-        style={{
-          flexGrow: 1,
-          padding: '50px 20px',
-          marginTop: '80px', // Space for fixed header
-          backgroundColor: '#FA4032',
-          color: '#624E88',
-        }}
-      >
-        <h2>User Profile</h2>
-        {/* Profile content goes here */}
-      </div>
+  // Return the adjusted color as a hex string
+  return `#${(1 << 24 | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
+};
+// Lighten the color by 20%
+let lighterColor = adjustColor("#E91E63", 20, true); // Lightens the color by 20%
 
-      {/* Custom Footer */}
-      <div
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#E5E1DA',
-          color: '#B0A99E',
-          textAlign: 'center',
-          marginTop: 'auto',
-        }}
-      >
-        <p>&#169; Ashitha Gowda {currentYear} </p>
-      </div>
-    </div>
-  );
-}
+// Darken the color by 20%
+let darkerColor = adjustColor("#E91E63", 20, false); // Darkens the color by 20%
 
+console.log("Lighter Color:", lighterColor); // Should be a lighter shade of #E91E63
+console.log("Darker Color:", darkerColor); // Should be a darker shade of #E91E63
