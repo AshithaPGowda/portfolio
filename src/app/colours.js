@@ -32,7 +32,7 @@ COLOURS.MENU_COLOURS_DARK = [
 COLOURS.TIMELINECOLOURS = [
     "#D32F2F",  // Darker Red (Cheerful but not too bright)
     "#1976D2",  // Dark Blue (Vibrant, yet deep)
-    "#0288D1",  // Darker Cyan (Lively yet muted)
+    "#6A1E55",  // Darker Cyan (Lively yet muted)
     "#388E3C",  // Dark Green (Happy but grounded)
     "#F57C00",  // Dark Orange (Warm and upbeat)
 ];
