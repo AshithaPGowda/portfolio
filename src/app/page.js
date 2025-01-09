@@ -103,7 +103,6 @@ export default function Home() {
                         <Header theme={theme} toggleTheme={toggleTheme} isActive={isActiveIndex} />
                     </div>
                     <UserProfile theme={theme} timelineColours={COLOURS.TIMELINECOLOURS}/>
-                    {console.log("COLOURS.TIMELINECOLOURS :",COLOURS.TIMELINECOLOURS)}
                 </div>
             )}
         </div>

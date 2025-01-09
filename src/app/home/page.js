@@ -10,7 +10,6 @@ import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
 import Education from '../components/sectionPersonal/educationDetails';
 
 export default function UserProfile({theme, timelineColours}) {
-  {console.log("Timeline colours userProfile: ", timelineColours)}
       // Check if the screen is small (mobile view)
   const isMobile = useMediaQuery("(max-width:600px)");
 
