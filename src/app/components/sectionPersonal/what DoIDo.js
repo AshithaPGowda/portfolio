@@ -123,12 +123,20 @@ const WhatDoIDo = ({ theme }) => {
     const [hoveredIndex, setHoveredIndex] = useState(false);
 
     return isMobile ? (
-        <div>
+        <div
+            style={{
+                padding: "3vh",
+                backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
+                borderRadius: "2vw",
+                boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
+                transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+            }}
+        >
             <SwipeableCards skills={skills} theme={theme} />
         </div>
     ) : (
         <div>
-            <WhatDoIDoCards skills={skills} theme={theme}/>
+            <WhatDoIDoCards skills={skills} theme={theme} />
         </div>
     );
 };
