@@ -9,88 +9,8 @@ import DynamicPython from "../../../../public/python";
 import DynamicNode from "../../../../public/nodejs";
 import DynamicPHP from "../../../../public/php";
 import DynamicTypescript from "../../../../public/typescript";
-
-const SwipeableCards = ({ skills, theme }) => {
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const handlers = useSwipeable({
-        onSwipedLeft: () => setCurrentIndex((prevIndex) => Math.min(prevIndex + 1, skills.length - 1)),
-        onSwipedRight: () => setCurrentIndex((prevIndex) => Math.max(prevIndex - 1, 0)),
-    });
-
-    const skill = skills[currentIndex];
-
-    return (
-        <div
-            {...handlers}
-            style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "20px",
-                padding: "3vh",
-            }}
-        >
-            <Typography
-                variant="h4"
-                style={{
-                    color: COLOURS[`TEXT_COLOUR_${theme}`],
-                    fontWeight: "bold",
-                    marginBottom: "20px",
-                    textAlign: "center",
-                }}
-            >
-                What Do I Do? 💻
-            </Typography>
-            <Card
-                style={{
-                    width: "90%",
-                    textAlign: "center",
-                    padding: "4vh",
-                    borderRadius: "2vw",
-                    backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
-                    boxShadow: "0 6px 12px rgba(0, 0, 0, 0.1)",
-                }}
-            >
-                <div style={{ fontSize: "3rem", marginBottom: "10px", color: skill.color }}>{skill.icon}</div>
-                <CardContent>
-                    <Typography
-                        variant="h6"
-                        style={{
-                            color: COLOURS[`TEXT_COLOUR_${theme}`],
-                            fontWeight: "bold",
-                            marginBottom: "10px",
-                        }}
-                    >
-                        {skill.title}
-                    </Typography>
-                    <Typography
-                        variant="body2"
-                        style={{
-                            color: COLOURS[`TEXT_COLOUR_${theme}`],
-                            marginBottom: "10px",
-                        }}
-                    >
-                        {skill.description}
-                    </Typography>
-                    <div>
-                        {Array.isArray(skill.details) ? (
-                            skill.details.map((detail, i) => (
-                                <div key={i} style={{ marginBottom: "10px" }}>
-                                    {detail}
-                                </div>
-                            ))
-                        ) : (
-                            <div style={{ marginBottom: "10px", color: COLOURS[`TEXT_COLOUR_${theme}`] }}>
-                                {skill.details}
-                            </div>
-                        )}
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
-    );
-};
+import SwipeableCards from "./swipeableCards";
+import WhatDoIDoCards from "./cardsWhatDoIDo";
 
 const WhatDoIDo = ({ theme }) => {
     const skills = [
@@ -203,111 +123,12 @@ const WhatDoIDo = ({ theme }) => {
     const [hoveredIndex, setHoveredIndex] = useState(false);
 
     return isMobile ? (
-        <SwipeableCards skills={skills} theme={theme} />
+        <div>
+            <SwipeableCards skills={skills} theme={theme} />
+        </div>
     ) : (
-        <div
-            style={{
-                padding: "3vh",
-                backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
-                borderRadius: "20px",
-                boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
-                transition: "background-color 0.3s ease, box-shadow 0.3s ease",
-            }}
-        >
-            <Typography
-                variant="h4"
-                style={{
-                    color: COLOURS[`TEXT_COLOUR_${theme}`],
-                    fontWeight: "bold",
-                    marginBottom: "20px",
-                    textAlign: "center",
-                }}
-            >
-                What Do I Do? 💻
-            </Typography>
-
-            <Grid container spacing={3}>
-                {skills.map((skill, index) => (
-                    <Grid item xs={12} sm={6} md={4} key={index}>
-                        <Card
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onMouseLeave={() => setHoveredIndex(false)}
-                            style={{
-                                textAlign: "center",
-                                padding: "4vh",
-                                borderRadius: "2vw",
-                                boxShadow:
-                                    hoveredIndex === index
-                                        ? "0 10px 20px rgba(0, 0, 0, 0.2)"
-                                        : "0 6px 12px rgba(0, 0, 0, 0.1)",
-                                transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
-                                transition: "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
-                                backgroundColor: hoveredIndex === index ? skill.color : COLOURS[`CARD_COLOUR_${theme}`],
-                                color: hoveredIndex === index ? "#fff" : COLOURS[`SECTION_COLOUR_${theme}`],
-                                display: "flex",
-                                flexDirection: "column",
-                                justifyContent: "space-between",
-                                gap: "10px",
-                            }}
-                        >
-                            <div
-                                style={{
-                                    fontSize: "3rem",
-                                    marginBottom: "10px",
-                                    color: !hoveredIndex === index ? "#fff" : skill.color,
-                                }}
-                            >
-                                {skill.icon}
-                            </div>
-                            <CardContent>
-                                <Typography
-                                    variant="h6"
-                                    style={{
-                                        color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
-                                        transition: "transform 0.3s ease",
-                                        transform: hoveredIndex === index ? "translateY(-13vh)" : "translateY(0)",
-                                        textTransform: hoveredIndex === index ? "uppercase" : "",
-                                        fontWeight: "bold", // Bold on hover
-                                    }}
-                                >
-                                    {skill.title}
-                                </Typography>
-                                <Typography
-                                    variant="body2"
-                                    style={{
-                                        color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
-                                        transition: "transform 0.3s ease",
-                                        transform: hoveredIndex === index ? "translateY(-10vh)" : "translateY(0)",
-                                    }}
-                                >
-                                    {skill.description}
-                                </Typography>
-                                {hoveredIndex === index && (
-                                    <div
-                                        style={{
-                                            marginTop: "-5vh",
-                                            color: COLOURS[`TEXT_COLOUR_${theme}`],
-                                        }}
-                                    >
-                                        <div style={{ display: "flex", flexDirection: "row" }}></div>
-                                        {Array.isArray(skill.details) ? (
-                                            skill.details.map((detail, i) => (
-                                                <div key={i} variant="body2" style={{ marginBottom: "10px" }}>
-                                                    {detail}
-                                                </div>
-                                            ))
-                                        ) : (
-                                            <div variant="body2" style={{ marginBottom: "10px" }}>
-                                                {skill.details}
-                                            </div>
-                                        )}
-                                    </div>
-                                )}
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                ))}
-            </Grid>
+        <div>
+            <WhatDoIDoCards skills={skills} theme={theme}/>
         </div>
     );
 };
