@@ -125,6 +125,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                         <div
                             style={{
                                 position: "absolute",
+                                width: "25vw",
                                 top: "2vh",
                                 right: "13vw",
                                 backgroundColor: COLOURS[`BACKGROUND_${theme}`],
@@ -133,7 +134,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                 boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
                                 display: "flex",
                                 flexDirection: "row",
-                                gap: "1vw",
+                                gap: "7vw",
                                 transform: "translateX(100%)", // Start off-screen (to the right)
                                 opacity: 0,
                                 animation: isMenuOpen ? "slideIn 0.5s forwards" : "slideOut 0.5s forwards", // Apply animation when open
@@ -171,7 +172,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                     isActive={activeIndex === index}
                                     onClick={() => handleItemClick(index)}
                                     theme={theme}
-                                    size="5vw"
+                                    size="10vw"
                                 />
                             ))}
 
@@ -184,7 +185,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                     background: "transparent",
                                     border: "none",
                                     cursor: "pointer",
-                                    fontSize: "24px",
+                                    fontSize: "5vw",
                                     color: COLOURS[`TEXT_COLOUR_${theme}`],
                                 }}
                             >
