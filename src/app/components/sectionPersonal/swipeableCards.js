@@ -34,7 +34,7 @@ const SwipeableCards = ({ skills, theme }) => {
             <Typography
                 variant="h4"
                 style={{
-                    color: COLOURS[`TEXT_COLOUR_${theme}`],
+                    color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                     fontWeight: "bold",
                     marginBottom: "6vh",
                     textAlign: "center",
@@ -85,7 +85,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                     style={{
                                         fontSize: "3rem",
                                         marginBottom: "1vw",
-                                        color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                        color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                                     }}
                                 >
                                     {skill.icon}
@@ -102,7 +102,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                     <Typography
                                         variant="h6"
                                         style={{
-                                            color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                            color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                                             fontWeight: "bold",
                                             marginBottom: "10px",
                                         }}
@@ -112,7 +112,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                     <Typography
                                         variant="body2"
                                         style={{
-                                            color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                            color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                                             marginBottom: "10px",
                                         }}
                                     >
@@ -129,7 +129,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                             <div
                                                 style={{
                                                     marginBottom: "10px",
-                                                    color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                                    color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                                                 }}
                                             >
                                                 {skill.details}

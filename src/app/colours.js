@@ -3,6 +3,9 @@ const COLOURS = [];
 COLOURS.TEXT_COLOUR_LIGHT = "#213555";  // Main text color for light mode
 COLOURS.TEXT_COLOUR_DARK = "#FEF9F2";   // Main text color for dark mode
 
+COLOURS.TEXT_COLOUR_SECTION_DARK = "#FEF9F2"; 
+COLOURS.TEXT_COLOUR_SECTION_LIGHT = "#FEF9F2"; 
+
 COLOURS.SPECIAL_TEXT_COLOUR_LIGHT = '#9268A5'; // Lighter accent color for light mode
 COLOURS.SPECIAL_TEXT_COLOUR_DARK = '#67d6f3';  // Lighter accent color for dark mode
 

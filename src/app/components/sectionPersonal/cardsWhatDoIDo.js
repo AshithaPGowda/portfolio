@@ -100,7 +100,7 @@ const WhatDoIDoCards = ({ skills, theme }) => {
                                                 </div>
                                             ))
                                         ) : (
-                                            <div variant="body2" style={{ marginBottom: "10px" }}>
+                                            <div variant="body2" style={{ marginBottom: "10px" ,color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`]}}>
                                                 {skill.details}
                                             </div>
                                         )}
