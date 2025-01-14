@@ -139,7 +139,7 @@ export default function Projects() {
                     <ProjectGrid projects={projects} onCardClick={handleCardClick} theme ={theme} />
                 ) : (
                     // Display Selected Project Details
-                    <ProjectDetails project={selectedProject} onBackClick={handleBackClick} />
+                    <ProjectDetails project={selectedProject} onBackClick={handleBackClick} theme = {theme} />
                 )}
             </div>
 
