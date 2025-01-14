@@ -17,6 +17,13 @@ const SwipeableCards = ({ skills, theme }) => {
             ),
     });
 
+    const handleCardClick = (index) => {
+        // Determine swipe direction based on the clicked card's position
+        setCurrentIndex((index) =>
+            (index - 1 + skills.length) % skills.length // Loop to the last card
+        )
+    };
+
     return (
         <div
             {...handlers}
@@ -34,7 +41,7 @@ const SwipeableCards = ({ skills, theme }) => {
             <Typography
                 variant="h4"
                 style={{
-                    color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
+                    color: COLOURS[`TEXT_COLOUR_${theme}`],
                     fontWeight: "bold",
                     marginBottom: "6vh",
                     textAlign: "center",
@@ -57,6 +64,7 @@ const SwipeableCards = ({ skills, theme }) => {
                         return (
                             <Card
                                 key={index}
+                                onClick={() => handleCardClick(index)} // Handle click to swipe
                                 style={{
                                     width: "100%",
                                     height: "80%",
@@ -64,7 +72,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                     padding: "2vh",
                                     borderRadius: "2vw",
                                     backgroundColor: skill.color,
-                                    boxShadow: "0 60px 20px rgba(0, 0, 0, 0.1)",
+                                    boxShadow: "0 4px 1px rgba(0, 0, 0, 0.1)",
                                     position: "absolute",
                                     top: `${idx * 5}%`, // Stack the cards with slight vertical offset
                                     zIndex: 3 - idx, // Higher index for the front card
@@ -79,6 +87,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                     flexDirection: "column",
                                     justifyContent: "center",
                                     alignItems: "center",
+                                    cursor: "pointer", // Indicate interactivity
                                 }}
                             >
                                 <div
