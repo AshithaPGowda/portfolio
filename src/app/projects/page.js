@@ -9,14 +9,55 @@ import ProjectDetails from "../components/projects/projectDetails";
 import BackButton from "../components/projects/backButton";
 
 const projects = [
-    { title: "Project 1", description: "Project 1 description" },
-    { title: "Project 2", description: "Project 2 description" },
-    { title: "Project 3", description: "Project 3 description" },
-    { title: "Project 4", description: "Project 4 description" },
-    { title: "Project 5", description: "Project 5 description" },
-    { title: "Project 6", description: "Project 6 description" },
-    { title: "Project 7", description: "Project 7 description" },
-    { title: "Project 8", description: "Project 8 description" },
+  { 
+    title: "Project 1", 
+    description: "Project 1 description", 
+    cardBackgroundColor: "#FF5733",
+    toolTipText: "Academic Project", // Tooltip text for hover
+    cardBorderRadius: "12px" // Optional: Customize border radius for the card
+  },
+  { 
+    title: "Project 2", 
+    description: "Project 2 description", 
+    cardBackgroundColor: "#33FF57",
+    toolTipText: "Personal Project" 
+  },
+  { 
+    title: "Project 3", 
+    description: "Project 3 description", 
+    cardBackgroundColor: "#3357FF",
+    toolTipText: "Professional Project" 
+  },
+  { 
+    title: "Project 4", 
+    description: "Project 4 description", 
+    cardBackgroundColor: "#FF33A1",
+    toolTipText: "Academic Project"
+  },
+  { 
+    title: "Project 5", 
+    description: "Project 5 description", 
+    cardBackgroundColor: "#A1FF33",
+    toolTipText: "Personal Project"
+  },
+  { 
+    title: "Project 6", 
+    description: "Project 6 description", 
+    cardBackgroundColor: "#33A1FF",
+    toolTipText: "Professional Project"
+  },
+  { 
+    title: "Project 7", 
+    description: "Project 7 description", 
+    cardBackgroundColor: "#FF9833",
+    toolTipText: "Academic Project"
+  },
+  { 
+    title: "Project 8", 
+    description: "Project 8 description", 
+    cardBackgroundColor: "#FF33FF",
+    toolTipText: "Personal Project"
+  }
 ];
 
 export default function Projects() {
