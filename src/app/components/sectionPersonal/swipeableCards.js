@@ -38,17 +38,6 @@ const SwipeableCards = ({ skills, theme }) => {
                 overflow: "hidden",
             }}
         >
-            <Typography
-                variant="h4"
-                style={{
-                    color: COLOURS[`TEXT_COLOUR_${theme}`],
-                    fontWeight: "bold",
-                    marginBottom: "6vh",
-                    textAlign: "center",
-                }}
-            >
-                What Do I Do? 💻
-            </Typography>
             <div
                 style={{
                     position: "relative",

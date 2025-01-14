@@ -132,6 +132,18 @@ const WhatDoIDo = ({ theme }) => {
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
             }}
         >
+            {" "}
+            <Typography
+                variant="h4"
+                style={{
+                    color: COLOURS[`TEXT_COLOUR_${theme}`],
+                    fontWeight: "bold",
+                    marginBottom: "6vh",
+                    textAlign: "center",
+                }}
+            >
+                WHAT DO I DO? 💻
+            </Typography>
             <SwipeableCards skills={skills} theme={theme} />
         </div>
     ) : (
