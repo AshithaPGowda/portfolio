@@ -68,7 +68,7 @@ const ProjectGrid = ({ projects, onCardClick, theme }) => {
                                         borderRadius: project.cardBorderRadius || "10px",
                                         boxShadow:
                                             theme === "LIGHT"
-                                                ? "0 6px 12px rgba(0, 0, 0, 0.1)"
+                                                ? "0 6px 12px rgba(81, 51, 51, 0.1)"
                                                 : "0 6px 12px rgba(0, 0, 0, 0.5)",
                                         transition: "all 0.3s ease", // Smooth transition for all properties
                                         height: `${maxHeight}px`, // Fixed height for all cards
@@ -98,36 +98,11 @@ const ProjectGrid = ({ projects, onCardClick, theme }) => {
                                             style={{
                                                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                                                 transition: "transform 0.1s ease",
-                                                transform: hoveredIndex === index ? "translateY(-18vh)" : "translateY(0)",
                                                 padding: "3vh",
                                             }}
                                         >
-                                            {project.description}
+                                            {project.highlightDescription}
                                         </Typography>
-                                        {project.features && project.features.length > 0 && (
-                                            <Typography
-                                                component="div" // Use a div to allow block-level styling
-                                                style={{
-                                                    color: COLOURS[`TEXT_COLOUR_${theme}`],
-                                                    opacity: hoveredIndex === index ? 1 : 0, // Show features only on hover
-                                                    transform: hoveredIndex === index ? "translateY(-11vh)" : "translateY(0)", // Subtle animation
-                                                    transition: "opacity 0.3s ease, transform 0.3s ease",
-                                                    textAlign: "left", // Align points to the left for better readability
-                                                    marginTop: "10px",
-                                                }}
-                                            >
-                                                <ul style={{ margin: 0, paddingLeft: "20px", listStyleType: "disc" }}>
-                                                    {" "}
-                                                    {/* Styled unordered list */}
-                                                    {project.highlightFeatures.map((feature, i) => (
-                                                        <li key={i} style={{ marginBottom: "5px", fontSize: "0.9rem" }}>
-                                                            {" "}
-                                                            {feature}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </Typography>
-                                        )}
                                     </CardContent>
                                 </Card>
                             </Tooltip>

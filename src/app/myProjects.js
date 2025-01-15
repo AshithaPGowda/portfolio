@@ -7,7 +7,7 @@ CONSTANT.PROJECTS = [
         highlightDescription: "A fun tic-tac-toe game with an AI-powered opponent, playable inside the portfolio.",
         description:
             "XOXO Game is a fun tic-tac-toe game built with React. It features an AI-powered opponent, and it is playable directly within the portfolio. The game doesn't have multiplayer functionality but offers a challenging AI for users. It’s responsive and can be enjoyed across devices with a seamless experience.",
-        cardBackgroundColor: "#E5E1DA",
+        cardBackgroundColor: "#FFEB3B",
         media: ["pp.png", "https://via.placeholder.com/200"],
         details: {
             "Technologies Used": "React, JavaScript, HTML, CSS, AI Algorithm",
@@ -26,7 +26,7 @@ CONSTANT.PROJECTS = [
             "A platform designed to streamline cable TV subscriber management and prevent payment leakages.",
         description:
             "cnotes.in is a platform designed to improve cable TV subscriber management. It offers features like automated billing, efficient collection management, and SMS receipts for customers. The platform aims to prevent last-mile payment leakages and provide a smooth billing experience. Built using PHP and MySQL, cnotes.in ensures smooth functionality for both businesses and customers.",
-        cardBackgroundColor: "#33FF57",
+        cardBackgroundColor: "#4169E1",
         media: ["pp.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
@@ -54,7 +54,7 @@ CONSTANT.PROJECTS = [
         highlightDescription: "A personalized voice assistant to simulate memory conversations for Alzheimer's patients.",
         description:
             "Dear is a personalized voice assistant designed to simulate phone conversations with Alzheimer's patients. By deep cloning a family member's voice using Cartesia and integrating VAPI to trigger phone calls, Dear continues the conversation with AI-driven models to assist in simulating memory. It serves as a memory trigger, providing comfort and interaction for those suffering from Alzheimer's. The project aims to help simulate interactions and support the memory recovery process.",
-        cardBackgroundColor: "#FF33A1",
+        cardBackgroundColor: "#3F51B5",
         media: ["pp.png", "https://via.placeholder.com/200"],
         details: {
             "Technologies Used": "Cartesia, VAPI, AI Models, Next.js",
@@ -78,7 +78,7 @@ CONSTANT.PROJECTS = [
         highlightDescription: "A 6-player multiplayer game built with Socket.IO and Express for real-time gameplay.",
         description:
             "Clue Crafters is a revamped version of the traditional Clue board game, built as a 6-player multiplayer experience using Socket.IO for real-time communication and Express for the backend. Players can work together or compete to solve clues in a dynamic, interactive environment. Developed as a full-stack application with Next.js, it ensures seamless gameplay and real-time updates. As the team lead, I handled both the frontend and backend development, including setting up real-time communication and multiplayer functionalities.",
-        cardBackgroundColor: "#33A1FF",
+        cardBackgroundColor: "#6D4C41",
         media: ["pp.png", "https://via.placeholder.com/200"],
         details: {
             "Technologies Used": "Socket.IO, Express, Next.js, JavaScript, HTML, CSS",
@@ -102,7 +102,7 @@ CONSTANT.PROJECTS = [
         highlightDescription: "Contributed to a data platform improving liquidity for private market assets.",
         description:
             "At Inveniam.io, I worked as a backend developer contributing to a data operating platform aimed at improving liquidity in private market assets like private equity and commercial real estate. My responsibilities included maintaining data security, resolving critical support tickets, and implementing CQRS-based design patterns to ensure data consistency and scalability. Collaborating closely with the team, I played a role in streamlining backend services to enhance the platform’s performance and user experience.",
-        cardBackgroundColor: "#A1FF33",
+        cardBackgroundColor: "#8BC34A",
         media: ["pp.png", "https://via.placeholder.com/200"],
         details: {
             "Technologies Used": "Angular, Node.js, CQRS",
@@ -129,7 +129,7 @@ CONSTANT.PROJECTS = [
         highlightDescription: "A secure blockchain-based platform for verifying patents.",
         description:
             "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers.",
-        cardBackgroundColor: "#6C7A89", // Neutral tone
+        cardBackgroundColor: "#607D8B", // Neutral tone
         media: [
             "pp.png", // Placeholder image for now
             "https://via.placeholder.com/200",

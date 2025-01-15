@@ -21,6 +21,9 @@ COLOURS.SECTION_COLOUR_LIGHT = '#f5f5f5'; // Section background for light mode
 COLOURS.CARD_COLOUR_DARK = '#333';  // Card background for dark mode
 COLOURS.CARD_COLOUR_LIGHT = '#fff'; // Card background for light mode
 
+COLOURS.BACKBUTTON_COLOUR_DARK = "#FFEA00"
+COLOURS.BACKBUTTON_COLOUR_LIGHT = "#FA8383"
+
 COLOURS.MENU_COLOURS_LIGHT = [
     "#CA3E6B", // Education (Adjusting based on timeline)
     "#FA8383", // Projects

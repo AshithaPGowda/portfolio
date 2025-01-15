@@ -1,21 +1,35 @@
 import React from "react";
-import { Box, Typography, List, ListItem } from "@mui/material";
+import { Box, Typography, Grid } from "@mui/material";
+import { CheckCircle } from "@mui/icons-material"; // Import Material UI icon for check mark
 
 const FeaturesSection = ({ features }) => {
     if (!features || features.length === 0) return null;
 
     return (
         <Box>
-            <Typography variant="h6" style={{ marginBottom: "10px" }}>
+            <Typography variant="h5" style={{ marginBottom: "10px", fontWeight: "bold" }}>
                 Key Features
             </Typography>
-            <List>
+            <Typography variant="body1" style={{ marginBottom: "20px", color: "#555" }}>
+                Here are the core features that set this project apart.
+            </Typography>
+
+            <Grid container spacing={3}>
                 {features.map((feature, index) => (
-                    <ListItem key={index} style={{ paddingLeft: 0 }}>
-                        • {feature}
-                    </ListItem>
+                    <Grid item xs={6} key={index}>
+                        <Box 
+                            display="flex" 
+                            alignItems="center" 
+                            style={{ paddingLeft: 0, marginBottom: "12px" }}
+                        >
+                            <CheckCircle style={{ color: "#4CAF50", marginRight: "10px" }} />
+                            <Typography variant="body1" style={{ fontWeight: "500" }}>
+                                {feature}
+                            </Typography>
+                        </Box>
+                    </Grid>
                 ))}
-            </List>
+            </Grid>
         </Box>
     );
 };

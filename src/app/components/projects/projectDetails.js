@@ -35,15 +35,19 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 display: "flex",
                                 alignItems: "center",
                                 padding: "8px 16px",
-                                position: "sticky",
-                                top: "10px", // Fixes button at the top
                                 zIndex: 10,
-                                backgroundColor: COLOURS[`BUTTON_BG_${theme}`],
+                                color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
                             }}
                         ></Button>
                     </Tooltip>
 
-                    <Typography variant="h4" style={{ fontWeight: "bold", textAlign:"center" , color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`]}}>
+                    {/* Project Title */}
+                    <Typography variant="h4" style={{
+                        fontWeight: "bold",
+                        textAlign:"center",
+                        color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
+                        flex: 1, // Makes title take available space
+                    }}>
                         {project.title}
                     </Typography>
                 </div>
@@ -52,7 +56,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 <Typography variant="body1">{project.description}</Typography>
 
                 {/* Details Section */}
-                <DetailsSection details={project.details} theme = {theme} />
+                <DetailsSection details={project.details} theme={theme} />
 
                 {/* Features Section */}
                 <FeaturesSection features={project.features} />
