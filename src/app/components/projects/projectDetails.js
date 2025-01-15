@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button, Tooltip } from "@mui/material";
+import { Typography, Button, Tooltip, Box } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import COLOURS from "@/app/colours";
 import MediaSection from "./projectLayout/mediaSection";
@@ -11,8 +11,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
         <div
             style={{
                 display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
+                flexDirection: "row",
                 gap: "20px",
                 padding: "30px",
                 backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
@@ -21,35 +20,61 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
             }}
         >
-            {/* Back Button with Tooltip */}
-            <Tooltip title="Back" placement="right">
-                <Button
-                    onClick={onBackClick}
-                    variant="outlined"
-                    startIcon={<ArrowBackIcon />}
+            {/* Left Section */}
+            <div style={{ flex: 2, display: "flex", flexDirection: "column", gap: "20px" }}>
+                {/* Header Section */}
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    {/* Back Button */}
+                    <Tooltip title="Back" placement="right">
+                        <Button
+                            onClick={onBackClick}
+                            variant="outlined"
+                            startIcon={<ArrowBackIcon />}
+                            style={{
+                                textTransform: "none",
+                                display: "flex",
+                                alignItems: "center",
+                                padding: "8px 16px",
+                                position: "sticky",
+                                top: "10px", // Fixes button at the top
+                                zIndex: 10,
+                                backgroundColor: COLOURS[`BUTTON_BG_${theme}`],
+                            }}
+                        ></Button>
+                    </Tooltip>
+
+                    <Typography variant="h4" style={{ fontWeight: "bold", textAlign:"center" }}>
+                        {project.title}
+                    </Typography>
+                </div>
+
+                {/* Description */}
+                <Typography variant="body1">{project.description}</Typography>
+
+                {/* Details Section */}
+                <DetailsSection details={project.details} />
+
+                {/* Features Section */}
+                <FeaturesSection features={project.features} />
+            </div>
+
+            {/* Right Section */}
+            {project.media && project.media.length > 0 && (
+                <div
                     style={{
-                        textTransform: "none",
+                        flex: 1,
                         display: "flex",
+                        flexDirection: "column",
                         alignItems: "center",
-                        padding: "8px 16px",
+                        justifyContent: "flex-start",
+                        gap: "10px",
+                        borderLeft: `2px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
+                        paddingLeft: "20px",
                     }}
-                ></Button>
-            </Tooltip>
-
-            {/* Header Section */}
-            <Typography variant="h4" style={{ fontWeight: "bold", marginBottom: "10px" }}>
-                {project.title}
-            </Typography>
-            <Typography variant="body1">{project.description}</Typography>
-
-            {/* Media Section */}
-            <MediaSection media={project.media} />
-
-            {/* Details Section */}
-            <DetailsSection details={project.details} />
-
-            {/* Features Section */}
-            <FeaturesSection features={project.features} />
+                >
+                    <MediaSection media={project.media} />
+                </div>
+            )}
         </div>
     );
 };
