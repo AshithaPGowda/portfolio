@@ -35,7 +35,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 display: "flex",
                                 alignItems: "center",
                                 padding: "8px 16px",
-                                zIndex: 10,
+                                // zIndex: 10,
                                 color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
                             }}
                         ></Button>
