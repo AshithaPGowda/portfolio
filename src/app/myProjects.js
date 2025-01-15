@@ -15,6 +15,7 @@ CONSTANT.PROJECTS = [
           "Role": "Frontend Developer",
           "Duration": "2 months",
           "Collaborators": "John Doe, Jane Smith",
+          
       },
       features: [
           "Single and multiplayer modes",

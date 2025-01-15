@@ -43,7 +43,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                         ></Button>
                     </Tooltip>
 
-                    <Typography variant="h4" style={{ fontWeight: "bold", textAlign:"center" }}>
+                    <Typography variant="h4" style={{ fontWeight: "bold", textAlign:"center" , color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`]}}>
                         {project.title}
                     </Typography>
                 </div>
@@ -52,7 +52,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 <Typography variant="body1">{project.description}</Typography>
 
                 {/* Details Section */}
-                <DetailsSection details={project.details} />
+                <DetailsSection details={project.details} theme = {theme} />
 
                 {/* Features Section */}
                 <FeaturesSection features={project.features} />
