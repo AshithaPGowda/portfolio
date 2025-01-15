@@ -40,6 +40,16 @@ const ProjectGrid = ({ projects, onCardClick, theme }) => {
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
             }}
         >
+            <Typography
+                variant="h6"
+                style={{
+                    color: COLOURS[`TEXT_COLOUR_${theme}`],
+                    fontWeight: "bold",
+                    textAlign: "center",
+                }}
+            >
+                MY PROJECTS
+            </Typography>
             <Grid container spacing={5} justifyContent="center">
                 {projects.map((project, index) => {
                     const adjustedColor = adjustColor(project.cardBackgroundColor, 30, theme === "LIGHT");
@@ -70,7 +80,7 @@ const ProjectGrid = ({ projects, onCardClick, theme }) => {
                                             transform: "scale(1.12)", // Enlarge the card on hover
                                             boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)", // Add a stronger shadow on hover
                                         },
-                                        textAlign:"center"
+                                        textAlign: "center",
                                     }}
                                 >
                                     <CardContent>
@@ -89,7 +99,7 @@ const ProjectGrid = ({ projects, onCardClick, theme }) => {
                                                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                                                 transition: "transform 0.1s ease",
                                                 transform: hoveredIndex === index ? "translateY(-18vh)" : "translateY(0)",
-                                                padding: "3vh"
+                                                padding: "3vh",
                                             }}
                                         >
                                             {project.description}
