@@ -5,7 +5,7 @@ import { useState } from "react";
 import COLOURS from "@/app/colours";
 import SwipeableCards from "./swipeableCards";
 import WhatDoIDoCards from "./cardsWhatDoIDo";
-import CONSTANT from "@/app/constants";
+import CONSTANT from "@/app/mySkills";
 
 const WhatDoIDo = ({ theme }) => {
     const themeMUI = useTheme();

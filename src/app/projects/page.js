@@ -6,7 +6,7 @@ import Header from "../components/header";
 import COLOURS from "../colours";
 import ProjectGrid from "../components/projects/projectGrid";
 import ProjectDetails from "../components/projects/projectDetails";
-import CONSTANT from "../constants";
+import CONSTANT from "../myProjects";
 
 
 export default function Projects() {
