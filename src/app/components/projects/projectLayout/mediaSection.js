@@ -6,9 +6,6 @@ const MediaSection = ({ media }) => {
 
     return (
         <Box>
-            <Typography variant="h6" style={{ marginBottom: "10px" }}>
-                Media
-            </Typography>
             <Box
                 style={{
                     display: "flex",
