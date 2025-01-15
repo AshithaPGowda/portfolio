@@ -22,6 +22,11 @@ CONSTANT.PROJECTS = [
           "Save and resume game feature",
           "AI-powered opponent",
       ],
+      highlightFeatures: [
+        "Single and multiplayer modes",
+        "AI-powered opponent",
+        "Click on card for more information"
+    ],
     },
     { 
       title: "Project 2", 
