@@ -28,7 +28,7 @@ CONSTANT.PROJECTS = [
         description:
             "cnotes.in is a platform designed to improve cable TV subscriber management. It offers features like automated billing, efficient collection management, and SMS receipts for customers. The platform aims to prevent last-mile payment leakages and provide a smooth billing experience. Built using PHP and MySQL, cnotes.in ensures smooth functionality for both businesses and customers.",
         cardBackgroundColor: "#4169E1",
-        media: ["pp.png"],
+        media: ["cnotes/home.png","cnotes/login.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
             Role: "Full Stack Developer",
@@ -57,7 +57,7 @@ CONSTANT.PROJECTS = [
         description:
             "Dear is a personalized voice assistant designed to simulate phone conversations with Alzheimer's patients. By deep cloning a family member's voice using Cartesia and integrating VAPI to trigger phone calls, Dear continues the conversation with AI-driven models to assist in simulating memory. It serves as a memory trigger, providing comfort and interaction for those suffering from Alzheimer's. The project aims to help simulate interactions and support the memory recovery process.",
         cardBackgroundColor: "#3F51B5",
-        media: ["pp.png", "https://via.placeholder.com/200"],
+        media: [],
         details: {
             "Technologies Used": "Cartesia, VAPI, AI Models, Next.js",
             Role: "Full Stack Developer",
@@ -82,7 +82,7 @@ CONSTANT.PROJECTS = [
         description:
             "Clue Crafters is a revamped version of the traditional Clue board game, built as a 6-player multiplayer experience using Socket.IO for real-time communication and Express for the backend. Players can work together or compete to solve clues in a dynamic, interactive environment. Developed as a full-stack application with Next.js, it ensures seamless gameplay and real-time updates. As the team lead, I handled both the frontend and backend development, including setting up real-time communication and multiplayer functionalities.",
         cardBackgroundColor: "#6D4C41",
-        media: ["pp.png", "https://via.placeholder.com/200"],
+        media: ["clueCrafters/gameboard.png", "clueCrafters/gameStart.png","clueCrafters/suggestion.png"],
         details: {
             "Technologies Used": "Socket.IO, Express, Next.js, JavaScript, HTML, CSS",
             Role: "Full Stack Developer",
@@ -136,10 +136,7 @@ CONSTANT.PROJECTS = [
         description:
             "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers.",
         cardBackgroundColor: "#607D8B", // Neutral tone
-        media: [
-            "pp.png", // Placeholder image for now
-            "https://via.placeholder.com/200",
-        ],
+        media: [],
         details: {
             "Technologies Used": "Next.js, Ethereum, Smart Contracts, Solidity, Web3.js",
             Role: "Full Stack Developer",
