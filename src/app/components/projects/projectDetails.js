@@ -8,25 +8,34 @@ import DetailsSection from "./projectLayout/detailsSection";
 import GameBoard from "./gameboard/gameboard";
 
 const ProjectDetails = ({ project, onBackClick, theme }) => {
-    // Check if the screen is small using useMediaQuery
-        const themeMUI = useTheme();
-        const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
-
+    const themeMUI = useTheme();
+    const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
+    
     return (
         <div
             style={{
                 display: "flex",
-                flexDirection: isMobile ? "column" : "row", // Switch to column for mobile
+                flexDirection: isMobile ? "column" : "row", // Column layout for mobile, row for desktop
                 gap: "20px",
                 padding: "30px",
                 backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+                height: "100%", // Ensure the parent container takes full height
+                boxSizing: "border-box", // Ensure padding doesn't overflow
             }}
         >
             {/* Left Section */}
-            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div
+                style={{
+                    flex: isMobile ? "none" : 2, // No need for flex-grow on mobile, take content size
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "20px",
+                    height: "100%", // Ensure left section takes full height
+                }}
+            >
                 {/* Header Section */}
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     {/* Back Button */}
@@ -42,7 +51,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 padding: "8px 16px",
                                 color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
                             }}
-                        ></Button>
+                        />
                     </Tooltip>
 
                     {/* Project Title */}
@@ -67,10 +76,32 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
 
                 {/* Features Section */}
                 <FeaturesSection features={project.features} />
+
+                {/* Game/Media Section */}
+                {isMobile && project.media && project.media.length > 0 && (
+                    <div
+                        style={{
+                            display: "flex",
+                            flexDirection: "column",
+                            gap: "10px",
+                            flex: 1, // Allow this section to take available space
+                            height: "auto", // Let content determine height on mobile
+                            paddingLeft: "20px",
+                            paddingBottom: "20px",
+                            boxSizing: "border-box", // Handle padding correctly
+                        }}
+                    >
+                        {project.playable ? (
+                            <GameBoard theme={theme} style={{ flex: 1, height: "100%" }} /> // Ensure GameBoard stretches
+                        ) : (
+                            <MediaSection media={project.media} />
+                        )}
+                    </div>
+                )}
             </div>
 
-            {/* Right Section (Media or Game) */}
-            {project.media && project.media.length > 0 && (
+            {/* Right Section for desktopView */}
+            {!isMobile && project.media && project.media.length > 0 && (
                 <div
                     style={{
                         flex: 1,
@@ -78,27 +109,16 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        gap: "1vw",
-                        borderLeft: isMobile ? "none" : `1px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
-                        paddingLeft: isMobile ? "2vw" : "0",
-                        marginTop: isMobile ? "20px" : "0", // Add margin-top for mobile view
-                        maxWidth: isMobile ? "100%" : "none", // Ensure it doesn’t overflow
-                        // overflow: "hidden", // Prevent overflow
+                        gap: "10px",
+                        borderLeft: `2px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
+                        paddingLeft: "20px",
+                        height: "100%", // Ensure right section takes full height
                     }}
                 >
                     {project.playable ? (
-                        <div
-                            style={{
-                                maxWidth: "100%", // Make sure GameBoard doesn't overflow
-                                width: "100%",
-                                overflow_y: "hidden", // Prevent content spilling over
-                            }}
-                        >
-                            <GameBoard theme={theme} />
-                        </div>
+                        <GameBoard theme={theme} style={{ flex: 1, height: "100%" }} /> // Ensure GameBoard stretches
                     ) : (
-                        project.media &&
-                        project.media.length > 0 && <MediaSection media={project.media} />
+                        <MediaSection media={project.media} />
                     )}
                 </div>
             )}
