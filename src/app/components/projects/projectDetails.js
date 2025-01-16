@@ -1,17 +1,22 @@
 import React from "react";
-import { Typography, Button, Tooltip, Box } from "@mui/material";
+import { Typography, Button, Tooltip, Box, useMediaQuery, useTheme } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import COLOURS from "@/app/colours";
 import MediaSection from "./projectLayout/mediaSection";
 import FeaturesSection from "./projectLayout/featuresSection";
 import DetailsSection from "./projectLayout/detailsSection";
+import GameBoard from "./gameboard/gameboard";
 
 const ProjectDetails = ({ project, onBackClick, theme }) => {
+    // Check if the screen is small using useMediaQuery
+        const themeMUI = useTheme();
+        const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
+
     return (
         <div
             style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: isMobile ? "column" : "row", // Switch to column for mobile
                 gap: "20px",
                 padding: "30px",
                 backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
@@ -21,7 +26,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
             }}
         >
             {/* Left Section */}
-            <div style={{ flex: 2, display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "20px" }}>
                 {/* Header Section */}
                 <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
                     {/* Back Button */}
@@ -35,19 +40,21 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 display: "flex",
                                 alignItems: "center",
                                 padding: "8px 16px",
-                                // zIndex: 10,
                                 color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
                             }}
                         ></Button>
                     </Tooltip>
 
                     {/* Project Title */}
-                    <Typography variant="h4" style={{
-                        fontWeight: "bold",
-                        textAlign:"center",
-                        color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
-                        flex: 1, // Makes title take available space
-                    }}>
+                    <Typography
+                        variant="h4"
+                        style={{
+                            fontWeight: "bold",
+                            textAlign: "center",
+                            color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
+                            flex: 1, // Makes title take available space
+                        }}
+                    >
                         {project.title}
                     </Typography>
                 </div>
@@ -62,7 +69,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 <FeaturesSection features={project.features} />
             </div>
 
-            {/* Right Section */}
+            {/* Right Section (Media or Game) */}
             {project.media && project.media.length > 0 && (
                 <div
                     style={{
@@ -71,12 +78,28 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                         flexDirection: "column",
                         alignItems: "center",
                         justifyContent: "flex-start",
-                        gap: "10px",
-                        borderLeft: `2px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
-                        paddingLeft: "20px",
+                        gap: "1vw",
+                        borderLeft: isMobile ? "none" : `1px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
+                        paddingLeft: isMobile ? "2vw" : "0",
+                        marginTop: isMobile ? "20px" : "0", // Add margin-top for mobile view
+                        maxWidth: isMobile ? "100%" : "none", // Ensure it doesn’t overflow
+                        // overflow: "hidden", // Prevent overflow
                     }}
                 >
-                    <MediaSection media={project.media} />
+                    {project.playable ? (
+                        <div
+                            style={{
+                                maxWidth: "100%", // Make sure GameBoard doesn't overflow
+                                width: "100%",
+                                overflow_y: "hidden", // Prevent content spilling over
+                            }}
+                        >
+                            <GameBoard theme={theme} />
+                        </div>
+                    ) : (
+                        project.media &&
+                        project.media.length > 0 && <MediaSection media={project.media} />
+                    )}
                 </div>
             )}
         </div>

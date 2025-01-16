@@ -18,6 +18,7 @@ CONSTANT.PROJECTS = [
         features: ["AI-powered opponent (no multiplayer)", "Responsive design for all devices", "Playable inside portfolio"],
         highlightFeatures: ["AI-powered opponent", "Responsive design for all devices", "Playable inside portfolio"],
         toolTipText: "Personal Project",
+        playable : true
     },
     {
         title: "cnotes.in",
@@ -47,6 +48,7 @@ CONSTANT.PROJECTS = [
             "Last-mile payment leakage prevention",
         ],
         toolTipText: "Professional Project",
+        playable : false
     },
     {
         title: "Dear",
@@ -71,6 +73,7 @@ CONSTANT.PROJECTS = [
         ],
         highlightFeatures: ["AI-driven voice simulation", "Deep cloning of voices", "Memory assistance through conversation"],
         toolTipText: "Personal Project",
+        playable : false
     },
     {
         title: "Clue Crafters",
@@ -95,6 +98,7 @@ CONSTANT.PROJECTS = [
         ],
         highlightFeatures: ["Real-time multiplayer", "6-player support", "Interactive gameplay"],
         toolTipText: "Academic Project",
+        playable : false
     },
     {
         title: "Inveniam.io",
@@ -108,7 +112,7 @@ CONSTANT.PROJECTS = [
             "Technologies Used": "Angular, Node.js, CQRS",
             Role: "Backend Developer",
             Duration: "May 2023 - June 2024",
-            Collaborators: "Team Member at Inveniam.io",
+            "Collaboration Type": "Team Member at Inveniam.io",
             "Project Type": "Professional Project",
         },
         features: [
@@ -122,6 +126,8 @@ CONSTANT.PROJECTS = [
             "Implemented scalable CQRS design",
             "Optimized database performance",
         ],
+        toolTipText: "Professional Project",
+        playable : false
     },
     {
         title: "Patent Verification System",
@@ -148,6 +154,8 @@ CONSTANT.PROJECTS = [
             "Tamper-proof patent verification records",
         ],
         highlightFeatures: ["Blockchain-backed security", "Smart contract-based automation", "Patent data integrity"],
+        toolTipText: "Academic Project",
+        playable : false
     },
     {
         title: "Snake and Ladder",
@@ -163,8 +171,8 @@ CONSTANT.PROJECTS = [
             "Technologies Used": "Socket.IO, Node.js, Express.js, JavaScript, HTML, CSS",
             Role: "Full Stack Developer",
             Duration: "3 months",
-            Collaborators: "Team effort",
-            "Project Type": "Academic Project",
+            "Collaboration Type": "Individual Contributor",
+            "Project Type": "Professional Project",
         },
         features: [
             "Real-time multiplayer gameplay",
@@ -177,6 +185,8 @@ CONSTANT.PROJECTS = [
             "Interactive animations",
             "Classic game experience with a modern touch",
         ],
+        toolTipText: "Professional Project",
+        playable : false 
     },
     {
         title: "NJS2 Chat Plugin",
@@ -204,6 +214,8 @@ CONSTANT.PROJECTS = [
           "Session-based chat handling",
           "Modular and reusable design",
         ],
+        toolTipText: "Professional Project",
+        playable : false
       },
 ];
 

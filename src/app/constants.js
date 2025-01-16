@@ -12,4 +12,10 @@ CONSTANT.MENUINDEX = {
     1: "/projects",
 };
 
+CONSTANT.USER = 1;
+CONSTANT.AI = 0;
+
+CONSTANT.X = "X"
+CONSTANT.O = "O"
+
 export default CONSTANT;
