@@ -124,10 +124,10 @@ const handleAITurn = (currentBoard) => {
                 sx={{
                     display: "grid",
                     gridTemplateColumns: `repeat(${boardSize}, 1fr)`,
-                    gap: "1vw",
+                    gap: "0.4vw",
                     backgroundColor: COLOURS[`BORDER_COLOUR_${theme}`],
-                    padding: "1vw",
-                    borderRadius: "3vw",
+                    padding: "0.1vw",
+                    borderRadius: "3vh",
                 }}
             >
                 {/* Render grid cells */}
