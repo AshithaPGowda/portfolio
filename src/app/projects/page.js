@@ -41,6 +41,9 @@ export default function Projects() {
         document.body.style.height = "100%";
         document.documentElement.style.height = "100%";
         const id = searchParams.get("id"); // Access query parameters
+        if(!id && selectedProject!= null){
+            setSelectedProject(null)
+        }
         setProjectFromId(id); // Set project based on `id`
     }, [searchParams]); // Re-run when searchParams change
 
