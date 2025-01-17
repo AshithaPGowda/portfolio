@@ -6,7 +6,7 @@ CONSTANT.PROJECTS = [
         slug: 0,
         highlightDescription: "A fun tic-tac-toe game with an AI-powered opponent, playable inside the portfolio.",
         description:
-            "XOXO Game is a fun tic-tac-toe game built with React. It features an AI-powered opponent, and it is playable directly within the portfolio. The game doesn't have multiplayer functionality but offers a challenging AI for users. It’s responsive and can be enjoyed across devices with a seamless experience.",
+            "Built with React, this tic-tac-toe game features an AI-powered opponent and is fully responsive. It provides a seamless experience for users across devices. This project demonstrates my expertise in creating interactive UIs and integrating AI logic. Designed an optimized AI opponent using minimax algorithm principles, enhancing difficulty for users",
         cardBackgroundColor: "#FFEB3B",
         media: ["pp.png", "https://via.placeholder.com/200"],
         details: {
@@ -16,7 +16,7 @@ CONSTANT.PROJECTS = [
             "Collaboration Type": "Founder",
         },
         features: ["AI-powered opponent (no multiplayer)", "Responsive design for all devices", "Playable inside portfolio"],
-        highlightFeatures: ["AI-powered opponent", "Responsive design for all devices", "Playable inside portfolio"],
+        highlightFeatures: ["AI opponent logic", "Responsive gameplay", "Fully integrated within the portfolio."],
         toolTipText: "Personal Project",
         playable : true
     },
@@ -26,7 +26,7 @@ CONSTANT.PROJECTS = [
         highlightDescription:
             "A platform designed to streamline cable TV subscriber management and prevent payment leakages.",
         description:
-            "cnotes.in is a platform designed to improve cable TV subscriber management. It offers features like automated billing, efficient collection management, and SMS receipts for customers. The platform aims to prevent last-mile payment leakages and provide a smooth billing experience. Built using PHP and MySQL, cnotes.in ensures smooth functionality for both businesses and customers.",
+            "cnotes.in is a cable TV management platform I developed to address payment leakages and streamline subscriber management. Key features include automated billing, SMS receipts, and efficient collection tracking. Built using PHP and MySQL, it ensures reliability and scalability for business needs.",
         cardBackgroundColor: "#4169E1",
         media: ["cnotes/home.png","cnotes/login.png"],
         details: {
@@ -80,7 +80,7 @@ CONSTANT.PROJECTS = [
         slug: 3,
         highlightDescription: "A 6-player multiplayer game built with Socket.IO and Express for real-time gameplay.",
         description:
-            "Clue Crafters is a revamped version of the traditional Clue board game, built as a 6-player multiplayer experience using Socket.IO for real-time communication and Express for the backend. Players can work together or compete to solve clues in a dynamic, interactive environment. Developed as a full-stack application with Next.js, it ensures seamless gameplay and real-time updates. As the team lead, I handled both the frontend and backend development, including setting up real-time communication and multiplayer functionalities.",
+            "As the team lead for Clue Crafters, I developed a real-time multiplayer board game based on the classic Clue. Leveraging Socket.IO for real-time gameplay and Next.js for a dynamic UI, I handled both backend and frontend development. The project showcases my ability to build complex, interactive applications.",
         cardBackgroundColor: "#6D4C41",
         media: ["clueCrafters/gameboard.png", "clueCrafters/gameStart.png","clueCrafters/suggestion.png"],
         details: {
@@ -134,7 +134,7 @@ CONSTANT.PROJECTS = [
         slug: 5,
         highlightDescription: "A secure blockchain-based platform for verifying patents.",
         description:
-            "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers.",
+            "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers. Deployed blockchain nodes to simulate secure patent transactions, ensuring tamper-proof data.",
         cardBackgroundColor: "#607D8B", // Neutral tone
         media: [],
         details: {
