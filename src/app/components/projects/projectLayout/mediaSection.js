@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box, Modal, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
 const MediaSection = ({ media }) => {
-    const [selectedMedia, setSelectedMedia] = useState(null); // Track the selected media for the modal
+    const [selectedMediaIndex, setSelectedMediaIndex] = useState(null); // Track the index of the selected media
     const [modalImageStyle, setModalImageStyle] = useState({}); // Dynamic styles for the modal image
 
     if (!media || media.length === 0) return null;
@@ -18,12 +18,12 @@ const MediaSection = ({ media }) => {
     };
 
     // Handle click to open media in a modal
-    const handleMediaClick = (item) => {
-        setSelectedMedia(item);
+    const handleMediaClick = (index) => {
+        setSelectedMediaIndex(index);
 
         // Load the image dimensions before opening
         const img = new Image();
-        img.src = item;
+        img.src = media[index];
 
         img.onload = () => {
             const { width, height } = img;
@@ -49,8 +49,18 @@ const MediaSection = ({ media }) => {
 
     // Handle closing the modal
     const handleClose = () => {
-        setSelectedMedia(null);
+        setSelectedMediaIndex(null);
         setModalImageStyle({}); // Reset the styles
+    };
+
+    // Navigate to the previous media item
+    const handlePrevious = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
+    };
+
+    // Navigate to the next media item
+    const handleNext = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex + 1) % media.length);
     };
 
     return (
@@ -68,7 +78,7 @@ const MediaSection = ({ media }) => {
                         key={index}
                         src={item}
                         alt={`Project media ${index + 1}`}
-                        onClick={() => handleMediaClick(item)}
+                        onClick={() => handleMediaClick(index)}
                         style={{
                             width: "100%",
                             height: "auto",
@@ -89,7 +99,7 @@ const MediaSection = ({ media }) => {
 
             {/* Modal for displaying selected media */}
             <Modal
-                open={!!selectedMedia} // Show modal if selectedMedia is not null
+                open={selectedMediaIndex !== null} // Show modal if selectedMediaIndex is not null
                 onClose={handleClose}
                 aria-labelledby="media-modal"
                 aria-describedby="media-modal-description"
@@ -123,9 +133,40 @@ const MediaSection = ({ media }) => {
                         <CloseIcon />
                     </IconButton>
 
+                    {/* Navigation Buttons */}
+                    <IconButton
+                        onClick={handlePrevious}
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "10px",
+                            transform: "translateY(-50%)",
+                            backgroundColor: "rgba(0, 0, 0, 0.6)",
+                            color: "white",
+                            zIndex: 10,
+                        }}
+                    >
+                        {"<"}
+                    </IconButton>
+
+                    <IconButton
+                        onClick={handleNext}
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            right: "10px",
+                            transform: "translateY(-50%)",
+                            backgroundColor: "rgba(0, 0, 0, 0.6)",
+                            color: "white",
+                            zIndex: 10,
+                        }}
+                    >
+                        {">"}
+                    </IconButton>
+
                     {/* Selected Media */}
                     <img
-                        src={selectedMedia}
+                        src={media[selectedMediaIndex]}
                         alt="Selected Media"
                         style={{
                             ...modalImageStyle, // Dynamically calculated styles
