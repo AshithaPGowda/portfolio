@@ -50,7 +50,6 @@ export default function Projects() {
 
     const handleCardClick = (project) => {
         setSelectedProject(project);
-        console.log("Project : ", project);
         // Update URL with shallow routing
         router.push(`/projects?id=${project.slug}`, undefined, { shallow: true });
     };
