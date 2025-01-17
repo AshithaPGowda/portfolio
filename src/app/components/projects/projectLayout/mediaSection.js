@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Modal, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
@@ -53,16 +53,44 @@ const MediaSection = ({ media }) => {
         };
     };
 
+    // Add keyboard listeners
+    useEffect(() => {
+        const handleKeyDown = (event) => {
+            if (selectedMediaIndex !== null) {
+                switch (event.key) {
+                    case "ArrowLeft":
+                        handlePrevious();
+                        break;
+                    case "ArrowRight":
+                        handleNext();
+                        break;
+                    case "Escape":
+                        handleClose();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [selectedMediaIndex]);
+
     return (
         <Box>
             {/* Media Grid */}
             <Box
                 style={{
                     display: "grid",
-                    gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`, // Responsive columns
+                    gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
                     gap: "10px",
-                    maxHeight: "80vh", // Limit grid height to viewport
-                    overflowY: "auto", // Enable scrolling if grid exceeds height
+                    maxHeight: "80vh",
+                    overflowY: "auto",
                 }}
             >
                 {media.map((item, index) => (
@@ -167,25 +195,6 @@ const MediaSection = ({ media }) => {
                     >
                         <CloseIcon />
                     </IconButton>
-
-                    {/* Preview of Next Image */}
-                    {media.length > 1 && (
-                        <img
-                            src={media[(selectedMediaIndex + 1) % media.length]}
-                            alt="Next preview"
-                            style={{
-                                position: "absolute",
-                                top: "70vh",
-                                height: "15vh",
-                                width: "auto",
-                                opacity: 0.5,
-                                borderRadius: "5px",
-                                right: "-3vw",
-                                zIndex: -1,
-                            }}
-                        />
-                    )}
-
                 </Box>
             </Modal>
         </Box>
