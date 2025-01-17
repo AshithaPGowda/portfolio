@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Box, Modal, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const MediaSection = ({ media }) => {
     const [selectedMediaIndex, setSelectedMediaIndex] = useState(null); // Track the index of the selected media
@@ -8,30 +10,34 @@ const MediaSection = ({ media }) => {
 
     if (!media || media.length === 0) return null;
 
-    // Determine the number of columns based on the number of media items
-    const getGridTemplateColumns = (mediaCount) => {
-        if (mediaCount <= 2) return "repeat(2, 1fr)";
-        if (mediaCount <= 4) return "repeat(2, 1fr)";
-        if (mediaCount <= 6) return "repeat(3, 1fr)";
-        if (mediaCount <= 9) return "repeat(3, 1fr)";
-        return "repeat(4, 1fr)";
-    };
-
-    // Handle click to open media in a modal
     const handleMediaClick = (index) => {
         setSelectedMediaIndex(index);
+        calculateImageStyle(media[index]);
+    };
 
-        // Load the image dimensions before opening
+    const handleClose = () => {
+        setSelectedMediaIndex(null);
+        setModalImageStyle({});
+    };
+
+    const handlePrevious = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
+    };
+
+    const handleNext = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex + 1) % media.length);
+    };
+
+    const calculateImageStyle = (imageSrc) => {
         const img = new Image();
-        img.src = media[index];
+        img.src = imageSrc;
 
         img.onload = () => {
             const { width, height } = img;
             const aspectRatio = width / height;
-            const viewportWidth = window.innerWidth * 0.9; // 90% of the viewport width
-            const viewportHeight = window.innerHeight * 0.9; // 90% of the viewport height
+            const viewportWidth = window.innerWidth * 0.9;
+            const viewportHeight = window.innerHeight * 0.9;
 
-            // Scale the image to fit within the viewport, maintaining aspect ratio
             let adjustedWidth = viewportWidth;
             let adjustedHeight = adjustedWidth / aspectRatio;
 
@@ -47,29 +53,13 @@ const MediaSection = ({ media }) => {
         };
     };
 
-    // Handle closing the modal
-    const handleClose = () => {
-        setSelectedMediaIndex(null);
-        setModalImageStyle({}); // Reset the styles
-    };
-
-    // Navigate to the previous media item
-    const handlePrevious = () => {
-        setSelectedMediaIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
-    };
-
-    // Navigate to the next media item
-    const handleNext = () => {
-        setSelectedMediaIndex((prevIndex) => (prevIndex + 1) % media.length);
-    };
-
     return (
         <Box>
             {/* Media Grid */}
             <Box
                 style={{
                     display: "grid",
-                    gridTemplateColumns: getGridTemplateColumns(media.length),
+                    gridTemplateColumns: `repeat(${Math.min(media.length, 3)}, 1fr)`,
                     gap: "10px",
                 }}
             >
@@ -97,9 +87,9 @@ const MediaSection = ({ media }) => {
                 ))}
             </Box>
 
-            {/* Modal for displaying selected media */}
+            {/* Modal */}
             <Modal
-                open={selectedMediaIndex !== null} // Show modal if selectedMediaIndex is not null
+                open={selectedMediaIndex !== null}
                 onClose={handleClose}
                 aria-labelledby="media-modal"
                 aria-describedby="media-modal-description"
@@ -113,19 +103,62 @@ const MediaSection = ({ media }) => {
                     style={{
                         position: "relative",
                         outline: "none",
+                        backgroundColor: "rgba(0, 0, 0, 0.9)",
                         borderRadius: "10px",
-                        overflow: "hidden",
-                        backgroundColor: "rgba(0, 0, 0, 0.8)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                     }}
                 >
-                    {/* Close button */}
+                    {/* Previous Image Button */}
+                    <IconButton
+                        onClick={handlePrevious}
+                        style={{
+                            position: "absolute",
+                            left: "10px",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            color: "white",
+                            zIndex: 10,
+                            borderRadius: "50%",
+                        }}
+                    >
+                        <ArrowBackIosIcon />
+                    </IconButton>
+
+                    {/* Image */}
+                    <img
+                        src={media[selectedMediaIndex]}
+                        alt="Selected Media"
+                        style={{
+                            ...modalImageStyle,
+                            objectFit: "contain",
+                            borderRadius: "10px",
+                        }}
+                    />
+
+                    {/* Next Image Button */}
+                    <IconButton
+                        onClick={handleNext}
+                        style={{
+                            position: "absolute",
+                            right: "10px",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
+                            color: "white",
+                            zIndex: 10,
+                            borderRadius: "50%",
+                        }}
+                    >
+                        <ArrowForwardIosIcon />
+                    </IconButton>
+
+                    {/* Close Button */}
                     <IconButton
                         onClick={handleClose}
                         style={{
                             position: "absolute",
                             top: "10px",
                             right: "10px",
-                            backgroundColor: "rgba(0, 0, 0, 0.6)",
+                            backgroundColor: "rgba(0, 0, 0, 0.5)",
                             color: "white",
                             zIndex: 10,
                         }}
@@ -133,47 +166,23 @@ const MediaSection = ({ media }) => {
                         <CloseIcon />
                     </IconButton>
 
-                    {/* Navigation Buttons */}
-                    <IconButton
-                        onClick={handlePrevious}
-                        style={{
-                            position: "absolute",
-                            top: "50%",
-                            left: "10px",
-                            transform: "translateY(-50%)",
-                            backgroundColor: "rgba(0, 0, 0, 0.6)",
-                            color: "white",
-                            zIndex: 10,
-                        }}
-                    >
-                        {"<"}
-                    </IconButton>
-
-                    <IconButton
-                        onClick={handleNext}
-                        style={{
-                            position: "absolute",
-                            top: "50%",
-                            right: "10px",
-                            transform: "translateY(-50%)",
-                            backgroundColor: "rgba(0, 0, 0, 0.6)",
-                            color: "white",
-                            zIndex: 10,
-                        }}
-                    >
-                        {">"}
-                    </IconButton>
-
-                    {/* Selected Media */}
-                    <img
-                        src={media[selectedMediaIndex]}
-                        alt="Selected Media"
-                        style={{
-                            ...modalImageStyle, // Dynamically calculated styles
-                            objectFit: "contain", // Ensure full visibility
-                            borderRadius: "10px",
-                        }}
-                    />
+                    {/* Preview of Next Image */}
+                    {media.length > 1 && (
+                        <img
+                            src={media[(selectedMediaIndex + 1) % media.length]}
+                            alt="Next preview"
+                            style={{
+                                position: "absolute",
+                                top: "70vh",
+                                height: "15vh",
+                                width: "auto",
+                                opacity: 0.5,
+                                borderRadius: "5px",
+                                right: "-3vw",
+                                zIndex: -1,
+                            }}
+                        />
+                    )}
                 </Box>
             </Modal>
         </Box>
