@@ -101,9 +101,21 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
 
             {/* Right Section for desktopView */}
             {!isMobile && project.media && project.media.length > 0 && (
-                <div>
+                <div
+                    style={{
+                        flex: 1,
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        justifyContent: "flex-start",
+                        gap: "10px",
+                        borderLeft: `2px solid ${COLOURS[`BORDER_COLOUR_${theme}`]}`,
+                        paddingLeft: "20px",
+                        height: "100%", // Ensure right section takes full height
+                    }}
+                >
                     {project.playable ? (
-                        <GameBoard theme={theme} isMobile={isMobile} style={{ flex: 1, height: "100%" } } /> // Ensure GameBoard stretches
+                        <GameBoard theme={theme} isMobile={isMobile} style={{ flex: 1, height: "100%" }} /> // Ensure GameBoard stretches
                     ) : (
                         <MediaSection media={project.media} />
                     )}
