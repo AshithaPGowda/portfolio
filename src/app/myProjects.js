@@ -3,7 +3,7 @@ const CONSTANT = [];
 CONSTANT.PROJECTS = [
     {
         title: "XOXO Game",
-        slug: "XOXO",
+        slug: 0,
         highlightDescription: "A fun tic-tac-toe game with an AI-powered opponent, playable inside the portfolio.",
         description:
             "XOXO Game is a fun tic-tac-toe game built with React. It features an AI-powered opponent, and it is playable directly within the portfolio. The game doesn't have multiplayer functionality but offers a challenging AI for users. It’s responsive and can be enjoyed across devices with a seamless experience.",
@@ -22,7 +22,7 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "cnotes.in",
-        slug: "cnotes-in",
+        slug: 1,
         highlightDescription:
             "A platform designed to streamline cable TV subscriber management and prevent payment leakages.",
         description:
@@ -52,7 +52,7 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "Dear",
-        slug: "dear",
+        slug: 2,
         highlightDescription: "A personalized voice assistant to simulate memory conversations for Alzheimer's patients.",
         description:
             "Dear is a personalized voice assistant designed to simulate phone conversations with Alzheimer's patients. By deep cloning a family member's voice using Cartesia and integrating VAPI to trigger phone calls, Dear continues the conversation with AI-driven models to assist in simulating memory. It serves as a memory trigger, providing comfort and interaction for those suffering from Alzheimer's. The project aims to help simulate interactions and support the memory recovery process.",
@@ -77,7 +77,7 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "Clue Crafters",
-        slug: "clue-crafters",
+        slug: 3,
         highlightDescription: "A 6-player multiplayer game built with Socket.IO and Express for real-time gameplay.",
         description:
             "Clue Crafters is a revamped version of the traditional Clue board game, built as a 6-player multiplayer experience using Socket.IO for real-time communication and Express for the backend. Players can work together or compete to solve clues in a dynamic, interactive environment. Developed as a full-stack application with Next.js, it ensures seamless gameplay and real-time updates. As the team lead, I handled both the frontend and backend development, including setting up real-time communication and multiplayer functionalities.",
@@ -102,12 +102,12 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "Inveniam.io",
-        slug: "inveniam-io",
+        slug: 4,
         highlightDescription: "Contributed to a data platform improving liquidity for private market assets.",
         description:
             "At Inveniam.io, I worked as a backend developer contributing to a data operating platform aimed at improving liquidity in private market assets like private equity and commercial real estate. My responsibilities included maintaining data security, resolving critical support tickets, and implementing CQRS-based design patterns to ensure data consistency and scalability. Collaborating closely with the team, I played a role in streamlining backend services to enhance the platform’s performance and user experience.",
         cardBackgroundColor: "#8BC34A",
-        media: ["pp.png", "https://via.placeholder.com/200"],
+        media: [],
         details: {
             "Technologies Used": "Angular, Node.js, CQRS",
             Role: "Backend Developer",
@@ -131,7 +131,7 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "Patent Verification System",
-        slug: "patent-verification-system",
+        slug: 5,
         highlightDescription: "A secure blockchain-based platform for verifying patents.",
         description:
             "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers.",
@@ -156,14 +156,11 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "Snake and Ladder",
-        slug: "snake-and-ladder",
+        slug: 6,
         highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
         description: "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
         cardBackgroundColor: "#FFA07A", // Warm and playful tone
-        media: [
-            "pp.png", // Placeholder image for now
-            "https://via.placeholder.com/200",
-        ],
+        media: [],
         details: {
             "Technologies Used": "Socket.IO, Node.js, Express.js, JavaScript, HTML, CSS",
             Role: "Full Stack Developer",
@@ -187,12 +184,12 @@ CONSTANT.PROJECTS = [
     },
     {
         title: "NJS2 Chat Plugin",
-        slug: "njs2-chat-plugin",
+        slug: 7,
         highlightDescription: "Built a reusable chat plugin with the NJS2 framework.",
         description:
           "Developed a robust chat plugin as part of a team working on the NJS2 framework. The plugin supports private chat, random chat, and session-based chat functionalities. Worked extensively on translating modules into text files, creating modular and reusable code, and ensuring seamless integration within the framework. Gained valuable experience in modular development and enhancing real-time communication solutions.",
         cardBackgroundColor: "#8A2BE2",
-        media: ["pp.png"],
+        media: [],
         details: {
           "Technologies Used": "Node.js, NJS2 Framework, JavaScript",
           "Role": "Backend Developer",
