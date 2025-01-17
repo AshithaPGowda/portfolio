@@ -22,8 +22,8 @@ const adjustColor = (color, percentage, lighten = true) => {
     return `#${((1 << 24) | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
 };
 
-const ProjectGrid = ({ projects, onCardClick, theme }) => {
-    const maxHeight = 200; // Fixed height for all cards
+const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
+    const maxHeight = isMobile ? 250 : 200; // Fixed height for all cards
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
