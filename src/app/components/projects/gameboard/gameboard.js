@@ -4,7 +4,7 @@ import COLOURS from "@/app/colours";
 import CONSTANT from "@/app/constants";
 import UTILITY from "./utility";
 
-const GameBoard = ({ theme }) => {
+const GameBoard = ({ theme, isMobile }) => {
     const boardSize = 3; // 3x3 board
     const [board, setBoard] = useState(Array(boardSize * boardSize).fill(null)); // Tracks board state
     const [currentTurn, setCurrentTurn] = useState(CONSTANT.USER); // Tracks whose turn it is
@@ -111,12 +111,6 @@ const handleAITurn = (currentBoard) => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 2,
-                padding: 2,
-                backgroundColor: COLOURS[`SECTION_COLOUR_${theme}`],
-                borderRadius: "16px",
-                boxShadow: theme === "LIGHT" ? "0 4px 8px rgba(0, 0, 0, 0.1)" : "0 4px 8px rgba(0, 0, 0, 0.5)",
-                width: "100%",
             }}
         >
             {/* Game Board */}
@@ -124,9 +118,9 @@ const handleAITurn = (currentBoard) => {
                 sx={{
                     display: "grid",
                     gridTemplateColumns: `repeat(${boardSize}, 1fr)`,
-                    gap: "0.4vw",
+                    gap: isMobile ? "0.8vw" : "0.4vw", // Increase gap slightly for mobile
                     backgroundColor: COLOURS[`BORDER_COLOUR_${theme}`],
-                    padding: "0.1vw",
+                    padding: isMobile ? "0.2vw" : "0.1vw", // Increase padding for mobile
                     borderRadius: "3vh",
                 }}
             >
@@ -140,9 +134,9 @@ const handleAITurn = (currentBoard) => {
                             display: "flex",
                             alignItems: "center",
                             justifyContent: "center",
-                            height: "100px",
-                            width: "100px",
-                            fontSize: "2rem",
+                            height: isMobile ? "11vh" : "12vh", // Adjust height for mobile
+                            width: isMobile ? "20vw" : "7vw", // Adjust width for mobile
+                            fontSize: isMobile ? "1.5rem" : "2rem", // Adjust font size for mobile
                             fontWeight: "bold",
                             color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
                             cursor: cell ? "not-allowed" : "pointer",
