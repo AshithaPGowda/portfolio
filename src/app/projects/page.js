@@ -115,7 +115,7 @@ export default function Projects() {
                 }}
             >
                 {selectedProject === null ? (
-                    <ProjectGrid projects={CONSTANT.PROJECTS} onCardClick={handleCardClick} theme={theme} />
+                    <ProjectGrid projects={CONSTANT.PROJECTS} onCardClick={handleCardClick} theme={theme} isMobile = {isMobile}/>
                 ) : (
                     <ProjectDetails project={selectedProject} onBackClick={handleBackClick} theme={theme} />
                 )}
