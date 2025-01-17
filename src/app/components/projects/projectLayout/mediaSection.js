@@ -5,8 +5,8 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const MediaSection = ({ media }) => {
-    const [selectedMediaIndex, setSelectedMediaIndex] = useState(null); // Track the index of the selected media
-    const [modalImageStyle, setModalImageStyle] = useState({}); // Dynamic styles for the modal image
+    const [selectedMediaIndex, setSelectedMediaIndex] = useState(null);
+    const [modalImageStyle, setModalImageStyle] = useState({});
 
     if (!media || media.length === 0) return null;
 
@@ -59,8 +59,10 @@ const MediaSection = ({ media }) => {
             <Box
                 style={{
                     display: "grid",
-                    gridTemplateColumns: `repeat(${Math.min(media.length, 3)}, 1fr)`,
+                    gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`, // Responsive columns
                     gap: "10px",
+                    maxHeight: "80vh", // Limit grid height to viewport
+                    overflowY: "auto", // Enable scrolling if grid exceeds height
                 }}
             >
                 {media.map((item, index) => (
@@ -183,6 +185,7 @@ const MediaSection = ({ media }) => {
                             }}
                         />
                     )}
+
                 </Box>
             </Modal>
         </Box>
