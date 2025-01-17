@@ -39,17 +39,17 @@ const PersonalDesktop = ({ theme }) => {
                         color: COLOURS[`TEXT_COLOUR_${theme}`],
                         fontSize: "2rem",
                         fontWeight: "bold",
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "10px",
+                        display: "flex", // Use flexbox to handle alignment
+                        alignItems: "center", // Ensure vertical alignment
+                        gap: "10px", // Maintain consistent spacing between text and name
+                        flexWrap: "wrap", // Wrap text if it doesn't fit on smaller screens
                     }}
                 >
-                    Hey there! 👋 I'm{" "}
+                    <span>Hey there! 👋 I'm</span>
                     <span
                         style={{
-                            color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`], 
+                            color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
                             animation: "fade-expand 2s ease-out",
-                            display: "inline-block",
                         }}
                     >
                         Ashitha Paramesha Gowda
