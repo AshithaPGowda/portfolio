@@ -11,17 +11,26 @@ export default function Home() {
     const isActiveIndex = 0;
 
     const getDefaultTheme = () => {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+        let theme = sessionStorage.getItem('theme');
+        if(!theme){
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+        }
+        return theme
     };
     const [theme, setTheme] = useState(getDefaultTheme); // Default to LIGHT
+    sessionStorage.setItem('theme', theme);
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
+        let theme = sessionStorage.getItem('theme');
+        let newTheme = theme === 'LIGHT' ? 'DARK' : 'LIGHT'
+        sessionStorage.setItem('theme', newTheme);
     };
 
     useEffect(() => {
         // Check if the animation has already been played in the current session
         const animationFlag = sessionStorage.getItem('animationPlayed');
+        
         if (!animationFlag) {
             // If not, run the animation and set the flag in sessionStorage
             anime({

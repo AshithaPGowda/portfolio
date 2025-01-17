@@ -18,9 +18,14 @@ export default function Projects() {
     const currentYear = new Date().getFullYear();
 
     const getDefaultTheme = () => {
-        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+        let theme = sessionStorage.getItem('theme');
+        if(!theme){
+            theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+        }
+        return theme
     };
-    const [theme, setTheme] = useState(getDefaultTheme);
+    const [theme, setTheme] = useState(getDefaultTheme); // Default to LIGHT
+    sessionStorage.setItem('theme', theme);
     const [selectedProject, setSelectedProject] = useState(null);
 
     // Function to set project based on ID
@@ -48,7 +53,10 @@ export default function Projects() {
     }, [searchParams]); // Re-run when searchParams change
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === "LIGHT" ? "DARK" : "LIGHT"));
+        setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
+        let theme = sessionStorage.getItem('theme');
+        let newTheme = theme === 'LIGHT' ? 'DARK' : 'LIGHT'
+        sessionStorage.setItem('theme', newTheme);
     };
 
     const handleCardClick = (project) => {
