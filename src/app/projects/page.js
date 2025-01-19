@@ -12,7 +12,7 @@ import CONSTANT from "../myProjects";
 export default function Projects() {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const isActiveIndex = 2;
+    const isActiveIndex = 1;
     const isMobile = useMediaQuery("(max-width:600px)");
 
     const currentYear = new Date().getFullYear();
