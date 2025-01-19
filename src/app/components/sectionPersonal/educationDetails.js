@@ -55,7 +55,8 @@ const Education = ({ theme, timelineColours }) => {
             icon: <Science />,
             title: "Founder & Manager",
             description: "Cnotes",
-            details: "2022 - Present | Managing over 30,000 customer data and monthly predictions for streamlined cable TV management for operators.",
+            details:
+                "2022 - Present | Managing over 30,000 customer data and monthly predictions for streamlined cable TV management for operators.",
         },
         {
             color: timelineColours[4],
@@ -127,6 +128,17 @@ const Education = ({ theme, timelineColours }) => {
                 </div>
             ) : (
                 <div>
+                    <Typography
+                        variant="h4"
+                        style={{
+                            color: COLOURS[`TEXT_COLOUR_${theme}`],
+                            fontWeight: "bold",
+                            marginBottom: "6vh",
+                            textAlign: "center",
+                        }}
+                    >
+                        MY TIMELINE
+                    </Typography>
                     <Grid container spacing={3}>
                         {education.map((edu, index) => (
                             <Grid item xs={12} sm={6} md={4} key={index}>
