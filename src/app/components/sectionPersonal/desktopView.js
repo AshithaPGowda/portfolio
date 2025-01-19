@@ -82,8 +82,12 @@ const PersonalDesktop = ({ theme }) => {
                         marginTop: "20px",
                     }}
                 >
-                    🌟 An adventurer at heart, I thrive on curiosity and exploration. Whether it's decoding life's mysteries
-                    or learning something new every day, I'm drawn to challenges that spark creativity and growth.
+                    I'm a full-stack developer with a focus on backend engineering and API development, tackling complex
+                    problems to create scalable, high-performance solutions. I work with Node.js, Next.js, React, and
+                    blockchain to build systems that work seamlessly. At cnotes.in, I designed a custom algorithm to predict
+                    monthly billing for over 30,000 customers. Always exploring AI in tech, I thrive on collaborating with
+                    teams to innovate and solve challenges. When I’m not coding, I'm learning something new or pushing myself
+                    to improve.
                 </p>
                 <p
                     style={{
@@ -136,7 +140,7 @@ const PersonalDesktop = ({ theme }) => {
                             style={{
                                 width: "3vw",
                                 height: "5vh",
-                                backgroundImage: `url('curved-arrow-4635.svg')`,
+                                backgroundImage: `url('curved-arrow-${theme}.svg')`,
                                 backgroundSize: "contain",
                                 backgroundRepeat: "no-repeat",
                                 animation: "bounce 2s infinite",
