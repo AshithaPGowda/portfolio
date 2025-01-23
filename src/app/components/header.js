@@ -7,6 +7,7 @@ import MenuItem from "./menuIcons";
 import COLOURS from "../colours";
 import CONSTANT from "../constants";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Header({ theme, toggleTheme, isActive }) {
     const [isMenuOpen, setMenuOpen] = useState(false); // State to control menu visibility
@@ -50,12 +51,19 @@ export default function Header({ theme, toggleTheme, isActive }) {
                 zIndex: 10,
             }}
         >
-            <div style={{ width: "5vw", height: "8vh", borderRadius: "1vw" }}>
-                <img src="apg.png" alt="APG Logo" style={{ width: "100%", height: "100%" }} />
+            <div style={{ width: "5vw", height: "8vh", borderRadius: "1vw", position: "relative", overflow: "hidden" }}>
+                <Image
+                    src="/apg.png" // Use a relative path starting from the public directory
+                    alt="APG Logo"
+                    layout="fill" // Ensures the image fills the parent container
+                    objectFit="cover" // Adjusts how the image is resized
+                    quality={100} // Optional: Adjust image quality
+                    priority // Optional: Ensures the image is loaded eagerly
+                />
             </div>
 
             {isMobile ? (
-                <div style={{ display: "flex", alignItems: "center", gap: "8vw",  }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8vw" }}>
                     {/* Dark/Light Mode Toggle Button  */}
                     {!isMenuOpen && (
                         <button

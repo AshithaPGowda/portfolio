@@ -14,43 +14,50 @@ CONSTANT.SKILLS = [
         title: "Software Development",
         description: "Crafting robust and scalable solutions.",
         details: [
-            <div style={{ display: "flex", justifyContent: "center", gap: "10px" }}>
+            <div
+                key="dynamic-icons" // Add a unique key
+                style={{ display: "flex", justifyContent: "center", gap: "10px" }}
+            >
                 <DynamicNode
+                    key="dynamic-node" // Unique key for this component
                     color={COLOURS[`BACKGROUND_LIGHT`]}
                     style={{
-                        width: "50%", // Scale with card's width
-                        height: "auto", // Maintain aspect ratio
-                        maxWidth: "60px", // Ensure it doesn't get too large
-                        margin: "0 auto", // Center it
+                        width: "50%",
+                        height: "auto",
+                        maxWidth: "60px",
+                        margin: "0 auto",
                     }}
-                ></DynamicNode>
+                />
                 <DynamicPython
+                    key="dynamic-python" // Unique key for this component
                     color={COLOURS[`BACKGROUND_LIGHT`]}
                     style={{
-                        width: "50%", // Scale with card's width
-                        height: "auto", // Maintain aspect ratio
-                        maxWidth: "60px", // Ensure it doesn't get too large
-                        margin: "0 auto", // Center it
+                        width: "50%",
+                        height: "auto",
+                        maxWidth: "60px",
+                        margin: "0 auto",
                     }}
-                ></DynamicPython>
+                />
                 <DynamicPHP
+                    key="dynamic-php" // Unique key for this component
                     color={"#4CAF50"}
                     style={{
-                        width: "50%", // Scale with card's width
-                        height: "auto", // Maintain aspect ratio
-                        maxWidth: "60px", // Ensure it doesn't get too large
-                        margin: "0 auto", // Center it
+                        width: "50%",
+                        height: "auto",
+                        maxWidth: "60px",
+                        margin: "0 auto",
                     }}
-                ></DynamicPHP>
+                />
                 <DynamicTypescript
+                    key="dynamic-typescript" // Unique key for this component
                     color={COLOURS[`BACKGROUND_LIGHT`]}
                     style={{
-                        width: "50%", // Scale with card's width
-                        height: "auto", // Maintain aspect ratio
-                        maxWidth: "60px", // Ensure it doesn't get too large
-                        margin: "0 auto", // Center it
+                        width: "50%",
+                        height: "auto",
+                        maxWidth: "60px",
+                        margin: "0 auto",
                     }}
-                ></DynamicTypescript>
+                />
             </div>,
         ],
     },

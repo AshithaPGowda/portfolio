@@ -86,7 +86,7 @@ const PersonalDesktop = ({ theme }) => {
                     problems to create scalable, high-performance solutions. I work with Node.js, Next.js, React, and
                     blockchain to build systems that work seamlessly. At cnotes.in, I designed a custom algorithm to predict
                     monthly billing for over 30,000 customers. Always exploring AI in tech, I thrive on collaborating with
-                    teams to innovate and solve challenges. When I’m not coding, I'm learning something new or pushing myself
+                    teams to innovate and solve challenges. When I'm not coding, I'm learning something new or pushing myself
                     to improve.
                 </p>
                 <p
@@ -96,9 +96,9 @@ const PersonalDesktop = ({ theme }) => {
                         color: COLOURS[`TEXT_COLOUR_${theme}`],
                     }}
                 >
-                    💬 I’m a strong believer in collaboration and empathy, always striving to uplift those around me. If
-                    there’s one thing I value deeply, it's meaningful connections and making a positive impact in every space
-                    I occupy. 🎨 Outside work, you’ll find me immersed in art, experimenting in the kitchen, or on a quest to
+                    💬 I'm a strong believer in collaboration and empathy, always striving to uplift those around me. If
+                    there's one thing I value deeply, it's meaningful connections and making a positive impact in every space
+                    I occupy. 🎨 Outside work, you'll find me immersed in art, experimenting in the kitchen, or on a quest to
                     discover the best local coffee shops. Life, for me, is about crafting beautiful experiences—both in and
                     outside the code.
                 </p>

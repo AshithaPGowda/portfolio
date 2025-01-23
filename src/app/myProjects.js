@@ -8,7 +8,7 @@ CONSTANT.PROJECTS = [
         description:
             "Built with React, this tic-tac-toe game features an AI-powered opponent and is fully responsive. It provides a seamless experience for users across devices. This project demonstrates my expertise in creating interactive UIs and integrating AI logic. Designed an optimized AI opponent using minimax algorithm principles, enhancing difficulty for users",
         cardBackgroundColor: "#FFEB3B",
-        media: ["pp.png", "https://via.placeholder.com/200"],
+        media: ["/pp.png", "https://via.placeholder.com/200"],
         details: {
             "Technologies Used": "React, JavaScript, HTML, CSS, AI Algorithm",
             Role: "Full Stack Developer",
@@ -28,7 +28,7 @@ CONSTANT.PROJECTS = [
         description:
             "cnotes.in is a cable TV management platform I developed to address payment leakages and streamline subscriber management. Key features include automated billing, SMS receipts, and efficient collection tracking. Built using PHP and MySQL, it ensures reliability and scalability for business needs.",
         cardBackgroundColor: "#4169E1",
-        media: ["cnotes/home.png","cnotes/login.png"],
+        media: ["/cnotes/home.png","/cnotes/login.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
             Role: "Full Stack Developer",
@@ -82,7 +82,7 @@ CONSTANT.PROJECTS = [
         description:
             "As the team lead for Clue Crafters, I developed a real-time multiplayer board game based on the classic Clue. Leveraging Socket.IO for real-time gameplay and Next.js for a dynamic UI, I handled both backend and frontend development. The project showcases my ability to build complex, interactive applications.",
         cardBackgroundColor: "#6D4C41",
-        media: ["clueCrafters/gameboard.png", "clueCrafters/gameStart.png","clueCrafters/suggestion.png"],
+        media: ["/clueCrafters/gameboard.png", "/clueCrafters/gameStart.png","/clueCrafters/suggestion.png"],
         details: {
             "Technologies Used": "Socket.IO, Express, Next.js, JavaScript, HTML, CSS",
             Role: "Full Stack Developer",
