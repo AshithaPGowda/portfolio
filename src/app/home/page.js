@@ -8,13 +8,11 @@ import PersonalMobile from '../components/sectionPersonal/mobileView';
 import PersonalDesktop from '../components/sectionPersonal/desktopView';
 import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
 import Education from '../components/sectionPersonal/educationDetails';
+import Footer from '../components/footerContent/customFooter';
 
 export default function UserProfile({theme, timelineColours}) {
       // Check if the screen is small (mobile view)
   const isMobile = useMediaQuery("(max-width:600px)");
-
-  const currentYear = new Date().getFullYear();
-  const colors = ["#4CAF50", "#2196F3"];
 
   useEffect(() => {
     // Ensure body and html take up full height of the screen
@@ -75,18 +73,8 @@ export default function UserProfile({theme, timelineColours}) {
        {<Education theme={theme} timelineColours={timelineColours}/>}
       </div>
 
-      {/* Custom Footer */}
-      <div
-        style={{
-          padding: '10px 10px',
-          backgroundColor: COLOURS[`BACKGROUND_${theme}`], // Dynamic footer color
-          color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic footer text color
-          textAlign: 'center',
-          marginTop: 'auto',
-        }}
-      >
-        <p>&#169; Ashitha Gowda {currentYear}</p>
-      </div>
+            {/* Footer */}
+            <Footer theme={theme} isMobile={isMobile}/>
     </div>
   );
 }

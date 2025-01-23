@@ -20,7 +20,8 @@ const ResumeViewer = ({ open, onClose, theme, COLOURS, resumeUrl }) => {
                     left: "50%",
                     transform: "translate(-50%, -50%)",
                     width: "90%",
-                    maxWidth: "600px",
+                    maxWidth: "70%",
+                    height:"80%",
                     bgcolor: COLOURS[`SECTION_COLOUR_${theme}`],
                     boxShadow: 24,
                     p: 4,
@@ -38,7 +39,7 @@ const ResumeViewer = ({ open, onClose, theme, COLOURS, resumeUrl }) => {
                     title="Resume Preview"
                     style={{
                         width: "100%",
-                        height: "400px",
+                        height: "80%",
                         border: "none",
                         borderRadius: "8px",
                         marginBottom: "20px",

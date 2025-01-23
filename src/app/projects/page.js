@@ -123,7 +123,7 @@ export default function Projects() {
             </div>
 
             {/* Footer */}
-            <Footer theme={theme}/>
+            <Footer theme={theme} isMobile={isMobile}/>
         </div>
     );
 }

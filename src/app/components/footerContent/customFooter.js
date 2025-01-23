@@ -7,7 +7,7 @@ import COLOURS from "@/app/colours";
 import ContactForm from "./contentForm";
 import ResumeViewer from "./resumeViewer";
 
-const Footer = ({ theme }) => {
+const Footer = ({ theme, isMobile }) => {
     const [showContactForm, setShowContactForm] = useState(false);
     const [showResume, setShowResume] = useState(false);
 
@@ -18,6 +18,14 @@ const Footer = ({ theme }) => {
 
     const handleOpenResume = () => setShowResume(true);
     const handleCloseResume = () => setShowResume(false);
+
+    // Handle the click on "Download Resume" on mobile
+    const handleDownloadResume = () => {
+        const link = document.createElement("a");
+        link.href = CONSTANT.RESUMEURL;
+        link.download = CONSTANT.RESUME_NAME_FOR_DOWNLOAD; // Customize the filename if necessary
+        link.click();
+    };
 
     return (
         <footer
@@ -45,26 +53,23 @@ const Footer = ({ theme }) => {
                 <Button
                     variant="contained"
                     color="secondary"
-                    onClick={handleOpenResume}
+                    onClick={isMobile ? handleDownloadResume : handleOpenResume}
                     style={{ backgroundColor: COLOURS[`BUTTON_${theme}`] }}
                 >
-                    My Resume
+                    {isMobile ? "Download Resume" : "My Resume"}
                 </Button>
             </div>
 
-            <ContactForm
-                open={showContactForm}
-                onClose={handleCloseContactForm}
-                theme={theme}
-                COLOURS={COLOURS}
-            />
-            <ResumeViewer
-                open={showResume}
-                onClose={handleCloseResume}
-                theme={theme}
-                COLOURS={COLOURS}
-                resumeUrl={CONSTANT.RESUMEURL}
-            />
+            <ContactForm open={showContactForm} onClose={handleCloseContactForm} theme={theme} COLOURS={COLOURS} />
+            {isMobile ? null : (
+                <ResumeViewer
+                    open={showResume}
+                    onClose={handleCloseResume}
+                    theme={theme}
+                    COLOURS={COLOURS}
+                    resumeUrl={CONSTANT.RESUMEURL}
+                />
+            )}
         </footer>
     );
 };
