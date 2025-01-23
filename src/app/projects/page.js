@@ -8,6 +8,7 @@ import COLOURS from "../colours";
 import ProjectGrid from "../components/projects/projectGrid";
 import ProjectDetails from "../components/projects/projectDetails";
 import CONSTANT from "../myProjects";
+import Footer from "../components/footerContent/customFooter";
 
 export default function Projects() {
     const router = useRouter();
@@ -122,17 +123,7 @@ export default function Projects() {
             </div>
 
             {/* Footer */}
-            <div
-                style={{
-                    padding: "10px 10px",
-                    backgroundColor: COLOURS[`BACKGROUND_${theme}`],
-                    color: COLOURS[`TEXT_COLOUR_${theme}`],
-                    textAlign: "center",
-                    marginTop: "auto",
-                }}
-            >
-                <p>&#169; Ashitha Gowda {currentYear}</p>
-            </div>
+            <Footer theme={theme}/>
         </div>
     );
 }
