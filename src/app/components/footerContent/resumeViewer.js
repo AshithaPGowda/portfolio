@@ -1,8 +1,16 @@
 "use client";
 
 import { Modal, Box, Typography, Button } from "@mui/material";
+import CONSTANT from "@/app/constants";
 
 const ResumeViewer = ({ open, onClose, theme, COLOURS, resumeUrl }) => {
+    const downloadResume = () => {
+        const link = document.createElement("a");
+        link.href = resumeUrl;
+        link.download = CONSTANT.RESUME_NAME_FOR_DOWNLOAD; // Set the desired filename
+        link.click();
+    };
+
     return (
         <Modal open={open} onClose={onClose}>
             <Box
@@ -19,7 +27,10 @@ const ResumeViewer = ({ open, onClose, theme, COLOURS, resumeUrl }) => {
                     borderRadius: "8px",
                 }}
             >
-                <Typography variant="h6" gutterBottom>
+                <Typography 
+                    variant="h6" 
+                    gutterBottom 
+                    style={{ color: COLOURS[`TEXT_COLOUR_${theme}`], textAlign: "center", marginBottom: "20px" }}>
                     My Resume
                 </Typography>
                 <iframe
@@ -36,8 +47,12 @@ const ResumeViewer = ({ open, onClose, theme, COLOURS, resumeUrl }) => {
                 <div style={{ textAlign: "right" }}>
                     <Button
                         variant="contained"
-                        color="primary"
-                        onClick={() => window.open(resumeUrl, "_blank")}
+                        onClick={downloadResume}
+                        style={{
+                            color: COLOURS[`TEXT_COLOUR_${theme}`],
+                            borderRadius: "8px",
+                            textTransform: "none", // Optional: Makes the button text more readable
+                        }}
                     >
                         Download Resume
                     </Button>
