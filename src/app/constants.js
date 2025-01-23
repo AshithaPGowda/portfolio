@@ -19,5 +19,6 @@ CONSTANT.X = "X"
 CONSTANT.O = "O"
 
 CONSTANT.RESUMEURL = 'ASHITHA_P_GOWDA.pdf'
+CONSTANT.RESUME_NAME_FOR_DOWNLOAD = "ashitha_p_gowda.pdf"
 
 export default CONSTANT;
