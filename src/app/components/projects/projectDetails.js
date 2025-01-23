@@ -52,7 +52,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 position: isMobile ? "fixed" : "relative", // Fix position on mobile
                                 top: isMobile ? "20vh" : "unset", // Top position for mobile
                                 left: isMobile ? "3.5vw" : "unset", // Left position for mobile
-                                zIndex: 10, // Ensure it stays above other content
+                                zIndex: 3, // Ensure it stays above other content
                                 backgroundColor: isMobile ? COLOURS[`SECTION_COLOUR_${theme}`] : "transparent", // Optional: Semi-transparent background for better visibility
                                 borderRadius: "20px", // Optional: Rounded corners for better mobile UX
                             }}
