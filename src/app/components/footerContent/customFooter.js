@@ -38,9 +38,6 @@ const Footer = ({ theme, isMobile }) => {
                 borderTop: `1px solid ${COLOURS[`SECTION_COLOUR_${theme}`]}`,
             }}
         >
-            <Typography variant="body2" style={{ marginBottom: "10px" }}>
-                &#169; Ashitha Gowda {currentYear}
-            </Typography>
             <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
                 <Button
                     variant="contained"
@@ -70,6 +67,9 @@ const Footer = ({ theme, isMobile }) => {
                     resumeUrl={CONSTANT.RESUMEURL}
                 />
             )}
+                        <Typography variant="body2" style={{ marginTop: "10px" }}>
+                &#169; Ashitha Gowda {currentYear}
+            </Typography>
         </footer>
     );
 };
