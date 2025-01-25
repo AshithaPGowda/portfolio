@@ -47,7 +47,7 @@ export default function Home() {
                     // After 3 seconds, switch to the "home" content
                     setTimeout(() => {
                         setIsVisible(false);
-                    }, 3000);
+                    }, 1200);
                 },
             });
             sessionStorage.setItem('animationPlayed', 'true'); // Set flag in sessionStorage
