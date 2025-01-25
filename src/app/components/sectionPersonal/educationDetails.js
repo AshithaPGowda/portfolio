@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { Card, CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { Engineering, Science, HistoryEdu, Language, School, ArrowForward } from "@mui/icons-material";
+import { HistoryEdu, Language, School, ArrowForward } from "@mui/icons-material";
 import { useState, useEffect } from "react";
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import COLOURS from "@/app/colours";
 import "./education.module.css";
 import SwipeableCards from "./swipeableCards";
@@ -236,7 +237,7 @@ const Education = ({ theme, timelineColours }) => {
                                 {/* Arrow */}
                                 {index < education.length - 1 && (
                                     <Grid item xs={12} sm={1} md={0.5} style={{ textAlign: "center" }}>
-                                        <ArrowForward
+                                        <NavigateNextIcon
                                             style={{
                                                 fontSize: "3rem",
                                                 color: COLOURS[`TEXT_COLOUR_${theme}`],

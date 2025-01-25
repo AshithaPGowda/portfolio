@@ -62,6 +62,20 @@ CONSTANT.SKILLS = [
         ],
     },
     {
+        color: "#8BC34A",
+        icon: <Psychology />,
+        title: "AI Algorithm Development",
+        description: "Creating intelligent systems for real-world challenges.",
+        details: "TensorFlow, PyTorch, Scikit-learn, AI Pipelines.",
+    },
+    {
+        color: "#FF5722",
+        icon: <Api />,
+        title: "RESTful APIs",
+        description: "Building efficient and scalable API integrations.",
+        details: "REST API, GraphQL, WebSockets, CQRS, Microservices.",
+    },
+    {
         color: "#2196F3",
         icon: <Cloud />,
         title: "Hosting",
@@ -83,13 +97,6 @@ CONSTANT.SKILLS = [
         details: "Jest, Mocha, Chai, TDD, Rate Limiting, XSS, MITM Protection.",
     },
     {
-        color: "#FF5722",
-        icon: <Api />,
-        title: "RESTful APIs",
-        description: "Building efficient and scalable API integrations.",
-        details: "REST API, GraphQL, WebSockets, CQRS, Microservices.",
-    },
-    {
         color: "#FFC107",
         icon: <Assessment />,
         title: "Load Testing",
@@ -109,13 +116,6 @@ CONSTANT.SKILLS = [
         title: "Smart Contracts",
         description: "Developing secure blockchain-based applications.",
         details: "Solidity, Hardhat, Web3.js, Ethers.js, DeFi, NFT Development.",
-    },
-    {
-        color: "#8BC34A",
-        icon: <Psychology />,
-        title: "AI Algorithm Development",
-        description: "Creating intelligent systems for real-world challenges.",
-        details: "TensorFlow, PyTorch, Scikit-learn, AI Pipelines.",
     },
 ];
 

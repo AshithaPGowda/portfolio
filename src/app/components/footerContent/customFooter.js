@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Typography, Button } from "@mui/material";
+import { Typography } from "@mui/material";
+import { useRouter } from "next/navigation"; // Import useRouter
 import CONSTANT from "@/app/constants";
 import COLOURS from "@/app/colours";
 import ContactForm from "./contentForm";
@@ -10,6 +11,7 @@ import ResumeViewer from "./resumeViewer";
 const Footer = ({ theme, isMobile }) => {
     const [showContactForm, setShowContactForm] = useState(false);
     const [showResume, setShowResume] = useState(false);
+    const router = useRouter(); // Initialize useRouter
 
     const currentYear = new Date().getFullYear();
 
@@ -25,6 +27,11 @@ const Footer = ({ theme, isMobile }) => {
         link.href = CONSTANT.RESUMEURL;
         link.download = CONSTANT.RESUME_NAME_FOR_DOWNLOAD; // Customize the filename if necessary
         link.click();
+    };
+
+    // Handle "Projects" button click
+    const handleProjectsClick = () => {
+        router.push("/projects"); // Navigate to /projects
     };
 
     return (
@@ -45,7 +52,7 @@ const Footer = ({ theme, isMobile }) => {
                     color="primary"
                     onClick={handleOpenContactForm}
                     style={{
-                        backgroundColor: COLOURS[`BUTTON_${theme}`],
+                        color: COLOURS[`FOOTER_CONTACT_ME_${theme}`],
                         padding: "10px 20px",
                         borderRadius: "5px",
                         cursor: "pointer", // Hand on hover
@@ -63,7 +70,7 @@ const Footer = ({ theme, isMobile }) => {
                     color="secondary"
                     onClick={isMobile ? handleDownloadResume : handleOpenResume}
                     style={{
-                        backgroundColor: COLOURS[`BUTTON_${theme}`],
+                        color: COLOURS[`COLOURS.FOOTER_RESUME_${theme}`],
                         padding: "10px 20px",
                         borderRadius: "5px",
                         cursor: "pointer", // Hand on hover
@@ -73,6 +80,24 @@ const Footer = ({ theme, isMobile }) => {
                     onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Reset
                 >
                     {isMobile ? "Download Resume" : "My Resume"}
+                </Typography>
+
+                {/* Projects Button */}
+                <Typography
+                    variant="contained"
+                    color="primary"
+                    onClick={handleProjectsClick} // Updated to navigate to /projects
+                    style={{
+                        color: COLOURS[`COLOURS.FOOTER_PROJECT${theme}`],
+                        padding: "10px 20px",
+                        borderRadius: "5px",
+                        cursor: "pointer", // Hand on hover
+                        transition: "transform 0.2s ease", // Smooth animation
+                    }}
+                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")} // Enlarge
+                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Reset
+                >
+                    Projects
                 </Typography>
             </div>
 
