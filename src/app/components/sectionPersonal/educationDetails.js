@@ -1,7 +1,7 @@
 "use client";
-
+import React from "react";
 import { Card, CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { Engineering, Science, HistoryEdu, Language, School } from "@mui/icons-material";
+import { Engineering, Science, HistoryEdu, Language, School, ArrowForward } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import COLOURS from "@/app/colours";
 import "./education.module.css";
@@ -139,86 +139,104 @@ const Education = ({ theme, timelineColours }) => {
                     >
                         MY TIMELINE
                     </Typography>
-                    <Grid container spacing={3}>
+
+                    <Grid container spacing={3} alignItems="center">
                         {education.map((edu, index) => (
-                            <Grid item xs={12} sm={6} md={4} key={index}>
-                                <Card
-                                    onMouseEnter={() => handleCardHover(index, edu.color)}
-                                    onMouseLeave={handleCardLeave}
-                                    style={{
-                                        textAlign: "center",
-                                        padding: "4vh",
-                                        borderRadius: "2vw",
-                                        boxShadow:
-                                            hoveredIndex === index
-                                                ? "0 10px 20px rgba(0, 0, 0, 0.2)"
-                                                : "0 6px 12px rgba(0, 0, 0, 0.1)",
-                                        transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
-                                        transition: "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
-                                        backgroundColor: hoveredIndex === index ? edu.color : COLOURS[`CARD_COLOUR_${theme}`],
-                                        color: hoveredIndex === index ? "#fff" : COLOURS[`SECTION_COLOUR_${theme}`],
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        justifyContent: "space-between",
-                                        gap: "10px",
-                                    }}
-                                >
-                                    <div
+                            <React.Fragment key={index}>
+                                {/* Card */}
+                                <Grid item xs={12} sm={6} md={2}>
+                                    <Card
+                                        onMouseEnter={() => handleCardHover(index, edu.color)}
+                                        onMouseLeave={handleCardLeave}
                                         style={{
-                                            fontSize: "3rem",
-                                            marginBottom: "10px",
-                                            color: !hoveredIndex === index ? "#fff" : edu.color,
+                                            textAlign: "center",
+                                            padding: "4vh",
+                                            borderRadius: "2vw",
+                                            boxShadow:
+                                                hoveredIndex === index
+                                                    ? "0 10px 20px rgba(0, 0, 0, 0.2)"
+                                                    : "0 6px 12px rgba(0, 0, 0, 0.1)",
+                                            transform: hoveredIndex === index ? "scale(1.05)" : "scale(1)",
+                                            transition:
+                                                "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
+                                            backgroundColor:
+                                                hoveredIndex === index ? edu.color : COLOURS[`CARD_COLOUR_${theme}`],
+                                            color: hoveredIndex === index ? "#fff" : COLOURS[`SECTION_COLOUR_${theme}`],
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            justifyContent: "space-between",
+                                            gap: "10px",
                                         }}
                                     >
-                                        {edu.icon}
-                                    </div>
-                                    <CardContent>
-                                        <Typography
-                                            variant="h6"
+                                        <div
                                             style={{
-                                                color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
-                                                transition: "transform 0.3s ease",
-                                                transform: hoveredIndex === index ? "translateY(-11vh)" : "translateY(0)",
-                                                textTransform: hoveredIndex === index ? "uppercase" : "",
-                                                fontWeight: "bold", // Bold on hover
+                                                fontSize: "3rem",
+                                                marginBottom: "10px",
+                                                color: !hoveredIndex === index ? "#fff" : edu.color,
                                             }}
                                         >
-                                            {edu.title}
-                                        </Typography>
-                                        <Typography
-                                            variant="body2"
-                                            style={{
-                                                color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
-                                                transition: "transform 0.3s ease",
-                                                transform: hoveredIndex === index ? "translateY(-10vh)" : "translateY(0)",
-                                            }}
-                                        >
-                                            {edu.description}
-                                        </Typography>
-                                        {hoveredIndex === index && (
-                                            <div
+                                            {edu.icon}
+                                        </div>
+                                        <CardContent>
+                                            <Typography
+                                                variant="h6"
                                                 style={{
-                                                    marginTop: "-5vh",
-                                                    color: "#fff",
+                                                    color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
+                                                    transition: "transform 0.3s ease",
+                                                    transform: hoveredIndex === index ? "translateY(-11vh)" : "translateY(0)",
+                                                    textTransform: hoveredIndex === index ? "uppercase" : "",
+                                                    fontWeight: "bold", // Bold on hover
                                                 }}
                                             >
-                                                <div style={{ display: "flex", flexDirection: "row" }}></div>
-                                                {Array.isArray(edu.details) ? (
-                                                    edu.details.map((detail, i) => (
-                                                        <div key={i} variant="body2" style={{ marginBottom: "10px" }}>
-                                                            {detail}
+                                                {edu.title}
+                                            </Typography>
+                                            <Typography
+                                                variant="body2"
+                                                style={{
+                                                    color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
+                                                    transition: "transform 0.3s ease",
+                                                    transform: hoveredIndex === index ? "translateY(-10vh)" : "translateY(0)",
+                                                }}
+                                            >
+                                                {edu.description}
+                                            </Typography>
+                                            {hoveredIndex === index && (
+                                                <div
+                                                    style={{
+                                                        marginTop: "-5vh",
+                                                        color: "#fff",
+                                                    }}
+                                                >
+                                                    <div style={{ display: "flex", flexDirection: "row" }}></div>
+                                                    {Array.isArray(edu.details) ? (
+                                                        edu.details.map((detail, i) => (
+                                                            <div key={i} variant="body2" style={{ marginBottom: "10px" }}>
+                                                                {detail}
+                                                            </div>
+                                                        ))
+                                                    ) : (
+                                                        <div variant="body2" style={{ marginBottom: "10px" }}>
+                                                            {edu.details}
                                                         </div>
-                                                    ))
-                                                ) : (
-                                                    <div variant="body2" style={{ marginBottom: "10px" }}>
-                                                        {edu.details}
-                                                    </div>
-                                                )}
-                                            </div>
-                                        )}
-                                    </CardContent>
-                                </Card>
-                            </Grid>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+
+                                {/* Arrow */}
+                                {index < education.length - 1 && (
+                                    <Grid item xs={12} sm={1} md={0.5} style={{ textAlign: "center" }}>
+                                        <ArrowForward
+                                            style={{
+                                                fontSize: "3rem",
+                                                color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                            }}
+                                        />
+                                    </Grid>
+                                )}
+                            </React.Fragment>
                         ))}
                     </Grid>
                 </div>
