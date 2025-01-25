@@ -39,22 +39,41 @@ const Footer = ({ theme, isMobile }) => {
             }}
         >
             <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-                <Button
+                {/* Contact Me */}
+                <Typography
                     variant="contained"
                     color="primary"
                     onClick={handleOpenContactForm}
-                    style={{ backgroundColor: COLOURS[`BUTTON_${theme}`] }}
+                    style={{
+                        backgroundColor: COLOURS[`BUTTON_${theme}`],
+                        padding: "10px 20px",
+                        borderRadius: "5px",
+                        cursor: "pointer", // Hand on hover
+                        transition: "transform 0.2s ease", // Smooth animation
+                    }}
+                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")} // Enlarge
+                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Reset
                 >
                     Contact Me
-                </Button>
-                <Button
+                </Typography>
+
+                {/* My Resume / Download Resume */}
+                <Typography
                     variant="contained"
                     color="secondary"
                     onClick={isMobile ? handleDownloadResume : handleOpenResume}
-                    style={{ backgroundColor: COLOURS[`BUTTON_${theme}`] }}
+                    style={{
+                        backgroundColor: COLOURS[`BUTTON_${theme}`],
+                        padding: "10px 20px",
+                        borderRadius: "5px",
+                        cursor: "pointer", // Hand on hover
+                        transition: "transform 0.2s ease", // Smooth animation
+                    }}
+                    onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")} // Enlarge
+                    onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Reset
                 >
                     {isMobile ? "Download Resume" : "My Resume"}
-                </Button>
+                </Typography>
             </div>
 
             <ContactForm open={showContactForm} onClose={handleCloseContactForm} theme={theme} COLOURS={COLOURS} />
@@ -67,7 +86,9 @@ const Footer = ({ theme, isMobile }) => {
                     resumeUrl={CONSTANT.RESUMEURL}
                 />
             )}
-                        <Typography variant="body2" style={{ marginTop: "10px" }}>
+
+            {/* Footer Copyright */}
+            <Typography variant="body2" style={{ marginTop: "10px" }}>
                 &#169; Ashitha Gowda {currentYear}
             </Typography>
         </footer>
