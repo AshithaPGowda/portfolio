@@ -31,14 +31,22 @@ const Education = ({ theme, timelineColours }) => {
     const education = [
         {
             color: timelineColours[0],
-            icon: <Engineering />,
+            icon: <School />,
             title: "Bachelor of Engineering",
             description: "Vidyavardhaka College of Engineering",
             details: "August 2017 - May 2021 | Focused on Information Science and Engineering.",
         },
         {
-            color: timelineColours[1],
+            color: timelineColours[3],
             icon: <HistoryEdu />,
+            title: "Founder & Manager",
+            description: "Cnotes",
+            details:
+                "2022 - Present | Managing over 30,000 customer data and monthly predictions for streamlined cable TV management for operators.",
+        },
+        {
+            color: timelineColours[1],
+            icon: <Language />,
             title: "Software Developer",
             description: "Juego Studios",
             details: "August 2021 - April 2023 | Contributed to game development and innovative software solutions.",
@@ -49,14 +57,6 @@ const Education = ({ theme, timelineColours }) => {
             title: "Software Developer",
             description: "Jktech",
             details: "May 2023 - June 2024 | Worked on cutting-edge Blockchain, AI, and Full Stack Development project.",
-        },
-        {
-            color: timelineColours[3],
-            icon: <Science />,
-            title: "Founder & Manager",
-            description: "Cnotes",
-            details:
-                "2022 - Present | Managing over 30,000 customer data and monthly predictions for streamlined cable TV management for operators.",
         },
         {
             color: timelineColours[4],
@@ -150,7 +150,7 @@ const Education = ({ theme, timelineColours }) => {
                                         onMouseLeave={handleCardLeave}
                                         style={{
                                             textAlign: "center",
-                                            padding: "4vh",
+                                            padding: "2vh",
                                             borderRadius: "2vw",
                                             boxShadow:
                                                 hoveredIndex === index
@@ -161,11 +161,10 @@ const Education = ({ theme, timelineColours }) => {
                                                 "transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease",
                                             backgroundColor:
                                                 hoveredIndex === index ? edu.color : COLOURS[`CARD_COLOUR_${theme}`],
-                                            color: hoveredIndex === index ? "#fff" : COLOURS[`SECTION_COLOUR_${theme}`],
-                                            display: "flex",
-                                            flexDirection: "column",
-                                            justifyContent: "space-between",
-                                            gap: "10px",
+                                            color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
+                                            height: "37vh", // Fixed height
+                                            position: "relative",
+                                            overflow: "hidden", // Prevents content overflow
                                         }}
                                     >
                                         <div
@@ -181,6 +180,8 @@ const Education = ({ theme, timelineColours }) => {
                                             <Typography
                                                 variant="h6"
                                                 style={{
+                                                    fontWeight: "bold",
+                                                    marginBottom: "5px",
                                                     color: hoveredIndex === index ? "#fff" : COLOURS[`TEXT_COLOUR_${theme}`],
                                                     transition: "transform 0.3s ease",
                                                     transform: hoveredIndex === index ? "translateY(-11vh)" : "translateY(0)",
@@ -200,6 +201,7 @@ const Education = ({ theme, timelineColours }) => {
                                             >
                                                 {edu.description}
                                             </Typography>
+                                            {/* Hover details */}
                                             {hoveredIndex === index && (
                                                 <div
                                                     style={{
@@ -207,17 +209,23 @@ const Education = ({ theme, timelineColours }) => {
                                                         color: "#fff",
                                                     }}
                                                 >
-                                                    <div style={{ display: "flex", flexDirection: "row" }}></div>
                                                     {Array.isArray(edu.details) ? (
                                                         edu.details.map((detail, i) => (
-                                                            <div key={i} variant="body2" style={{ marginBottom: "10px" }}>
+                                                            <Typography
+                                                                key={i}
+                                                                variant="body2"
+                                                                style={{ marginBottom: "10px", color: "#fff" }}
+                                                            >
                                                                 {detail}
-                                                            </div>
+                                                            </Typography>
                                                         ))
                                                     ) : (
-                                                        <div variant="body2" style={{ marginBottom: "10px" }}>
+                                                        <Typography
+                                                            variant="body2"
+                                                            style={{ marginBottom: "10px", color: "#fff" }}
+                                                        >
                                                             {edu.details}
-                                                        </div>
+                                                        </Typography>
                                                     )}
                                                 </div>
                                             )}
