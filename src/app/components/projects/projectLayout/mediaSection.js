@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Modal, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import Image from "next/image";
 
 const MediaSection = ({ media }) => {
     const [selectedMediaIndex, setSelectedMediaIndex] = useState(null);
@@ -14,18 +13,18 @@ const MediaSection = ({ media }) => {
         calculateImageStyle(media[index]);
     };
 
-    const handlePrevious = useCallback(() => {
-        setSelectedMediaIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
-    }, [media.length]);
-
-    const handleNext = useCallback(() => {
-        setSelectedMediaIndex((prevIndex) => (prevIndex + 1) % media.length);
-    }, [media.length]);
-
-    const handleClose = useCallback(() => {
+    const handleClose = () => {
         setSelectedMediaIndex(null);
         setModalImageStyle({});
-    }, []);
+    };
+
+    const handlePrevious = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex - 1 + media.length) % media.length);
+    };
+
+    const handleNext = () => {
+        setSelectedMediaIndex((prevIndex) => (prevIndex + 1) % media.length);
+    };
 
     const calculateImageStyle = (imageSrc) => {
         const img = new Image();
@@ -73,8 +72,12 @@ const MediaSection = ({ media }) => {
         };
 
         window.addEventListener("keydown", handleKeyDown);
-        return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [selectedMediaIndex, handlePrevious, handleNext, handleClose]);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [selectedMediaIndex]);
 
     return (
         <Box>
@@ -89,7 +92,7 @@ const MediaSection = ({ media }) => {
                 }}
             >
                 {media.map((item, index) => (
-                    <Image
+                    <img
                         key={index}
                         src={item}
                         alt={`Project media ${index + 1}`}
@@ -108,9 +111,6 @@ const MediaSection = ({ media }) => {
                         onMouseLeave={(e) => {
                             e.target.style.transform = "scale(1)";
                         }}
-                        width={100} // Adjust the width accordingly
-                        height={300} // Adjust the height accordingly
-                        priority // Ensures the images load quickly
                     />
                 ))}
             </Box>
