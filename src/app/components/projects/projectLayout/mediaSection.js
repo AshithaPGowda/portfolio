@@ -193,6 +193,23 @@ const MediaSection = ({ media }) => {
                     >
                         <CloseIcon />
                     </IconButton>
+                    {/* Preview of Next Image */}
+                    {media.length > 1 && (
+                        <img
+                            src={media[(selectedMediaIndex + 1) % media.length]}
+                            alt="Next preview"
+                            style={{
+                                position: "absolute",
+                                top: "70vh",
+                                height: "15vh",
+                                width: "auto",
+                                opacity: 0.5,
+                                borderRadius: "5px",
+                                right: "-3vw",
+                                zIndex: -1,
+                            }}
+                        />
+                    )}
                 </Box>
             </Modal>
         </Box>
