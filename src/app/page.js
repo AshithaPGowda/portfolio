@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
-import UserProfile from "./home/page";
+import UserProfile from "./components/sectionPersonal/userProfile";
 import COLOURS from "./colours";
 import Header from "./components/header";
 

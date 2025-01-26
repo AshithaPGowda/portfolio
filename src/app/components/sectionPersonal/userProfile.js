@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from "@mui/material"; // Import for media query
-import Header from '../components/header';
-import COLOURS from '../colours';
-import PersonalMobile from '../components/sectionPersonal/mobileView';
-import PersonalDesktop from '../components/sectionPersonal/desktopView';
-import WhatDoIDo from '../components/sectionPersonal/what DoIDo';
-import Education from '../components/sectionPersonal/educationDetails';
-import Footer from '../components/footerContent/customFooter';
+import COLOURS from '@/app/colours';
+import PersonalMobile from './mobileView';
+import PersonalDesktop from './desktopView';
+import WhatDoIDo from './what DoIDo';
+import Education from './educationDetails';
+import Footer from '../footerContent/customFooter';
 
 export default function UserProfile({theme, timelineColours}) {
       // Check if the screen is small (mobile view)
