@@ -51,7 +51,7 @@ export default function Projects() {
             setSelectedProject(null)
         }
         setProjectFromId(id); // Set project based on `id`
-    }, [searchParams]); // Re-run when searchParams change
+    }, [searchParams,selectedProject]); // Re-run when searchParams change
 
     const toggleTheme = () => {
         setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
