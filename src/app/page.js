@@ -11,26 +11,34 @@ export default function Home() {
     const isActiveIndex = 0;
 
     const getDefaultTheme = () => {
-        let theme = sessionStorage.getItem('theme');
-        if(!theme){
-            theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+        if (typeof window !== "undefined") {
+            // This check ensures the code is running in the browser
+            let theme = sessionStorage.getItem("theme");
+            if (!theme) {
+                theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "DARK" : "LIGHT";
+                sessionStorage.setItem("theme", theme); // Set the default theme in sessionStorage
+            }
+            return theme;
         }
-        return theme
+        return "LIGHT"; // Fallback for server-side rendering
     };
-    const [theme, setTheme] = useState(getDefaultTheme); // Default to LIGHT
-    sessionStorage.setItem('theme', theme);
+
+    const [theme, setTheme] = useState(getDefaultTheme()); // Initialize with the correct theme
 
     const toggleTheme = () => {
-        setTheme((prevTheme) => (prevTheme === 'LIGHT' ? 'DARK' : 'LIGHT'));
-        let theme = sessionStorage.getItem('theme');
-        let newTheme = theme === 'LIGHT' ? 'DARK' : 'LIGHT'
-        sessionStorage.setItem('theme', newTheme);
+        if (typeof window !== "undefined") {
+            setTheme((prevTheme) => {
+                const newTheme = prevTheme === "LIGHT" ? "DARK" : "LIGHT";
+                sessionStorage.setItem("theme", newTheme); // Update sessionStorage
+                return newTheme;
+            });
+        }
     };
 
     useEffect(() => {
         // Check if the animation has already been played in the current session
-        const animationFlag = sessionStorage.getItem('animationPlayed');
-        
+        const animationFlag = sessionStorage.getItem("animationPlayed");
+
         if (!animationFlag) {
             // If not, run the animation and set the flag in sessionStorage
             anime({
@@ -50,13 +58,16 @@ export default function Home() {
                     }, 1200);
                 },
             });
-            sessionStorage.setItem('animationPlayed', 'true'); // Set flag in sessionStorage
+            sessionStorage.setItem("animationPlayed", "true"); // Set flag in sessionStorage
         } else {
             setAnimationPlayed(true); // Animation has already been played
             setIsVisible(false); // Directly show content if animation was already played
         }
     }, []);
 
+    if (theme === null) {
+        return null; // Prevent rendering until theme is set
+    }
 
     return (
         <div style={{ height: "100vh", width: "100vw" }}>
@@ -111,7 +122,7 @@ export default function Home() {
                     >
                         <Header theme={theme} toggleTheme={toggleTheme} isActive={isActiveIndex} />
                     </div>
-                    <UserProfile theme={theme} timelineColours={COLOURS.TIMELINECOLOURS}/>
+                    <UserProfile theme={theme} timelineColours={COLOURS.TIMELINECOLOURS} />
                 </div>
             )}
         </div>
