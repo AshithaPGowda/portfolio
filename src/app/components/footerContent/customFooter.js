@@ -45,14 +45,23 @@ const Footer = ({ theme, isMobile }) => {
                 borderTop: `1px solid ${COLOURS[`SECTION_COLOUR_${theme}`]}`,
             }}
         >
-            <div style={{ display: "flex", justifyContent: "center", gap: "20px" }}>
-                {/* Contact Me */}
-                <Typography
+
+            <ContactForm open={showContactForm} onClose={handleCloseContactForm} theme={theme} COLOURS={COLOURS} />
+            {isMobile ? null : (
+                <ResumeViewer
+                    open={showResume}
+                    onClose={handleCloseResume}
+                    theme={theme}
+                    COLOURS={COLOURS}
+                    resumeUrl={CONSTANT.RESUMEURL}
+                />
+            )}
+                            <Typography
                     variant="contained"
                     color="primary"
                     onClick={handleOpenContactForm}
                     style={{
-                        color: COLOURS[`FOOTER_CONTACT_ME_${theme}`],
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         padding: "10px 20px",
                         borderRadius: "5px",
                         cursor: "pointer", // Hand on hover
@@ -70,7 +79,7 @@ const Footer = ({ theme, isMobile }) => {
                     color="secondary"
                     onClick={isMobile ? handleDownloadResume : handleOpenResume}
                     style={{
-                        color: COLOURS[`COLOURS.FOOTER_RESUME_${theme}`],
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         padding: "10px 20px",
                         borderRadius: "5px",
                         cursor: "pointer", // Hand on hover
@@ -88,7 +97,7 @@ const Footer = ({ theme, isMobile }) => {
                     color="primary"
                     onClick={handleProjectsClick} // Updated to navigate to /projects
                     style={{
-                        color: COLOURS[`COLOURS.FOOTER_PROJECT${theme}`],
+                        color: COLOURS[`TEXT_COLOUR_${theme}`],
                         padding: "10px 20px",
                         borderRadius: "5px",
                         cursor: "pointer", // Hand on hover
@@ -99,18 +108,6 @@ const Footer = ({ theme, isMobile }) => {
                 >
                     Projects
                 </Typography>
-            </div>
-
-            <ContactForm open={showContactForm} onClose={handleCloseContactForm} theme={theme} COLOURS={COLOURS} />
-            {isMobile ? null : (
-                <ResumeViewer
-                    open={showResume}
-                    onClose={handleCloseResume}
-                    theme={theme}
-                    COLOURS={COLOURS}
-                    resumeUrl={CONSTANT.RESUMEURL}
-                />
-            )}
 
             {/* Footer Copyright */}
             <Typography variant="body2" style={{ marginTop: "10px" }}>
