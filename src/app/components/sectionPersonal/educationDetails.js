@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Card, CardContent, Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
-import { HistoryEdu, Language, School, ArrowForward } from "@mui/icons-material";
+import { HistoryEdu, Language, School } from "@mui/icons-material";
 import { useState, useEffect } from "react";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import COLOURS from "@/app/colours";
@@ -240,7 +240,7 @@ const Education = ({ theme, timelineColours }) => {
                                         <NavigateNextIcon
                                             style={{
                                                 fontSize: "3rem",
-                                                color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                                color: COLOURS[`TEXT_COLOUR_${theme}`],   
                                             }}
                                         />
                                     </Grid>
