@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Grid, Paper, Box, Typography, Button } from "@mui/material";
+import { Grid, Paper, Box, Typography, Button, Switch, FormControlLabel } from "@mui/material";
 import COLOURS from "@/app/colours";
 import CONSTANT from "@/app/constants";
 import UTILITY from "./utility";
+import { CheckCircle, Cancel } from '@mui/icons-material';
 
 const GameBoard = ({ theme, isMobile }) => {
     const boardSize = 3; // 3x3 board
@@ -17,65 +18,21 @@ const GameBoard = ({ theme, isMobile }) => {
     const [aiWins, setAiWins] = useState(0);
     const [draws, setDraws] = useState(0);
 
+    // Humanize switch state
+    const [humanize, setHumanize] = useState(false); // Humanize mode is off by default
+
     // Handle user click on a cell
-// Handle user click on a cell
-const handleCellClick = (index) => {
-    if (board[index] || currentTurn !== CONSTANT.USER) return; // Ignore invalid moves
+    const handleCellClick = (index) => {
+        if (board[index] || currentTurn !== CONSTANT.USER) return; // Ignore invalid moves
 
-    const updatedBoard = [...board];
-    updatedBoard[index] = CONSTANT.O; // User plays O
-    setBoard(updatedBoard);
-
-    // Check if the user wins
-    if (UTILITY.checkWinner(updatedBoard)) {
-        setStatus("You Win!");
-        setUserWins((prev) => prev + 1); // Update leaderboard
-        setTimeout(resetGame, 1500); // Reset game after a short delay
-        return;
-    }
-
-    // Check for draw
-    if (UTILITY.isBoardFull(updatedBoard)) {
-        setStatus("It's a Draw!");
-        setDraws((prev) => prev + 1); // Update leaderboard
-        setTimeout(resetGame, 1500); // Reset game after a short delay
-        return;
-    }
-
-    // Switch to AI's turn
-    setCurrentTurn(CONSTANT.AI);
-    setStatus("AI is thinking...");
-
-    setTimeout(() => {
-        handleAITurn(updatedBoard); // Pass the updated board explicitly
-    }, 1000); // Simulate AI delay
-};
-
-const handleAITurn = (currentBoard) => {
-    let bestMove = -1;
-    let bestScore = -Infinity;
-
-    currentBoard.forEach((cell, index) => {
-        if (!cell) {
-            const simulatedBoard = [...currentBoard];
-            simulatedBoard[index] = CONSTANT.X; // AI plays X
-            const moveScore = UTILITY.minimax(simulatedBoard, false);
-            if (moveScore > bestScore) {
-                bestScore = moveScore;
-                bestMove = index;
-            }
-        }
-    });
-
-    if (bestMove !== -1) {
-        const updatedBoard = [...currentBoard];
-        updatedBoard[bestMove] = CONSTANT.X; // AI makes the best move
+        const updatedBoard = [...board];
+        updatedBoard[index] = CONSTANT.O; // User plays O
         setBoard(updatedBoard);
 
-        // Check if the AI wins
+        // Check if the user wins
         if (UTILITY.checkWinner(updatedBoard)) {
-            setStatus("AI Wins!");
-            setAiWins((prev) => prev + 1); // Update leaderboard
+            setStatus("You Win!");
+            setUserWins((prev) => prev + 1); // Update leaderboard
             setTimeout(resetGame, 1500); // Reset game after a short delay
             return;
         }
@@ -88,12 +45,57 @@ const handleAITurn = (currentBoard) => {
             return;
         }
 
-        // Switch back to user's turn
-        setCurrentTurn(CONSTANT.USER);
-        setStatus("Your Turn!");
-    }
-};
+        // Switch to AI's turn
+        setCurrentTurn(CONSTANT.AI);
+        setStatus("AI is thinking...");
 
+        setTimeout(() => {
+            handleAITurn(updatedBoard); // Pass the updated board explicitly
+        }, 1000); // Simulate AI delay
+    };
+
+    const handleAITurn = (currentBoard) => {
+        let bestMove = -1;
+        let bestScore = -Infinity;
+
+        currentBoard.forEach((cell, index) => {
+            if (!cell) {
+                const simulatedBoard = [...currentBoard];
+                simulatedBoard[index] = CONSTANT.X; // AI plays X
+                const moveScore = UTILITY.minimax(simulatedBoard, false, 0, humanize); // Pass humanize flag
+                if (moveScore > bestScore) {
+                    bestScore = moveScore;
+                    bestMove = index;
+                }
+            }
+        });
+
+        if (bestMove !== -1) {
+            const updatedBoard = [...currentBoard];
+            updatedBoard[bestMove] = CONSTANT.X; // AI makes the best move
+            setBoard(updatedBoard);
+
+            // Check if the AI wins
+            if (UTILITY.checkWinner(updatedBoard)) {
+                setStatus("AI Wins!");
+                setAiWins((prev) => prev + 1); // Update leaderboard
+                setTimeout(resetGame, 1500); // Reset game after a short delay
+                return;
+            }
+
+            // Check for draw
+            if (UTILITY.isBoardFull(updatedBoard)) {
+                setStatus("It's a Draw!");
+                setDraws((prev) => prev + 1); // Update leaderboard
+                setTimeout(resetGame, 1500); // Reset game after a short delay
+                return;
+            }
+
+            // Switch back to user's turn
+            setCurrentTurn(CONSTANT.USER);
+            setStatus("Your Turn!");
+        }
+    };
 
     // Reset the game state
     const resetGame = () => {
@@ -181,6 +183,24 @@ const handleAITurn = (currentBoard) => {
                 <Typography sx={{ color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`] }}>
                     Draws: {draws}
                 </Typography>
+            </Box>
+
+            {/* Humanize Toggle Switch */}
+            <Box sx={{ marginTop: 3 }}>
+                <FormControlLabel
+                    control={
+                        <Switch
+                            checked={humanize}
+                            onChange={() => setHumanize(!humanize)}
+                            color="primary"
+                        />
+                    }
+                    label={
+                        <Typography sx={{ color: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`] }}>
+                            Humanize AI
+                        </Typography>
+                    }
+                />
             </Box>
 
             {/* Reset Button */}
