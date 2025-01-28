@@ -1,16 +1,17 @@
 import React from "react";
 import { Box, Typography, Grid } from "@mui/material";
 import { CheckCircle } from "@mui/icons-material"; // Import Material UI icon for check mark
+import COLOURS from "@/app/colours";
 
-const FeaturesSection = ({ features }) => {
+const FeaturesSection = ({ features, theme }) => {
     if (!features || features.length === 0) return null;
 
     return (
         <Box>
             <Typography variant="h5" style={{ marginBottom: "10px", fontWeight: "bold" }}>
-                Key Features
+                Key Challenges
             </Typography>
-            <Typography variant="body1" style={{ marginBottom: "20px", color: "#555" }}>
+            <Typography variant="body1" style={{ marginBottom: "20px", color: COLOURS[`TEXT_COLOUR_${theme}`] }}>
                 Here are the core features that set this project apart.
             </Typography>
 
