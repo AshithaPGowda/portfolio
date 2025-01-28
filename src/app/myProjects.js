@@ -18,7 +18,28 @@ CONSTANT.PROJECTS = [
         features: ["AI-powered opponent (no multiplayer)", "Responsive design for all devices", "Playable inside portfolio"],
         highlightFeatures: ["AI opponent logic", "Responsive gameplay", "Fully integrated within the portfolio."],
         toolTipText: "Personal Project",
-        playable : true
+        textContent: `
+As I was building the AI-driven tic-tac-toe game, I faced a few key challenges that pushed me to think outside the box and create something more engaging for the user.
+
+**1. Balancing AI Difficulty:\n
+One of the biggest hurdles was making the AI challenging enough for users without making it feel unbeatable. Traditional minimax algorithms, while powerful, tend to make AI decisions predictable, which can lead to a boring experience for the player. To solve this, I introduced a unique feature called Humanize.
+
+**2. Humanize the AI: \n
+The goal of the Humanize feature was to add an element of randomness to the AI’s decision-making, giving it a more "human" feel. Instead of always playing the most optimal move, the AI sometimes chooses a move from a set of equally good options. This creates a more unpredictable game, making it feel less mechanical and more dynamic.
+
+While Humanize was designed to make the game feel more natural, I also ensured that it never made the AI deliberately throw the game away. The AI still plays strategically, ensuring the user has a challenge but doesn’t feel like the AI is “playing badly” just to give them a win.
+
+**3. Maintaining Fairness:\n
+Even with the randomization introduced in the Humanize feature, I had to ensure that the AI doesn’t make moves that would lead to a guaranteed loss. So, I built a logic that checks if the human player is about to win and adjusts the AI's decision-making accordingly, maintaining the competitive balance.
+
+**4. User Experience and Accessibility:\n
+Ensuring that the game is fun and easy to interact with was a constant challenge. I paid close attention to how the game’s interface would work across devices, making sure the board was responsive and intuitive. Whether you’re playing on mobile or desktop, the experience is smooth, and the game feels like it’s been designed with your enjoyment in mind.
+
+**Conclusion:\n
+Building a smarter AI for a game like tic-tac-toe involves much more than just implementing an algorithm. It's about balancing challenge, randomness, and fairness to create a game that feels both fun and competitive. The Humanize feature was my way of making sure that the game didn’t just become a mechanical, predictable experience but instead something that felt more alive and engaging.
+          `,
+        playable: true,
+        challenge: "Making the Game Smarter and More Engaging",
     },
     {
         title: "cnotes.in",
@@ -28,7 +49,7 @@ CONSTANT.PROJECTS = [
         description:
             "cnotes.in is a cable TV management platform I developed to address payment leakages and streamline subscriber management. Key features include automated billing, SMS receipts, and efficient collection tracking. Built using PHP and MySQL, it ensures reliability and scalability for business needs.",
         cardBackgroundColor: "#4169E1",
-        media: ["/cnotes/home.png","/cnotes/login.png"],
+        media: ["/cnotes/home.png", "/cnotes/login.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
             Role: "Full Stack Developer",
@@ -48,7 +69,7 @@ CONSTANT.PROJECTS = [
             "Last-mile payment leakage prevention",
         ],
         toolTipText: "Professional Project",
-        playable : false
+        playable: false,
     },
     {
         title: "Dear",
@@ -73,7 +94,7 @@ CONSTANT.PROJECTS = [
         ],
         highlightFeatures: ["AI-driven voice simulation", "Deep cloning of voices", "Memory assistance through conversation"],
         toolTipText: "Personal Project",
-        playable : false
+        playable: false,
     },
     {
         title: "Clue Crafters",
@@ -82,7 +103,7 @@ CONSTANT.PROJECTS = [
         description:
             "As the team lead for Clue Crafters, I developed a real-time multiplayer board game based on the classic Clue. Leveraging Socket.IO for real-time gameplay and Next.js for a dynamic UI, I handled both backend and frontend development. The project showcases my ability to build complex, interactive applications.",
         cardBackgroundColor: "#6D4C41",
-        media: ["/clueCrafters/gameboard.png", "/clueCrafters/gameStart.png","/clueCrafters/suggestion.png"],
+        media: ["/clueCrafters/gameboard.png", "/clueCrafters/gameStart.png", "/clueCrafters/suggestion.png"],
         details: {
             "Technologies Used": "Socket.IO, Express, Next.js, JavaScript, HTML, CSS",
             Role: "Full Stack Developer",
@@ -98,7 +119,7 @@ CONSTANT.PROJECTS = [
         ],
         highlightFeatures: ["Real-time multiplayer", "6-player support", "Interactive gameplay"],
         toolTipText: "Academic Project",
-        playable : false
+        playable: false,
     },
     {
         title: "Inveniam.io",
@@ -127,7 +148,7 @@ CONSTANT.PROJECTS = [
             "Optimized database performance",
         ],
         toolTipText: "Professional Project",
-        playable : false
+        playable: false,
     },
     {
         title: "Patent Verification System",
@@ -152,13 +173,14 @@ CONSTANT.PROJECTS = [
         ],
         highlightFeatures: ["Blockchain-backed security", "Smart contract-based automation", "Patent data integrity"],
         toolTipText: "Academic Project",
-        playable : false
+        playable: false,
     },
     {
         title: "Snake and Ladder",
         slug: 6,
         highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
-        description: "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
+        description:
+            "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
         cardBackgroundColor: "#FFA07A", // Warm and playful tone
         media: [],
         details: {
@@ -180,37 +202,37 @@ CONSTANT.PROJECTS = [
             "Classic game experience with a modern touch",
         ],
         toolTipText: "Professional Project",
-        playable : false 
+        playable: false,
     },
     {
         title: "NJS2 Chat Plugin",
         slug: 7,
         highlightDescription: "Built a reusable chat plugin with the NJS2 framework.",
         description:
-          "Developed a robust chat plugin as part of a team working on the NJS2 framework. The plugin supports private chat, random chat, and session-based chat functionalities. Worked extensively on translating modules into text files, creating modular and reusable code, and ensuring seamless integration within the framework. Gained valuable experience in modular development and enhancing real-time communication solutions.",
+            "Developed a robust chat plugin as part of a team working on the NJS2 framework. The plugin supports private chat, random chat, and session-based chat functionalities. Worked extensively on translating modules into text files, creating modular and reusable code, and ensuring seamless integration within the framework. Gained valuable experience in modular development and enhancing real-time communication solutions.",
         cardBackgroundColor: "#8A2BE2",
         media: [],
         details: {
-          "Technologies Used": "Node.js, NJS2 Framework, JavaScript",
-          "Role": "Backend Developer",
-          "Duration": "4 months",
-          "Collaboration Type": "Team Player (Framework Development)",
+            "Technologies Used": "Node.js, NJS2 Framework, JavaScript",
+            Role: "Backend Developer",
+            Duration: "4 months",
+            "Collaboration Type": "Team Player (Framework Development)",
         },
         features: [
-          "Private chat functionality",
-          "Random chat support",
-          "Session-based chat management",
-          "Reusable and modular plugin design",
-          "Seamless framework integration",
+            "Private chat functionality",
+            "Random chat support",
+            "Session-based chat management",
+            "Reusable and modular plugin design",
+            "Seamless framework integration",
         ],
         highlightFeatures: [
-          "Private and random chat capabilities",
-          "Session-based chat handling",
-          "Modular and reusable design",
+            "Private and random chat capabilities",
+            "Session-based chat handling",
+            "Modular and reusable design",
         ],
         toolTipText: "Professional Project",
-        playable : false
-      },
+        playable: false,
+    },
 ];
 
 export default CONSTANT;

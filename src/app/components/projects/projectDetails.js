@@ -80,7 +80,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 <DetailsSection details={project.details} theme={theme} />
 
                 {/* Features Section */}
-                <FeaturesSection features={project.features} theme = {theme}/>
+                <FeaturesSection textContent={project.textContent} theme = {theme}  challenge={project.challenge}/>
 
                 {/* Game/Media Section */}
                 {isMobile && project.media && project.media.length > 0 && (
