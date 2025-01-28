@@ -52,7 +52,7 @@ Building a smarter AI for a game like tic-tac-toe involves much more than just i
         media: ["/cnotes/home.png", "/cnotes/login.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
-            Role: "Founder and Full Stack Developer",
+            Role: "Founder & Full Stack Developer",
             Duration: "Ongoing",
             "Collaboration Type": "Sole Contributor",
             "Project Type": "Startup",
@@ -140,9 +140,9 @@ challenge:"Creating an Emotionally Engaging Experience"
         media: ["/clueCrafters/gameboard.png", "/clueCrafters/gameStart.png", "/clueCrafters/suggestion.png"],
         details: {
             "Technologies Used": "Socket.IO, Express, Next.js, JavaScript, HTML, CSS",
-            Role: "Full Stack Developer",
+            Role: "Team Lead & Full Stack Developer",
             Duration: "6 months",
-            "Collaboration Type": "Team Lead",
+            "Collaboration Type": "Team Contribution",
             "Project Type": "Academic Project",
         },
         features: [
@@ -154,6 +154,23 @@ challenge:"Creating an Emotionally Engaging Experience"
         highlightFeatures: ["Real-time multiplayer", "6-player support", "Interactive gameplay"],
         toolTipText: "Academic Project",
         playable: false,
+        challenge:"Reimagining the Classic Murder Mystery Game",
+        textContent:`
+
+**1. Transitioning from Physical to Digital Gameplay:\n
+The first challenge was keeping the traditional Clue game experience intact while moving it online. Players had to feel like they were still immersed in a classic Clue environment, but with the added benefit of multiplayer functionality and faster-paced gameplay. By ensuring the rules stayed true, I managed to create a digital version that still kept the mystery and excitement intact.
+
+**2. Adapting the Movement System:\n
+In the physical version, players roll dice to move across the board, navigating rooms one by one. In Clue Crafters, I needed to address this challenge by redesigning the movement system so that all rooms are just one hallway away, removing the need for dice rolls. This meant that the focus shifted more to strategy and decision-making, allowing for a smoother and quicker game flow without losing the core gameplay.
+
+**3. Online Multiplayer Dynamics:\n
+Managing multiplayer functionality with up to 6 players meant ensuring a smooth and seamless online experience. I had to develop the backend and frontend architecture to handle real-time interactions and keep track of game progress efficiently. The challenge was ensuring that players from different locations could experience the game without any lag or interruptions, making the game feel as interactive and dynamic as the traditional board game.
+
+**4. User Experience and Accessibility:\n
+As with all my projects, a huge focus was on user experience and accessibility. I wanted Clue Crafters to be easy for anyone to pick up and play, regardless of their technical expertise. With a simple, intuitive interface and clear instructions, players can jump into the game and start playing without hassle.
+
+**Conclusion:\n
+Clue Crafters was an exciting project that combined my passion for traditional games with my skills in full-stack development. It was about taking a well-loved classic and making it accessible to a new generation of players, all while keeping the core of the game intact. The challenge of adapting the physical gameplay and making it work seamlessly online was an invaluable experience in balancing the old with the new.`
     },
     {
         title: "Inveniam.io",
