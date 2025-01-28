@@ -53,7 +53,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
         >
             <div style={{ width: "5vw", height: "8vh", borderRadius: "1vw", position: "relative", overflow: "hidden" }}>
                 <Image
-                    src="/apg.png" // Use a relative path starting from the public directory
+                    src={`/APG_${theme}.svg`} // Use a relative path starting from the public directory
                     alt="APG Logo"
                     layout="fill" // Ensures the image fills the parent container
                     objectFit="cover" // Adjusts how the image is resized
