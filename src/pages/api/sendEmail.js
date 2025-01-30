@@ -9,11 +9,13 @@ export default async function handler(req, res) {
     const { name, email, message } = req.body;
 
     const msg = {
-      to: 'ashithapgowdaapg@gmail.com',  // Change to your recipient email
+      to: email,  // Change to your recipient email
       from: 'contact-me@ashithapgowda.com',  // Verified sender email from SendGrid
-      subject: 'Contact Form Submission',
-      text: "this is a test",
-      html: `<strong>This is a text</strong>`,
+      templateId: CONSTANT.TEMPID_CONTACTME,  // Use the SendGrid dynamic template ID
+      dynamicTemplateData: {
+        name: name,
+        subject: `Hello! Thank You for Reaching Out!`,
+      },
     };
 
     try {
