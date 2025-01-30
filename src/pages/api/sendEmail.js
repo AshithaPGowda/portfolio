@@ -8,18 +8,30 @@ export default async function handler(req, res) {
     console.log("In backend API")
     const { name, email, message } = req.body;
 
-    const msg = {
-      to: email,  // Change to your recipient email
-      from: 'contact-me@ashithapgowda.com',  // Verified sender email from SendGrid
-      templateId: CONSTANT.TEMPID_CONTACTME,  // Use the SendGrid dynamic template ID
+    const ackEmail = {
+      to: email,  
+      from: 'contact-me@ashithapgowda.com',  
+      templateId: CONSTANT.TEMPID_CONTACTME,  
       dynamicTemplateData: {
         name: name,
         subject: `Hello! Thank You for Reaching Out!`,
       },
     };
+        // Notification email to you
+        const notifyEmail = {
+          to: CONSTANT.ME,
+          from: 'contact-me@ashithapgowda.com',
+          subject: 'New Contact Form Submission',
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Message:</strong> ${message}</p>
+          `,
+        };
 
     try {
-      await sgMail.send(msg);  // Send the email
+      await sgMail.send([ackEmail, notifyEmail]);  // Send the email
       res.status(200).json({ success: true });
     } catch (error) {
       console.error('Error sending email:', error);
