@@ -1,6 +1,6 @@
 export const metadata = {
-    title: "APG - My Work",
-    description: "Example projects",
+    title: "Ashitha Paramesha Gowda",
+    description: "My work samples",
 };
 
 export default function RootLayout({ children }) {
