@@ -1,9 +1,9 @@
 import sgMail from '@sendgrid/mail';
-import CONSTANT from '../sendgrid';
+import {CONSTANT} from '../../../sendgrid';
 
 sgMail.setApiKey(CONSTANT.SENDGRID_API_KEY);  // Make sure your API key is in your environment variables
 
-export default async function handler(req, res) {
+ async function handler(req, res) {
   if (req.method === 'POST') {
     console.log("In backend API")
     const { name, email, message } = req.body;
