@@ -111,7 +111,7 @@ const Footer = ({ theme, isMobile }) => {
 
             {/* Footer Copyright */}
             <Typography variant="body2" style={{ marginTop: "10px" }}>
-                &#169; Ashitha Gowda {currentYear}
+                &#169; APG {currentYear}
             </Typography>
         </footer>
     );
