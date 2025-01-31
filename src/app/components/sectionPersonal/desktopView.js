@@ -30,6 +30,8 @@ const PersonalDesktop = ({ theme }) => {
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+                overflow: "hidden",  // Ensure content doesn't overflow
+                maxWidth: "100%",    // Ensure the div doesn't exceed viewport width
             }}
         >
             {/* Left: Information */}
