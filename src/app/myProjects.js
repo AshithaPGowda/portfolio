@@ -2,7 +2,7 @@ const CONSTANT = [];
 
 CONSTANT.PROJECTS = [
     {
-        title: "XOXO Game",
+        title: "XOXO GAME",
         slug: 0,
         highlightDescription: "A fun tic-tac-toe game with an AI-powered opponent, playable inside the portfolio.",
         description:
@@ -42,7 +42,7 @@ Building a smarter AI for a game like tic-tac-toe involves much more than just i
         challenge: "Making the Game Smarter and More Engaging"
     },
     {
-        title: "cnotes.in",
+        title: "CNOTES.IN",
         slug: 1,
         highlightDescription:
             "A platform designed to streamline cable TV subscriber management and prevent payment leakages.",
@@ -89,7 +89,7 @@ The platform currently manages over 30,000 customer records and automates monthl
 challenge : "Revolutionizing Cable TV Subscriber Management"
     },
     {
-        title: "Dear",
+        title: "DEAR",
         slug: 2,
         highlightDescription: "A personalized voice assistant to simulate memory conversations for Alzheimer's patients.",
         description:
@@ -131,7 +131,7 @@ Dear provides a much-needed solution for families of Alzheimer's patients, offer
 challenge:"Creating an Emotionally Engaging Experience"
     },
     {
-        title: "Clue Crafters",
+        title: "CLUE CRAFTERS",
         slug: 3,
         highlightDescription: "A 6-player multiplayer game built with Socket.IO and Express for real-time gameplay.",
         description:
@@ -173,7 +173,7 @@ As with all my projects, a huge focus was on user experience and accessibility. 
 Clue Crafters was an exciting project that combined my passion for traditional games with my skills in full-stack development. It was about taking a well-loved classic and making it accessible to a new generation of players, all while keeping the core of the game intact. The challenge of adapting the physical gameplay and making it work seamlessly online was an invaluable experience in balancing the old with the new.`
     },
     {
-        title: "Inveniam.io",
+        title: "INVENIAM.IO",
         slug: 4,
         highlightDescription: "Contributed to a data platform improving liquidity for private market assets.",
         description:
@@ -202,7 +202,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
         playable: false,
     },
     {
-        title: "Patent Verification System",
+        title: "PATENT VARIFICATION SYSTEM",
         slug: 5,
         highlightDescription: "A secure blockchain-based platform for verifying patents.",
         description:
@@ -227,7 +227,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
         playable: false,
     },
     {
-        title: "Snake and Ladder",
+        title: "SNAKE AND LADDER",
         slug: 6,
         highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
         description:
@@ -256,7 +256,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
         playable: false,
     },
     {
-        title: "NJS2 Chat Plugin",
+        title: "NJS2 CHAT PLUGIN",
         slug: 7,
         highlightDescription: "Built a reusable chat plugin with the NJS2 framework.",
         description:
