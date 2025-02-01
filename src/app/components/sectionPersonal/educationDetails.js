@@ -238,10 +238,16 @@ const Education = ({ theme, timelineColours }) => {
                                 {index < education.length - 1 && (
                                     <Grid item xs={12} sm={1} md={0.5} style={{ textAlign: "center" }}>
                                         <NavigateNextIcon
-                                            style={{
-                                                fontSize: "3rem",
-                                                color: COLOURS[`TEXT_COLOUR_${theme}`],   
-                                            }}
+                                    style={{
+                                        fontSize: "3rem",
+                                        color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                        transition: "0.3s ease-in-out",
+                                        filter: hoveredIndex === index 
+                                            ? "drop-shadow(0px 0px 15px #0ff) drop-shadow(0px 0px 30px #0ff) drop-shadow(0px 0px 45px #0ff)" 
+                                            : "none",
+                                        transform: hoveredIndex === index ? "scale(1.6)" : "scale(1)",
+                                        animation: hoveredIndex === index ? "lightningGlow 0.3s infinite alternate" : "none",
+                                    }}
                                         />
                                     </Grid>
                                 )}

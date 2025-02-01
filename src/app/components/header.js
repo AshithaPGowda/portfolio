@@ -51,7 +51,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                 zIndex: 10,
             }}
         >
-            <div style={{ width: "5vw", height: "8vh", borderRadius: "1vw", position: "relative", overflow: "hidden" }}>
+            <div style={{ width: isMobile ? "20vw" : "5vw", height: "7vh", borderRadius: "1vw", position: "relative" }}>
                 <Image
                     src={`/APG_${theme}.svg`} // Use a relative path starting from the public directory
                     alt="APG Logo"

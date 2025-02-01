@@ -37,7 +37,7 @@ const Footer = ({ theme, isMobile }) => {
     return (
         <footer
             style={{
-                padding: "20px",
+                padding: isMobile ? "2vw" : "1.5vw",
                 backgroundColor: COLOURS[`BACKGROUND_${theme}`],
                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                 textAlign: "center",

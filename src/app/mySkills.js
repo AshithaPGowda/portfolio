@@ -13,53 +13,8 @@ CONSTANT.SKILLS = [
         icon: <Code />,
         title: "Software Development",
         description: "Crafting robust and scalable solutions.",
-        details: [
-            <div
-                key="dynamic-icons" // Add a unique key
-                style={{ display: "flex", justifyContent: "center", gap: "10px" }}
-            >
-                <DynamicNode
-                    key="dynamic-node" // Unique key for this component
-                    color={COLOURS[`BACKGROUND_LIGHT`]}
-                    style={{
-                        width: "50%",
-                        height: "auto",
-                        maxWidth: "60px",
-                        margin: "0 auto",
-                    }}
-                />
-                <DynamicPython
-                    key="dynamic-python" // Unique key for this component
-                    color={COLOURS[`BACKGROUND_LIGHT`]}
-                    style={{
-                        width: "50%",
-                        height: "auto",
-                        maxWidth: "60px",
-                        margin: "0 auto",
-                    }}
-                />
-                <DynamicPHP
-                    key="dynamic-php" // Unique key for this component
-                    color={"#4CAF50"}
-                    style={{
-                        width: "50%",
-                        height: "auto",
-                        maxWidth: "60px",
-                        margin: "0 auto",
-                    }}
-                />
-                <DynamicTypescript
-                    key="dynamic-typescript" // Unique key for this component
-                    color={COLOURS[`BACKGROUND_LIGHT`]}
-                    style={{
-                        width: "50%",
-                        height: "auto",
-                        maxWidth: "60px",
-                        margin: "0 auto",
-                    }}
-                />
-            </div>,
-        ],
+        details: "Node.js, Nest.js, Express.js, TypeScript, JavaScript, React.js, Next.js, Tailwind CSS, MUI, PHP, Python, Django, Flask, HTML5, CSS3"
+,
     },
     {
         color: "#8BC34A",

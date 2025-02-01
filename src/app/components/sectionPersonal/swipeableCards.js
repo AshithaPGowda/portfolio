@@ -1,32 +1,41 @@
 "use client";
 
-import { Card, CardContent, Typography } from "@mui/material";
+import { Card, CardContent, Typography, IconButton } from "@mui/material";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import COLOURS from "@/app/colours";
 
 const SwipeableCards = ({ skills, theme }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const goToNext = () => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % skills.length);
+    };
+
+    const goToPrevious = () => {
+        setCurrentIndex((prevIndex) => (prevIndex - 1 + skills.length) % skills.length);
+    };
+
     const handlers = useSwipeable({
-        onSwipedLeft: () =>
-            setCurrentIndex((prevIndex) => (prevIndex + 1) % skills.length), // Loop to the first card
-        onSwipedRight: () =>
-            setCurrentIndex((prevIndex) =>
-                (prevIndex - 1 + skills.length) % skills.length // Loop to the last card
-            ),
+        onSwipedLeft: goToNext,
+        onSwipedRight: goToPrevious,
     });
 
-    const handleCardClick = (index) => {
-        // Determine swipe direction based on the clicked card's position
-        setCurrentIndex((index) =>
-            (index - 1 + skills.length) % skills.length // Loop to the last card
-        )
+    const handleClick = (event) => {
+        const { clientX, target } = event;
+        const cardWidth = target.clientWidth;
+        if (clientX < cardWidth / 2) {
+            goToPrevious();
+        } else {
+            goToNext();
+        }
     };
 
     return (
         <div
             {...handlers}
+            onClick={handleClick}
             style={{
                 display: "flex",
                 flexDirection: "column",
@@ -34,26 +43,25 @@ const SwipeableCards = ({ skills, theme }) => {
                 gap: "1vw",
                 padding: "1vh",
                 position: "relative",
-                height: "60vh", // Ensure proper vertical alignment
+                height: "60vh",
                 overflow: "hidden",
+                cursor: "pointer",
             }}
         >
             <div
                 style={{
                     position: "relative",
-                    width: "85%", // Increased width for better appearance
-                    height: "100%", // Container height for consistent layout
-                    left: "-5%", // Slight left alignment
+                    width: "85%",
+                    height: "100%",
+                    left: "-5%",
                 }}
             >
-                {/* Display three cards (current, next, previous) */}
                 {[currentIndex, (currentIndex + 1) % skills.length, (currentIndex - 1 + skills.length) % skills.length].map(
                     (index, idx) => {
                         const skill = skills[index];
                         return (
                             <Card
                                 key={index}
-                                onClick={() => handleCardClick(index)} // Handle click to swipe
                                 style={{
                                     width: "100%",
                                     height: "80%",
@@ -63,20 +71,16 @@ const SwipeableCards = ({ skills, theme }) => {
                                     backgroundColor: skill.color,
                                     boxShadow: "0 4px 1px rgba(0, 0, 0, 0.1)",
                                     position: "absolute",
-                                    top: `${idx * 5}%`, // Stack the cards with slight vertical offset
-                                    zIndex: 3 - idx, // Higher index for the front card
+                                    top: `${idx * 5}%`,
+                                    zIndex: 3 - idx,
                                     transform:
-                                        idx === 1
-                                            ? "rotate(15deg)"
-                                            : idx === 2
-                                            ? "rotate(30deg)"
-                                            : "rotate(0deg)", // Rotate cards based on their position
+                                        idx === 1 ? "rotate(15deg)" : idx === 2 ? "rotate(30deg)" : "rotate(0deg)",
                                     transition: "transform 0.7s ease, top 0.3s ease",
                                     display: "flex",
                                     flexDirection: "column",
                                     justifyContent: "center",
                                     alignItems: "center",
-                                    cursor: "pointer", // Indicate interactivity
+                                    cursor: "pointer",
                                 }}
                             >
                                 <div
