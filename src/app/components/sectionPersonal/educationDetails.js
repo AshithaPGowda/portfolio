@@ -34,7 +34,7 @@ const Education = ({ theme }) => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [sectionBgColor, setSectionBgColor] = useState(COLOURS[`SECTION_COLOUR_${theme}`]);
     const themeMUI = useTheme();
-    const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(themeMUI.breakpoints.down("lg"));
     useEffect(() => {
         // Reset the section background color whenever the theme changes
         setSectionBgColor(COLOURS[`SECTION_COLOUR_${theme}`]);
