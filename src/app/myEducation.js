@@ -35,7 +35,7 @@ CONSTANT.EDUCATION = [
         {
             color: COLOURS.TIMELINECOLOURS[4],
             icon: <School />,
-            title: "Master’s in Computer Science",
+            title: "Master's in Computer Science",
             description: "Johns Hopkins University",
             details: "August 2023 - May 2025 | Specialization in Advanced Software Engineering and Artificial Intelligence.",
         },
