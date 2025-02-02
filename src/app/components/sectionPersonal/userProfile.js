@@ -69,7 +69,7 @@ export default function UserProfile({theme, timelineColours}) {
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
-       {<Education theme={theme} timelineColours={timelineColours}/>}
+       {<Education theme={theme}/>}
       </div>
 
             {/* Footer */}

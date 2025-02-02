@@ -7,6 +7,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import COLOURS from "@/app/colours";
 import "./education.module.css";
 import SwipeableCards from "./swipeableCards";
+import CONSTANT from "@/app/myEducation";
 
 const adjustColor = (color, percentage, lighten = true) => {
     const num = parseInt(color.slice(1), 16);
@@ -28,45 +29,7 @@ const adjustColor = (color, percentage, lighten = true) => {
     return `#${((1 << 24) | (R << 16) | (G << 8) | B).toString(16).slice(1)}`;
 };
 
-const Education = ({ theme, timelineColours }) => {
-    const education = [
-        {
-            color: timelineColours[0],
-            icon: <School />,
-            title: "Bachelor of Engineering",
-            description: "Vidyavardhaka College of Engineering",
-            details: "August 2017 - May 2021 | Focused on Information Science and Engineering.",
-        },
-        {
-            color: timelineColours[3],
-            icon: <HistoryEdu />,
-            title: "Founder & Manager",
-            description: "Cnotes",
-            details:
-                "2022 - Present | Managing over 30,000 customer data and monthly predictions for streamlined cable TV management for operators.",
-        },
-        {
-            color: timelineColours[1],
-            icon: <Language />,
-            title: "Software Developer",
-            description: "Juego Studios",
-            details: "August 2021 - April 2023 | Contributed to game development and innovative software solutions.",
-        },
-        {
-            color: timelineColours[2],
-            icon: <Language />,
-            title: "Software Developer",
-            description: "Jktech",
-            details: "May 2023 - June 2024 | Worked on cutting-edge Blockchain, AI, and Full Stack Development project.",
-        },
-        {
-            color: timelineColours[4],
-            icon: <School />,
-            title: "Master’s in Computer Science",
-            description: "Johns Hopkins University",
-            details: "August 2023 - May 2025 | Specialization in Advanced Software Engineering and Artificial Intelligence.",
-        },
-    ];
+const Education = ({ theme }) => {
 
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [sectionBgColor, setSectionBgColor] = useState(COLOURS[`SECTION_COLOUR_${theme}`]);
@@ -125,7 +88,7 @@ const Education = ({ theme, timelineColours }) => {
                         MY TIMELINE
                     </Typography>
 
-                    <SwipeableCards skills={education} theme={theme} />
+                    <SwipeableCards skills={CONSTANT.EDUCATION} theme={theme} />
                 </div>
             ) : (
                 <div>
@@ -142,7 +105,7 @@ const Education = ({ theme, timelineColours }) => {
                     </Typography>
 
                     <Grid container spacing={3} alignItems="center">
-                        {education.map((edu, index) => (
+                        {CONSTANT.EDUCATION.map((edu, index) => (
                             <React.Fragment key={index}>
                                 {/* Card */}
                                 <Grid item xs={12} sm={6} md={2}>
@@ -235,7 +198,7 @@ const Education = ({ theme, timelineColours }) => {
                                 </Grid>
 
                                 {/* Arrow */}
-                                {index < education.length - 1 && (
+                                {index < CONSTANT.EDUCATION.length - 1 && (
                                     <Grid item xs={12} sm={1} md={0.5} style={{ textAlign: "center" }}>
                                         <NavigateNextIcon
                                     style={{
