@@ -3,6 +3,7 @@
 import COLOURS from "@/app/colours";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import CONSTANT from "@/app/myInformation";
 
 const PersonalDesktop = ({ theme }) => {
     const [isHovered, setIsHovered] = useState(false); // Track hover state
@@ -54,7 +55,7 @@ const PersonalDesktop = ({ theme }) => {
                             animation: "fade-expand 2s ease-out",
                         }}
                     >
-                        Ashitha Paramesha Gowda
+                        {CONSTANT.MY_NAME}
                     </span>
                 </h1>
                 <style>
@@ -84,12 +85,7 @@ const PersonalDesktop = ({ theme }) => {
                         marginTop: "20px",
                     }}
                 >
-                    I&apos;m a full-stack developer with a focus on backend engineering and API development, tackling complex
-                    problems to create scalable, high-performance solutions. I work with Node.js, Next.js, React, and
-                    blockchain to build systems that work seamlessly. At cnotes.in, I designed a custom algorithm to predict
-                    monthly billing for over 30,000 customers. Always exploring AI in tech, I thrive on collaborating with
-                    teams to innovate and solve challenges. When I&apos;m not coding, I&apos;m learning something new or pushing myself
-                    to improve.
+                {CONSTANT.PARA1}
                 </p>
                 <p
                     style={{
@@ -98,11 +94,7 @@ const PersonalDesktop = ({ theme }) => {
                         color: COLOURS[`TEXT_COLOUR_${theme}`],
                     }}
                 >
-                    💬 I&apos;m a strong believer in collaboration and empathy, always striving to uplift those around me. If
-                    there&apos;s one thing I value deeply, it&apos;s meaningful connections and making a positive impact in every space
-                    I occupy. 🎨 Outside work, you&apos;ll find me immersed in art, experimenting in the kitchen, or on a quest to
-                    discover the best local coffee shops. Life, for me, is about crafting beautiful experiences—both in and
-                    outside the code.
+                    {CONSTANT.PARA2}
                 </p>
             </div>
 

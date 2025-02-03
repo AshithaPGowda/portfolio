@@ -9,7 +9,7 @@ import CONSTANT from "@/app/mySkills";
 
 const WhatDoIDo = ({ theme }) => {
     const themeMUI = useTheme();
-    const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(themeMUI.breakpoints.down("lg"));
 
     return isMobile ? (
         <div

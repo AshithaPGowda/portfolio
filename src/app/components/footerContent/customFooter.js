@@ -37,7 +37,7 @@ const Footer = ({ theme, isMobile }) => {
     return (
         <footer
             style={{
-                padding: isMobile ? "2vw" : "1.5vw",
+                padding: isMobile ? "0.8vw" : "1.5vw",
                 backgroundColor: COLOURS[`BACKGROUND_${theme}`],
                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                 textAlign: "center",
@@ -87,7 +87,7 @@ const Footer = ({ theme, isMobile }) => {
                 onMouseEnter={(e) => (e.target.style.transform = "scale(1.1)")} // Enlarge
                 onMouseLeave={(e) => (e.target.style.transform = "scale(1)")} // Reset
             >
-                {isMobile ? "Download Resume" : "My Resume"}
+                {isMobile ? "📥 Resume" : "My Resume"}
             </Typography>
 
             {/* Projects Button */}

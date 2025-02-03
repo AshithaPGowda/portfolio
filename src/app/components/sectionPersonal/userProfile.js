@@ -11,7 +11,7 @@ import Footer from '../footerContent/customFooter';
 
 export default function UserProfile({theme, timelineColours}) {
       // Check if the screen is small (mobile view)
-  const isMobile = useMediaQuery("(max-width:600px)");
+  const isMobile = useMediaQuery("(max-width:1200px)");
 
   useEffect(() => {
     // Ensure body and html take up full height of the screen
@@ -69,7 +69,7 @@ export default function UserProfile({theme, timelineColours}) {
           color: COLOURS[`TEXT_COLOUR_${theme}`], // Dynamic text color
         }}
       >
-       {<Education theme={theme} timelineColours={timelineColours}/>}
+       {<Education theme={theme}/>}
       </div>
 
             {/* Footer */}

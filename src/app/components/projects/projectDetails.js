@@ -9,7 +9,7 @@ import GameBoard from "./gameboard/gameboard";
 
 const ProjectDetails = ({ project, onBackClick, theme }) => {
     const themeMUI = useTheme();
-    const isMobile = useMediaQuery(themeMUI.breakpoints.down("sm"));
+    const isMobile = useMediaQuery(themeMUI.breakpoints.down("lg"));
     return (
         <div
             style={{
@@ -36,7 +36,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                 }}
             >
                 {/* Header Section */}
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "1vw" }}>
                     {/* Back Button */}
                     <Tooltip title="Back" placement="right">
                         <Button
@@ -51,7 +51,7 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                                 color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
                                 position: isMobile ? "fixed" : "relative", // Fix position on mobile
                                 top: isMobile ? "20vh" : "unset", // Top position for mobile
-                                left: isMobile ? "3.5vw" : "unset", // Left position for mobile
+                                left: isMobile ? "0.7vw" : "unset", // Left position for mobile
                                 zIndex: 3, // Ensure it stays above other content
                                 backgroundColor: isMobile ? COLOURS[`SECTION_COLOUR_${theme}`] : "transparent", // Optional: Semi-transparent background for better visibility
                                 borderRadius: "20px", // Optional: Rounded corners for better mobile UX
