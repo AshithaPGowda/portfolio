@@ -1,0 +1,85 @@
+.loaderContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+    z-index: 9999; /* Ensure it stays on top */
+  }
+  
+  .loader {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 8px solid transparent;
+    border-top-color: #E6D9A2;
+    border-right-color: #1F4529;
+    border-bottom-color: #FA4032;
+    border-left-color: #2A3663;
+    animation: spin 1.5s linear infinite, colorCycle 4s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes colorCycle {
+    0% {
+      border-top-color: #E6D9A2;
+      border-right-color: #1F4529;
+      border-bottom-color: #FA4032;
+      border-left-color: #2A3663;
+    }
+    14% {
+      border-top-color: #CEDF9F;
+      border-right-color: #E5D9F2;
+      border-bottom-color: #FF8A8A;
+      border-left-color: #624E88;
+    }
+    28% {
+      border-top-color: #FF8A8A;
+      border-right-color: #624E88;
+      border-bottom-color: #E6D9A2;
+      border-left-color: #1F4529;
+    }
+    42% {
+      border-top-color: #624E88;
+      border-right-color: #E6D9A2;
+      border-bottom-color: #CEDF9F;
+      border-left-color: #FA4032;
+    }
+    57% {
+      border-top-color: #E5D9F2;
+      border-right-color: #FF8A8A;
+      border-bottom-color: #624E88;
+      border-left-color: #2A3663;
+    }
+    71% {
+      border-top-color: #FA4032;
+      border-right-color: #CEDF9F;
+      border-bottom-color: #E5D9F2;
+      border-left-color: #1F4529;
+    }
+    85% {
+      border-top-color: #2A3663;
+      border-right-color: #FF8A8A;
+      border-bottom-color: #624E88;
+      border-left-color: #CEDF9F;
+    }
+    100% {
+      border-top-color: #E6D9A2;
+      border-right-color: #1F4529;
+      border-bottom-color: #FA4032;
+      border-left-color: #2A3663;
+    }
+  }
+  
