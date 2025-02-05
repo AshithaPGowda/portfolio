@@ -26,7 +26,7 @@ CONSTANT.SKILLS = [
     {
         color: "#FF5722",
         icon: <Api />,
-        title: "RESTful APIs",
+        title: "RESTful API's",
         description: "Building efficient and scalable API integrations.",
         details: "REST API, GraphQL, WebSockets, CQRS, Microservices.",
     },

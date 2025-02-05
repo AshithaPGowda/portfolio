@@ -107,6 +107,7 @@ const SwipeableCards = ({ skills, theme }) => {
                                             color: COLOURS[`TEXT_COLOUR_SECTION_${theme}`],
                                             fontWeight: "bold",
                                             marginBottom: "10px",
+                                            textTransform: "uppercase",
                                         }}
                                     >
                                         {skill.title}
