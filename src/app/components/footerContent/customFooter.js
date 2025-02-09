@@ -42,7 +42,7 @@ const Footer = ({ theme, isMobile }) => {
                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                 textAlign: "center",
                 marginTop: "auto",
-                borderTop: `1px solid ${COLOURS[`SECTION_COLOUR_${theme}`]}`,
+                // borderTop: `1px solid ${COLOURS[`SECTION_COLOUR_${theme}`]}`,
             }}
         >
             <ContactForm open={showContactForm} onClose={handleCloseContactForm} theme={theme} COLOURS={COLOURS} />
