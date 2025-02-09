@@ -58,22 +58,8 @@ const Education = ({ theme }) => {
                 borderRadius: "20px",
                 boxShadow: theme === "LIGHT" ? "0 6px 12px rgba(0, 0, 0, 0.1)" : "0 6px 12px rgba(0, 0, 0, 0.5)",
                 transition: "background-color 0.8s ease, box-shadow 0.3s ease", // Increase transition time
-                animation: "liquidFill 2s ease", // Apply the liquid fill animation
             }}
         >
-            <style>
-                {`@keyframes liquidFill {
-            0% {
-                background-color: transparent;
-            }
-            50% {
-                background-color: rgba(255, 255, 255, 0.5);
-            }
-            100% {
-                background-color: inherit; /* Background fills in */
-            }
-        }`}
-            </style>
             {isMobile ? (
                 <div>
                     <Typography
