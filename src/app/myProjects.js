@@ -49,7 +49,7 @@ Building a smarter AI for a game like tic-tac-toe involves much more than just i
         description:
             "cnotes.in is a cable TV management platform I developed to address payment leakages and streamline subscriber management. Key features include automated billing, SMS receipts, and efficient collection tracking. Built using PHP and MySQL, it ensures reliability and scalability for business needs.",
         cardBackgroundColor: "#4169E1",
-        media: ["/cnotes/home.png", "/cnotes/login.png"],
+        media: ["/cnotes/login.png", "/cnotes/home.png"],
         details: {
             "Technologies Used": "PHP, Argon CDN, MySQL, Git",
             Role: "Founder & Full Stack Developer",
