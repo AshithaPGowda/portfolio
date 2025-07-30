@@ -4,6 +4,7 @@ CONSTANT.PROJECTS = [
     {
         title: "XOXO GAME",
         slug: 0,
+        featured: false,
         highlightDescription: "A fun tic-tac-toe game with an AI-powered opponent, playable inside the portfolio.",
         description:
             "Built with React, this tic-tac-toe game features an AI-powered opponent and is fully responsive. It provides a seamless experience for users across devices. This project demonstrates my expertise in creating interactive UIs and integrating AI logic. Designed an optimized AI opponent using minimax algorithm principles, enhancing difficulty for users",
@@ -39,11 +40,12 @@ Ensuring that the game is fun and easy to interact with was a constant challenge
 Building a smarter AI for a game like tic-tac-toe involves much more than just implementing an algorithm. It's about balancing challenge, randomness, and fairness to create a game that feels both fun and competitive. The Humanize feature was my way of making sure that the game didn't just become a mechanical, predictable experience but instead something that felt more alive and engaging.
           `,
         playable: true,
-        challenge: "Making the Game Smarter and More Engaging"
+        challenge: "Making the Game Smarter and More Engaging",
     },
     {
         title: "CNOTES.IN",
         slug: 1,
+        featured: true,
         highlightDescription:
             "A platform designed to streamline cable TV subscriber management and prevent payment leakages.",
         description:
@@ -86,53 +88,64 @@ One of the biggest issues in the cable TV business is last-mile payment leakage,
 
 **Impact:\n
 The platform currently manages over 30,000 customer records and automates monthly predictions for improved financial planning. The prediction driven system helps anticipate payment trends, enabling proactive decision-making.`,
-challenge : "Revolutionizing Cable TV Subscriber Management"
+        challenge: "Revolutionizing Cable TV Subscriber Management",
     },
     {
         title: "DEAR",
         slug: 2,
-        highlightDescription: "A personalized voice assistant to simulate memory conversations for Alzheimer's patients.",
+        featured: true, // <-- NEW FEATURE FLAG
+        highlightDescription: "Deeply personalized voice AI that simulates real conversations, helping memory-loss patients stay connected with loved ones.",
         description:
-            "Dear is a personalized voice assistant designed to simulate phone conversations with Alzheimer's patients. By deep cloning a family member's voice using Cartesia and integrating VAPI to trigger phone calls, Dear continues the conversation with AI-driven models to assist in simulating memory. It serves as a memory trigger, providing comfort and interaction for those suffering from Alzheimer's. The project aims to help simulate interactions and support the memory recovery process.",
-        cardBackgroundColor: "#3F51B5",
-        media: [],
+            "Dear is a personalized voice assistant designed to help individuals experiencing memory loss maintain familiarity with loved ones' voices. It simulates real phone conversations using advanced voice cloning and conversational AI models, providing comfort and cognitive support to users. The solution is built on modular backend services, real-time transcription, memory parsing, and retrieval-augmented dialogue generation, making it scalable and production-ready.",
+        cardBackgroundColor: "#e59dcfff",
+        media: ["dear/list.png", "dear/recorder.png", "dear/recording.png"],
         details: {
-            "Technologies Used": "Cartesia, VAPI, AI Models, Next.js",
-            Role: "Team Lead & Full Stack Developer",
-            Duration: "36 hours",
-            "Collaboration Type": "Team Contribution",
+            "Technologies Used": "Node.js, FastAPI, Whisper, ChromaDB, Redis, Next.js",
+            Role: "Founder, Team Lead & Full Stack Developer",
+            Duration: "Ongoing",
+            "Collaboration Type": "Individual",
             "Project Type": "Personal Project",
         },
         features: [
-            "Personalized voice simulation for Alzheimer's patients",
-            "AI-driven voice conversation",
-            "Deep cloning family members' voices",
-            "Memory-triggering phone conversations",
+            "Real phone conversations using AI and voice cloning",
+            "Deeply personalized voice simulations",
+            "Modular microservices architecture for scalability",
+            "Real-time audio transcription and memory parsing",
+            "Retrieval-augmented conversation generation",
         ],
-        highlightFeatures: ["AI-driven voice simulation", "Deep cloning of voices", "Memory assistance through conversation"],
+        highlightFeatures: [
+            "Deep voice cloning with Cartesia",
+            "Production-ready multi-service backend",
+            "AI-powered, emotionally adaptive conversations",
+        ],
         toolTipText: "Personal Project",
         playable: false,
-        textContent:`
+        challenge: "Building an emotionally engaging, scalable voice AI system",
+        textContent: `**1. Evolution from Prototype to Production:**\n
+Dear started as a 36-hour hackathon prototype and evolved into a full-scale, modular backend system. We transitioned from a simple conversational agent to a microservices architecture that supports large-scale, reliable deployment with real-time transcription and conversation orchestration.
 
-**1. Personalized Voice Simulation:\n
-One of the major hurdles was ensuring the voice assistant didn't sound robotic or distant. Alzheimer's patients need more than a technical solution; they need emotional engagement. To tackle this, We used Cartesia's voice cloning technology to replicate family members' voices, creating a personalized touch that felt comforting and familiar. The challenge was ensuring the voice felt authentic enough to evoke positive emotions and trigger memories.
+**2. Deeply Personalized Voice Cloning:**\n
+Using Cartesia's voice cloning technology, Dear replicates family members' voices with high fidelity. This personalized touch creates a comforting and familiar experience for memory loss patients, making interactions emotionally meaningful.
 
-**2. Real-Time Conversations:\n
-Dear is designed to initiate and maintain real-time phone calls between the patient and their family members. These calls serve as a simulation of memory, helping patients feel connected while also encouraging cognitive engagement.
+**3. Real-Time Conversational AI:**\n
+Dear supports real-time phone conversations, using Whisper for speech-to-text and LLM-driven agents for response generation. The system retrieves context-aware memories from ChromaDB, enabling coherent and personalized dialogue.
 
-**3. AI-Powered Memory Simulation:\n
-The AI had to handle real-time conversations and understand the emotional context of each interaction. Alzheimer's patients often experience emotional shifts, and the assistant needed to react empathetically. We incorporated VAPI to enable the assistant to recognize emotional cues in speech and adjust its responses accordingly. This made conversations feel more human-like and relevant to the patient's current emotional state.
+**4. Modular, Scalable Architecture:**\n
+Built with Dockerized services (Node.js gateway, FastAPI conversation engine, Whisper STT service, ChromaDB memory store), Dear is designed for scalability and minimal refactoring for production environments.
 
-**4. Continuous AI-Driven Learning:\n
-The voice assistant is not static. It constantly learns from interactions to better understand the patient’s responses and needs. This allows the system to adapt, ensuring that each conversation is tailored to the patient’s current state and providing a more natural flow of dialogue.
+**5. Impact:**\n
+Dear aims to assist 55M+ individuals living with memory loss by enabling 3–4 loved ones per patient to stay connected. The solution focuses on maintaining voice familiarity, providing comfort, and easing cognitive strain on both patients and families.
 
-**Impact:\n
-Dear provides a much-needed solution for families of Alzheimer's patients, offering a way for them to remain connected even when direct human interaction is difficult. By facilitating memory simulations and meaningful conversations, the project not only improves the patient's quality of life but also alleviates the emotional burden on caregivers and family members.`,
-challenge:"Creating an Emotionally Engaging Experience"
+**Future Plans:**\n
+- Adding 'Memories' section for enriching context
+- Enhanced retrieval-augmented generation
+- MIT Solve and YC-backed product roadmap
+    `,
     },
     {
         title: "CLUE CRAFTERS",
         slug: 3,
+        featured: false,
         highlightDescription: "A 6-player multiplayer game built with Socket.IO and Express for real-time gameplay.",
         description:
             "As the team lead for Clue Crafters, I developed a real-time multiplayer board game based on the classic Clue. Leveraging Socket.IO for real-time gameplay and Next.js for a dynamic UI, I handled both backend and frontend development. The project showcases my ability to build complex, interactive applications.",
@@ -154,8 +167,8 @@ challenge:"Creating an Emotionally Engaging Experience"
         highlightFeatures: ["Real-time multiplayer", "6-player support", "Interactive gameplay"],
         toolTipText: "Academic Project",
         playable: false,
-        challenge:"Reimagining the Classic Murder Mystery Game",
-        textContent:`
+        challenge: "Reimagining the Classic Murder Mystery Game",
+        textContent: `
 
 **1. Transitioning from Physical to Digital Gameplay:\n
 The first challenge was keeping the traditional Clue game experience intact while moving it online. Players had to feel like they were still immersed in a classic Clue environment, but with the added benefit of multiplayer functionality and faster-paced gameplay. By ensuring the rules stayed true, I managed to create a digital version that still kept the mystery and excitement intact.
@@ -170,11 +183,12 @@ Managing multiplayer functionality with up to 6 players meant ensuring a smooth 
 As with all my projects, a huge focus was on user experience and accessibility. I wanted Clue Crafters to be easy for anyone to pick up and play, regardless of their technical expertise. With a simple, intuitive interface and clear instructions, players can jump into the game and start playing without hassle.
 
 **Conclusion:\n
-Clue Crafters was an exciting project that combined my passion for traditional games with my skills in full-stack development. It was about taking a well-loved classic and making it accessible to a new generation of players, all while keeping the core of the game intact. The challenge of adapting the physical gameplay and making it work seamlessly online was an invaluable experience in balancing the old with the new.`
+Clue Crafters was an exciting project that combined my passion for traditional games with my skills in full-stack development. It was about taking a well-loved classic and making it accessible to a new generation of players, all while keeping the core of the game intact. The challenge of adapting the physical gameplay and making it work seamlessly online was an invaluable experience in balancing the old with the new.`,
     },
     {
         title: "INVENIAM.IO",
         slug: 4,
+        featured: false,
         highlightDescription: "Contributed to a data platform improving liquidity for private market assets.",
         description:
             "At Inveniam.io, I worked as a backend developer contributing to a data operating platform aimed at improving liquidity in private market assets like private equity and commercial real estate. My responsibilities included maintaining data security, resolving critical support tickets, and implementing CQRS-based design patterns to ensure data consistency and scalability. Collaborating closely with the team, I played a role in streamlining backend services to enhance the platform’s performance and user experience.",
@@ -204,6 +218,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
     {
         title: "PATENT VARIFICATION SYSTEM",
         slug: 5,
+        featured: false,
         highlightDescription: "A secure blockchain-based platform for verifying patents.",
         description:
             "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers. Deployed blockchain nodes to simulate secure patent transactions, ensuring tamper-proof data.",
@@ -229,6 +244,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
     {
         title: "SNAKE AND LADDER",
         slug: 6,
+        featured: false,
         highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
         description:
             "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
@@ -258,6 +274,7 @@ Clue Crafters was an exciting project that combined my passion for traditional g
     {
         title: "NJS2 CHAT PLUGIN",
         slug: 7,
+        featured: false,
         highlightDescription: "Built a reusable chat plugin with the NJS2 framework.",
         description:
             "Developed a robust chat plugin as part of a team working on the NJS2 framework. The plugin supports private chat, random chat, and session-based chat functionalities. Worked extensively on translating modules into text files, creating modular and reusable code, and ensuring seamless integration within the framework. Gained valuable experience in modular development and enhancing real-time communication solutions.",

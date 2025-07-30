@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { Grid, Card, CardContent, Typography, Tooltip } from "@mui/material";
+import { Grid, Card, CardContent, Typography, Tooltip, Box } from "@mui/material";
 import COLOURS from "@/app/colours";
 
-// adjustColor function
 const adjustColor = (color, percentage, lighten = true) => {
     const num = parseInt(color.slice(1), 16);
     let R = (num >> 16) & 0xff;
@@ -15,7 +14,7 @@ const adjustColor = (color, percentage, lighten = true) => {
         B = Math.min(255, B + Math.round((255 - B) * (percentage / 100)));
     } else {
         R = Math.max(0, R - Math.round(R * (percentage / 100)));
-        G = Math.max(0, G - Math.round(G * (percentage / 100)));
+        G = Math.max(0, G - Math.round(R * (percentage / 100)));
         B = Math.max(0, B - Math.round(B * (percentage / 100)));
     }
 
@@ -23,8 +22,11 @@ const adjustColor = (color, percentage, lighten = true) => {
 };
 
 const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
-    const maxHeight = isMobile ? 250 : 200; // Fixed height for all cards
+    const maxHeight = isMobile ? 250 : 200;
     const [hoveredIndex, setHoveredIndex] = useState(null);
+
+    // Sort featured projects first
+    const sortedProjects = [...projects].sort((a, b) => (b.featured ? 1 : 0) - (a.featured ? 1 : 0));
 
     return (
         <div
@@ -51,12 +53,11 @@ const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
                 MY PROJECTS
             </Typography>
             <Grid container spacing={5} justifyContent="center">
-                {projects.map((project, index) => {
+                {sortedProjects.map((project, index) => {
                     const adjustedColor = adjustColor(project.cardBackgroundColor, 30, theme === "LIGHT");
 
                     return (
                         <Grid item xs={12} sm={6} md={3} key={index}>
-                            {/* Tooltip for the project */}
                             <Tooltip title={project.toolTipText} placement="top">
                                 <Card
                                     onClick={() => onCardClick(project)}
@@ -70,19 +71,65 @@ const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
                                             theme === "LIGHT"
                                                 ? "0 6px 12px rgba(81, 51, 51, 0.1)"
                                                 : "0 6px 12px rgba(0, 0, 0, 0.5)",
-                                        transition: "all 0.3s ease", // Smooth transition for all properties
-                                        height: `${maxHeight}px`, // Fixed height for all cards
-                                        display: "flex", // Flexbox for vertical alignment
+                                        transition: "all 0.3s ease",
+                                        height: `${maxHeight}px`,
+                                        display: "flex",
                                         flexDirection: "column",
                                         justifyContent: "space-between",
-                                        transform: "scale(1)", // Initial scale
-                                        "&:hover": {
-                                            transform: "scale(1.12)", // Enlarge the card on hover
-                                            boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)", // Add a stronger shadow on hover
-                                        },
                                         textAlign: "center",
+                                        position: "relative", // Needed for the badge
+                                        "&:hover": {
+                                            transform: "scale(1.12)",
+                                            boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
+                                        },
                                     }}
                                 >
+                                    {/* Featured Badge */}
+                                    {project.featured && (
+                                        <Box
+                                            sx={{
+                                                position: "absolute",
+                                                top: "20px",
+                                                left: "-55px",
+                                                transform: "rotate(-45deg)",
+                                                fontSize: "0.75rem",
+                                                fontWeight: "bold",
+                                                textAlign: "center",
+                                                zIndex: 1,
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+
+                                                "&::before, &::after": {
+                                                    content: '""',
+                                                    position: "absolute",
+                                                    top: 0,
+                                                    width: "0",
+                                                    height: "0",
+                                                    borderTop: "15px solid transparent",
+                                                    borderBottom: "15px solid transparent",
+                                                },
+                                                "&::before": {
+                                                    left: "-15px",
+                                                    borderRight: "15px solid #c31e12ff", // left tail
+                                                },
+                                                "&::after": {
+                                                    right: "-15px",
+                                                    borderLeft: "15px solid #c31e12ff", // right tail
+                                                },
+
+                                                backgroundColor: "#c31e12ff",
+                                                color: "#fff",
+                                                px: 2,
+                                                py: 0.5,
+                                                width: "150px",
+                                                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
+                                            }}
+                                        >
+                                            FEATURED
+                                        </Box>
+                                    )}
+
                                     <CardContent>
                                         <Typography
                                             variant="h6"
