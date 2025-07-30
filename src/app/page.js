@@ -81,15 +81,15 @@ export default function Home() {
                         width: "100%",
                     }}
                 >
-                    <svg width="300" height="150" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-                        <text x="50" y="100" className="letter" fontSize="80" fontWeight="bold">
-                            A
-                        </text>
-                        <text x="120" y="100" className="letter" fontSize="80" fontWeight="bold">
-                            P
-                        </text>
-                        <text x="190" y="100" className="letter" fontSize="80" fontWeight="bold">
-                            G
+                    <svg width="300" height="150" viewBox="0 0 300 150">
+                        <text x="50" y="100" fontSize="80" fontWeight="bold" textAnchor="start">
+                            <tspan className="letter">A</tspan>
+                            <tspan className="letter" dx="20">
+                                P
+                            </tspan>
+                            <tspan className="letter" dx="20">
+                                G
+                            </tspan>
                         </text>
                     </svg>
                 </div>
