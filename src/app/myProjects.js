@@ -371,7 +371,7 @@ Enabled scalable analysis of U.S. Medicaid waiver policies, transforming previou
     details: {
         "Technologies Used": "Python, Flask, Redis, Docker, Rate Limiting, Background Jobs",
         Role: "Backend Engineer & Open-Source Author",
-        Duration: "2026",
+        Duration: "1 Day",
         "Collaboration Type": "Individual",
         "Project Type": "Open Source Backend Tool",
     },
@@ -391,19 +391,19 @@ Enabled scalable analysis of U.S. Medicaid waiver policies, transforming previou
     playable: false,
     challenge: "Designing a safe, scalable scraper for large public archives",
     textContent: `
-**Goal:**  
+
+**Goal:**\n 
 Create a reliable, research-friendly way to download large archival image collections.
 
-**Backend Engineering Highlights:**
+**Backend Engineering Highlights:**\n
 - Implemented request rate limiting to prevent abuse  
 - Used Redis for job lifecycle tracking and concurrency safety  
 - Added automatic cleanup of expired jobs and temporary files  
 - Designed export pipeline for structured ZIP/PDF outputs  
 - Packaged full system with Docker for reproducibility  
 
-**Result:**  
-A production-minded open-source backend tool that turns manual archival collection into a fast, automated workflow.
-    `,
+**Result:**\n  
+A production-minded open-source backend tool that turns manual archival collection into a fast, automated workflow.`,
     link: { url: "https://github.com/AshithaPGowda/nara-image-scraper", label: "GitHub" },
 }
 
