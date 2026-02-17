@@ -41,6 +41,7 @@ Building a smarter AI for a game like tic-tac-toe involves much more than just i
           `,
         playable: true,
         challenge: "Making the Game Smarter and More Engaging",
+        link: null,
     },
     {
         title: "CNOTES.IN",
@@ -89,11 +90,12 @@ One of the biggest issues in the cable TV business is last-mile payment leakage,
 **Impact:\n
 The platform currently manages over 30,000 customer records and automates monthly predictions for improved financial planning. The prediction driven system helps anticipate payment trends, enabling proactive decision-making.`,
         challenge: "Revolutionizing Cable TV Subscriber Management",
+        link: { url: "https://www.cnotes.in", label: "Website" },
     },
     {
         title: "DEAR",
         slug: 2,
-        featured: true, // <-- NEW FEATURE FLAG
+        featured: false, // <-- NEW FEATURE FLAG
         highlightDescription: "Deeply personalized voice AI that simulates real conversations, helping memory-loss patients stay connected with loved ones.",
         description:
             "Dear is a personalized voice assistant designed to help individuals experiencing memory loss maintain familiarity with loved ones' voices. It simulates real phone conversations using advanced voice cloning and conversational AI models, providing comfort and cognitive support to users. The solution is built on modular backend services, real-time transcription, memory parsing, and retrieval-augmented dialogue generation, making it scalable and production-ready.",
@@ -141,6 +143,7 @@ Dear aims to assist 55M+ individuals living with memory loss by enabling 3–4 l
 - Enhanced retrieval-augmented generation
 - MIT Solve and YC-backed product roadmap
     `,
+        link: null,
     },
     {
         title: "CLUE CRAFTERS",
@@ -184,6 +187,7 @@ As with all my projects, a huge focus was on user experience and accessibility. 
 
 **Conclusion:\n
 Clue Crafters was an exciting project that combined my passion for traditional games with my skills in full-stack development. It was about taking a well-loved classic and making it accessible to a new generation of players, all while keeping the core of the game intact. The challenge of adapting the physical gameplay and making it work seamlessly online was an invaluable experience in balancing the old with the new.`,
+        link: null,
     },
     {
         title: "INVENIAM.IO",
@@ -214,63 +218,66 @@ Clue Crafters was an exciting project that combined my passion for traditional g
         ],
         toolTipText: "Professional Project",
         playable: false,
+        link: null,
     },
-    {
-        title: "PATENT VARIFICATION SYSTEM",
-        slug: 5,
-        featured: false,
-        highlightDescription: "A secure blockchain-based platform for verifying patents.",
-        description:
-            "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers. Deployed blockchain nodes to simulate secure patent transactions, ensuring tamper-proof data.",
-        cardBackgroundColor: "#607D8B", // Neutral tone
-        media: [],
-        details: {
-            "Technologies Used": "Next.js, Ethereum, Smart Contracts, Solidity, Web3.js",
-            Role: "Full Stack Developer",
-            Duration: "4 months",
-            "Collaboration Type": "Team Lead",
-            "Project Type": "Academic Project",
-        },
-        features: [
-            "Blockchain-based data storage",
-            "Smart contract automation for patent verification",
-            "User-friendly interface for secure uploads",
-            "Tamper-proof patent verification records",
-        ],
-        highlightFeatures: ["Blockchain-backed security", "Smart contract-based automation", "Patent data integrity"],
-        toolTipText: "Academic Project",
-        playable: false,
-    },
-    {
-        title: "SNAKE AND LADDER",
-        slug: 6,
-        featured: false,
-        highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
-        description:
-            "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
-        cardBackgroundColor: "#FFA07A", // Warm and playful tone
-        media: [],
-        details: {
-            "Technologies Used": "Socket.IO, Node.js, Express.js, JavaScript, HTML, CSS",
-            Role: "Full Stack Developer",
-            Duration: "3 months",
-            "Collaboration Type": "Individual Contributor",
-            "Project Type": "Professional Project",
-        },
-        features: [
-            "Real-time multiplayer gameplay",
-            "Interactive UI with animated dice rolls",
-            "Customizable player avatars",
-            "Game state persistence for reconnections",
-        ],
-        highlightFeatures: [
-            "Real-time multiplayer support",
-            "Interactive animations",
-            "Classic game experience with a modern touch",
-        ],
-        toolTipText: "Professional Project",
-        playable: false,
-    },
+    // {
+    //     title: "PATENT VERIFICATION SYSTEM",
+    //     slug: 5,
+    //     featured: false,
+    //     highlightDescription: "A secure blockchain-based platform for verifying patents.",
+    //     description:
+    //         "A blockchain-based platform designed to securely verify and store patent-related data. The system leverages smart contracts to automate verification and enhance transparency in the patent validation process. It ensures tamper-proof data integrity and provides a user-friendly interface for researchers and patent officers. Deployed blockchain nodes to simulate secure patent transactions, ensuring tamper-proof data.",
+    //     cardBackgroundColor: "#607D8B", // Neutral tone
+    //     media: [],
+    //     details: {
+    //         "Technologies Used": "Next.js, Ethereum, Smart Contracts, Solidity, Web3.js",
+    //         Role: "Full Stack Developer",
+    //         Duration: "4 months",
+    //         "Collaboration Type": "Team Lead",
+    //         "Project Type": "Academic Project",
+    //     },
+    //     features: [
+    //         "Blockchain-based data storage",
+    //         "Smart contract automation for patent verification",
+    //         "User-friendly interface for secure uploads",
+    //         "Tamper-proof patent verification records",
+    //     ],
+    //     highlightFeatures: ["Blockchain-backed security", "Smart contract-based automation", "Patent data integrity"],
+    //     toolTipText: "Academic Project",
+    //     playable: false,
+    //     link: null,
+    // },
+    // {
+    //     title: "SNAKE AND LADDER",
+    //     slug: 6,
+    //     featured: false,
+    //     highlightDescription: "A classic Snake and Ladder game revamped for multiplayer fun.",
+    //     description:
+    //         "A reimagined version of the traditional Snake and Ladder board game, built as a multiplayer online experience. The game leverages Socket.IO for real-time communication, enabling players to connect and enjoy the game together seamlessly. It features an engaging user interface with interactive animations that bring the classic game to life. This project holds special significance as it was the first game I ever created, sparking my passion for Node.js, Express.js, and software development in general.",
+    //     cardBackgroundColor: "#FFA07A", // Warm and playful tone
+    //     media: [],
+    //     details: {
+    //         "Technologies Used": "Socket.IO, Node.js, Express.js, JavaScript, HTML, CSS",
+    //         Role: "Full Stack Developer",
+    //         Duration: "3 months",
+    //         "Collaboration Type": "Individual Contributor",
+    //         "Project Type": "Professional Project",
+    //     },
+    //     features: [
+    //         "Real-time multiplayer gameplay",
+    //         "Interactive UI with animated dice rolls",
+    //         "Customizable player avatars",
+    //         "Game state persistence for reconnections",
+    //     ],
+    //     highlightFeatures: [
+    //         "Real-time multiplayer support",
+    //         "Interactive animations",
+    //         "Classic game experience with a modern touch",
+    //     ],
+    //     toolTipText: "Professional Project",
+    //     playable: false,
+    //     link: null,
+    // },
     {
         title: "NJS2 CHAT PLUGIN",
         slug: 7,
@@ -300,7 +307,107 @@ Clue Crafters was an exciting project that combined my passion for traditional g
         ],
         toolTipText: "Professional Project",
         playable: false,
+        link: null,
     },
+    {
+    title: "Schema Driven LLM Extractor",
+    slug: 8,
+    featured: true,
+    highlightDescription:
+        "Layout-driven LLM pipeline extracting structured healthcare policy data from complex Medicaid waiver PDFs.",
+    description:
+        "A research-grade document intelligence pipeline built at Johns Hopkins University to extract structured data from 1915(c) and 1115 Medicaid waiver PDFs. The system combines layout-aware parsing, LLM prompting, validation workflows, and structured output generation to support real healthcare policy analysis at scale.",
+    cardBackgroundColor: "#0B3D91",
+    media: [],
+    details: {
+        "Technologies Used": "Python, Gemini, Claude, Redis, ChromaDB, Layout Parsing",
+        Role: "Graduate Research Assistant",
+        Duration: "2025",
+        "Collaboration Type": "Research Team (JHU)",
+        "Project Type": "Healthcare AI Research",
+    },
+    features: [
+        "Extraction of 70+ structured healthcare fields",
+        "Layout-aware PDF parsing with validation pipeline",
+        "LLM prompt + fine-tuned extraction modes",
+        "Structured dataset generation for policy analysis",
+    ],
+    highlightFeatures: [
+        "Healthcare-grade document intelligence",
+        "LLM + layout hybrid extraction",
+        "Real research deployment at JHU",
+    ],
+    toolTipText: "Research Project",
+    playable: false,
+    challenge: "Turning unstructured healthcare PDFs into reliable structured data",
+    textContent: `
+
+**Problem:**\n
+Medicaid waiver documents are long, inconsistent, and difficult to analyze programmatically.
+
+**Solution:**\n
+Designed a layout-driven LLM extraction pipeline that converts complex PDFs into structured healthcare datasets.
+
+**Key Engineering Work:**\n
+- Built hybrid extraction using layout parsing + LLM reasoning  
+- Added validation layers to ensure field-level accuracy  
+- Supported multiple extraction modes (prompt-based vs tuned)  
+- Generated structured outputs for downstream healthcare analysis  
+
+**Impact:**\n 
+Enabled scalable analysis of U.S. Medicaid waiver policies, transforming previously manual research into automated structured data workflows.`,
+    link: { url: "https://github.com/AshithaPGowda/schema-driven-document-extraction", label: "GitHub" },
+},
+{
+    title: "NARA IMAGE SCRAPER",
+    slug: 9,
+    featured: true,
+    highlightDescription:
+        "Production-style archival image extraction tool with rate limiting, Redis caching, and automated cleanup.",
+    description:
+        "An open-source backend system for extracting high-resolution historical images from U.S. National Archives catalog pages. Built with a production mindset, the tool includes rate limiting, Redis-backed job handling, background cleanup, and structured export pipelines for ZIP and PDF generation.",
+    cardBackgroundColor: "#1E1E1E",
+    media: [],
+    details: {
+        "Technologies Used": "Python, Flask, Redis, Docker, Rate Limiting, Background Jobs",
+        Role: "Backend Engineer & Open-Source Author",
+        Duration: "2026",
+        "Collaboration Type": "Individual",
+        "Project Type": "Open Source Backend Tool",
+    },
+    features: [
+        "Bulk archival image extraction from NARA catalog",
+        "Redis-based job tracking and rate limiting",
+        "Automatic cleanup of expired jobs and files",
+        "ZIP and PDF export generation pipeline",
+        "Dockerized reproducible local deployment",
+    ],
+    highlightFeatures: [
+        "Production-style backend safeguards",
+        "Rate limiting + Redis job lifecycle",
+        "Open-source research utility",
+    ],
+    toolTipText: "Open Source Project",
+    playable: false,
+    challenge: "Designing a safe, scalable scraper for large public archives",
+    textContent: `
+**Goal:**  
+Create a reliable, research-friendly way to download large archival image collections.
+
+**Backend Engineering Highlights:**
+- Implemented request rate limiting to prevent abuse  
+- Used Redis for job lifecycle tracking and concurrency safety  
+- Added automatic cleanup of expired jobs and temporary files  
+- Designed export pipeline for structured ZIP/PDF outputs  
+- Packaged full system with Docker for reproducibility  
+
+**Result:**  
+A production-minded open-source backend tool that turns manual archival collection into a fast, automated workflow.
+    `,
+    link: { url: "https://github.com/AshithaPGowda/nara-image-scraper", label: "GitHub" },
+}
+
+
 ];
 
 export default CONSTANT;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Grid, Card, CardContent, Typography, Tooltip, Box } from "@mui/material";
+import { Grid, Card, CardContent, Typography, Tooltip, Box, IconButton } from "@mui/material";
+import LaunchIcon from "@mui/icons-material/Launch";
 import COLOURS from "@/app/colours";
 
 const adjustColor = (color, percentage, lighten = true) => {
@@ -75,62 +76,18 @@ const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
                                         height: `${maxHeight}px`,
                                         display: "flex",
                                         flexDirection: "column",
-                                        justifyContent: "space-between",
+                                        justifyContent: "center",
+                                        alignItems: "center",
                                         textAlign: "center",
-                                        position: "relative", // Needed for the badge
+                                        position: "relative",
+                                        overflow: "hidden",
                                         "&:hover": {
                                             transform: "scale(1.12)",
                                             boxShadow: "0 12px 24px rgba(0, 0, 0, 0.2)",
                                         },
                                     }}
                                 >
-                                    {/* Featured Badge */}
-                                    {project.featured && (
-                                        <Box
-                                            sx={{
-                                                position: "absolute",
-                                                top: "20px",
-                                                left: "-55px",
-                                                transform: "rotate(-45deg)",
-                                                fontSize: "0.75rem",
-                                                fontWeight: "bold",
-                                                textAlign: "center",
-                                                zIndex: 1,
-                                                display: "flex",
-                                                alignItems: "center",
-                                                justifyContent: "center",
-
-                                                "&::before, &::after": {
-                                                    content: '""',
-                                                    position: "absolute",
-                                                    top: 0,
-                                                    width: "0",
-                                                    height: "0",
-                                                    borderTop: "15px solid transparent",
-                                                    borderBottom: "15px solid transparent",
-                                                },
-                                                "&::before": {
-                                                    left: "-15px",
-                                                    borderRight: "15px solid #c31e12ff", // left tail
-                                                },
-                                                "&::after": {
-                                                    right: "-15px",
-                                                    borderLeft: "15px solid #c31e12ff", // right tail
-                                                },
-
-                                                backgroundColor: "#c31e12ff",
-                                                color: "#fff",
-                                                px: 2,
-                                                py: 0.5,
-                                                width: "150px",
-                                                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)",
-                                            }}
-                                        >
-                                            FEATURED
-                                        </Box>
-                                    )}
-
-                                    <CardContent>
+                                    <CardContent sx={{ padding: "16px", paddingBottom: "40px" }}>
                                         <Typography
                                             variant="h6"
                                             style={{
@@ -145,12 +102,66 @@ const ProjectGrid = ({ projects, onCardClick, theme, isMobile }) => {
                                             style={{
                                                 color: COLOURS[`TEXT_COLOUR_${theme}`],
                                                 transition: "transform 0.1s ease",
-                                                padding: "3vh",
+                                                marginTop: "8px",
+                                                textAlign: "center",
                                             }}
                                         >
                                             {project.highlightDescription}
                                         </Typography>
                                     </CardContent>
+                                    {/* Featured Badge */}
+                                    {project.featured && (
+                                        <Box
+                                            sx={{
+                                                position: "absolute",
+                                                bottom: "8px",
+                                                left: "8px",
+                                            }}
+                                        >
+                                            <Tooltip title="Featured Project" placement="top">
+                                                <img
+                                                    src="/featured-badge.png"
+                                                    alt="Featured"
+                                                    style={{
+                                                        width: "28px",
+                                                        height: "28px",
+                                                    }}
+                                                />
+                                            </Tooltip>
+                                        </Box>
+                                    )}
+                                    {/* Project Link */}
+                                    {project.link && (
+                                        <Box
+                                            sx={{
+                                                position: "absolute",
+                                                bottom: "8px",
+                                                right: "8px",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                gap: "4px",
+                                            }}
+                                        >
+                                            <Tooltip title={project.link.label} placement="top">
+                                                <IconButton
+                                                    size="small"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        window.open(project.link.url, "_blank", "noopener,noreferrer");
+                                                    }}
+                                                    sx={{
+                                                        color: COLOURS[`TEXT_COLOUR_${theme}`],
+                                                        backgroundColor: "rgba(255,255,255,0.2)",
+                                                        "&:hover": {
+                                                            backgroundColor: "rgba(255,255,255,0.4)",
+                                                        },
+                                                    }}
+                                                >
+                                                    <LaunchIcon fontSize="small" />
+                                                </IconButton>
+                                            </Tooltip>
+                                        </Box>
+                                    )}
                                 </Card>
                             </Tooltip>
                         </Grid>

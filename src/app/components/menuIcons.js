@@ -4,6 +4,7 @@ import { Work, School, Business, ContactMail, Home } from "@mui/icons-material";
 import HomeTwoToneIcon from '@mui/icons-material/HomeTwoTone';
 import SchoolTwoToneIcon from '@mui/icons-material/SchoolTwoTone';
 import TerminalTwoToneIcon from '@mui/icons-material/TerminalTwoTone';
+import PsychologyTwoToneIcon from '@mui/icons-material/PsychologyTwoTone';
 import COLOURS from "../colours";
 
 const menuIcons = {
@@ -11,6 +12,7 @@ const menuIcons = {
   "Education/Work Experience": <SchoolTwoToneIcon />,
   Projects: <Business />,
   "My Work": <TerminalTwoToneIcon />,
+  Skills: <PsychologyTwoToneIcon />,
   "Contact Me": <ContactMail />,
 };
 

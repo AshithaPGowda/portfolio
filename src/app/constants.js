@@ -9,7 +9,7 @@ const CONSTANT = [];
 
 CONSTANT.MENUINDEX = {
     0 :'/',
-    1: "/projects",
+    1: "/skills",
 };
 
 CONSTANT.USER = 1;

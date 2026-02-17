@@ -172,7 +172,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
                                     }
                                 `}
                             </style>
-                            {["Home", "My Work"].map((text, index) => (
+                            {["Home", "Skills"].map((text, index) => (
                                 <MenuItem
                                     key={index}
                                     text={text}
@@ -212,7 +212,7 @@ export default function Header({ theme, toggleTheme, isActive }) {
             ) : (
                 <div style={{ display: "flex", gap: "1.5vw", alignItems: "center" }}>
                     {/* Desktop version */}
-                    {["Home", "My Work"].map((text, index) => (
+                    {["Home", "Skills"].map((text, index) => (
                         <MenuItem
                             key={index}
                             text={text}

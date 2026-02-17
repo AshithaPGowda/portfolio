@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Button, Tooltip, Box, useMediaQuery, useTheme } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import LaunchIcon from "@mui/icons-material/Launch";
 import COLOURS from "@/app/colours";
 import MediaSection from "./projectLayout/mediaSection";
 import FeaturesSection from "./projectLayout/featuresSection";
@@ -71,6 +72,27 @@ const ProjectDetails = ({ project, onBackClick, theme }) => {
                     >
                         {project.title}
                     </Typography>
+
+                    {/* Project Link */}
+                    {project.link && (
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            startIcon={<LaunchIcon />}
+                            onClick={() => window.open(project.link.url, "_blank", "noopener,noreferrer")}
+                            sx={{
+                                textTransform: "none",
+                                color: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
+                                borderColor: COLOURS[`BACKBUTTON_COLOUR_${theme}`],
+                                "&:hover": {
+                                    borderColor: COLOURS[`SPECIAL_TEXT_COLOUR_${theme}`],
+                                    backgroundColor: "rgba(255,255,255,0.1)",
+                                },
+                            }}
+                        >
+                            {project.link.label}
+                        </Button>
+                    )}
                 </div>
 
                 {/* Description */}

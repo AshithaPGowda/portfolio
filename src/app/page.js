@@ -35,6 +35,14 @@ export default function Home() {
         }
     };
 
+    // Update body background when theme changes
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            document.body.style.backgroundColor = COLOURS[`BACKGROUND_${theme}`];
+            document.documentElement.style.backgroundColor = COLOURS[`BACKGROUND_${theme}`];
+        }
+    }, [theme]);
+
     useEffect(() => {
         // Check if the animation has already been played in the current session
         const animationFlag = sessionStorage.getItem("animationPlayed");
@@ -101,7 +109,7 @@ export default function Home() {
                         alignItems: "center",
                         height: "100%",
                         width: "100%",
-                        backgroundColor: "#FFFFFF",
+                        backgroundColor: COLOURS[`BACKGROUND_${theme}`],
                     }}
                 >
                     {/* Custom Header */}
